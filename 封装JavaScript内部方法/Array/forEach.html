@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>forEach</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	// 模拟Array.forEach
+	Array.prototype.ForEach = function ( func ) {
+
+		for ( let i = 0; i<this.length; i++ ) {
+
+			func(this[i],i);
+
+		}
+		
+	}
+	var newArr = [1,2,3,4];
+	var arr = [
+		{isCheck: false,id: 1},
+		{isCheck: false,id: 2},
+		{isCheck: false,id: 3},
+		{isCheck: false,id: 4}
+	];
+	arr.ForEach( function ( value,index ) {
+		value.isCheck = true;
+	} )
+	newArr.ForEach( function ( value,index ) {
+		console.log(value);
+	} )
+
+	</script>
+
+</body>
+</html>

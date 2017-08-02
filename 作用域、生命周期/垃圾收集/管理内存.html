@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理内存</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 使用具备垃圾收集机制的语言编写程序，开发人员一般不必操心内存管理的问题。但是，JavaScript在进行内存管理及垃圾收集时面临的问题还是有点与众不同。其中最主要的一个问题，就是分配给Web浏览器的可用内存数量通常比分配给桌面应用程序的少。这样做的目的主要是出于安全方面的考虑，目的是为了防止JavaScript的网页耗尽全部系统内存而导致系统崩溃。
+
+	//局部变量会在它们离开执行环境时自动被解除引用。
+
+	function createPerson ( name ) {
+		var localPerson = new Object();
+		localPerson.name = name;
+		return localPerson.name;
+	}
+	var globalPerson = createPerson('杨少峰');
+
+	console.log(globalPerson); // 杨少峰
+
+	globalPerson = null;
+
+	// 不过解除一个值的引用并不意味着自动回收该值所占用的内存。解除引用的真正作用是让值脱离执行环境，以便垃圾收集器下次运行时将其回收。
+
+	</script>
+
+</body>
+</html>

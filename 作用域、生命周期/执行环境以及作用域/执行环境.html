@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var color = 'blue';
+
+		function changeColor () {
+
+			var anotheColor = 'red';
+
+			function  swapColor () {
+
+				var tempColor = anotheColor;
+				anotheColor = color;
+				color = tempColor;
+
+			}
+
+			swapColor();
+ 		}
+
+ 		changeColor();
+
+ 		console.log(color);
+		// 内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部环境中的任何变量和函数。
+
+		// 小提示：
+		// 函数参数也被当作变量来对待，因此其访问规则与执行环境中的其他变量相同。
+	</script>
+
+</body>
+</html>
