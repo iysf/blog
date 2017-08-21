@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>花式</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	var arr = [ 1,2,3,4,5 ];
+
+	// 目标：打印123、124、125、132、134、135、142、143、145、152......
+	
+	// 不可打印：111、112、113......
+
+	log(arr);
+
+	function log ( arr ) {
+
+		var i,j,k;
+
+		var length = arr.length;
+
+		if ( length < 1 ) {
+
+			return 'undefined';
+
+		}
+
+		for ( i = 0; i< length; i++ ) {
+
+			for ( j = 0; j< length; j++ ) {
+
+				for ( k = 0; k< length; k++ ) {
+
+					if ( i != j && i != k && j != k ) {
+
+						console.log( arr[i] + "" + arr[j] + "" + arr[k] );
+
+					}
+
+				}
+
+			}
+
+		}
+		
+	}
+
+	</script>
+
+</body>
+</html>

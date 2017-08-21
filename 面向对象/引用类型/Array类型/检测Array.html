@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测Array</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var arr = [];
+	var obj = {};
+
+	// 检测是否是数组
+	console.log(Array.isArray(arr));
+	console.log(arr instanceof Array);
+	// 检测Object是否为数组
+	console.log(Array.isArray(obj));
+
+	// 检测函数arguments 是否为 数组
+	function func () {
+		
+		console.log(arguments);
+		console.log(Array.isArray(arguments));	// false
+		
+	}
+	func({1:2},1,2,3,4);
+
+	</script>
+
+</body>
+</html>

@@ -5,7 +5,6 @@
 	<title>forEach</title>
 </head>
 <body>
-	
 	<script type="text/javascript">
 	// 模拟Array.forEach
 	Array.prototype.ForEach = function ( func ) {
@@ -25,13 +24,15 @@
 		{isCheck: false,id: 4}
 	];
 	arr.ForEach( function ( value,index ) {
+
 		value.isCheck = true;
+
 	} )
 	newArr.ForEach( function ( value,index ) {
+
 		console.log(value);
+		
 	} )
-
 	</script>
-
 </body>
 </html>

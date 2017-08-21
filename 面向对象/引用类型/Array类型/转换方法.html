@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>转换方法</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	// 所有对象都具有 toLocaleString()、toString()、valueOf();
+
+	// 调用数组的toString方法会返回由数组中每个值的字符串形式拼接而成的一个逗号分割的字符串。
+
+	// 而调用valueOf返回的还是数组，实际上，为了创建这个字符串会调用数组每一项的 toString() 方法。
+
+	var obj = { color: 'red', age: '26', name: 'setAtr' };
+	var arr = [ 'red', 'blue', 'yellow', 'color' ];
+
+	// Array
+	console.log( 'toString:', arr.toString() );
+	console.log( 'valueOf:', arr.valueOf() );
+	console.log( 'Array:', arr );
+
+	// 定义了两个对象，person1和person2。而且还分别为每个对象定义了一个toString()方法和toLocaleString()方法。
+	
+	// 调用toSting的时候，调用了每一项的toString方法。而当调用toLocaleString方法时、其实也是调用了每一项的toLocaleString方法。
+
+	var person1 = {
+		
+		toLocaleString: function (  ) {
+
+			return 'YangShaoFeng'
+			
+		},
+
+		toString: function (  ) {
+
+			return 'YangShaoFeng1'
+
+		}
+
+	};
+
+	var person2 = {
+
+		toLocaleString: function (  ) {
+			return 'FengShaoYang1'
+		},
+
+		toString: function () {
+			return 'FengShaoYang'
+		}
+
+	}
+
+	var people = [ person1, person2 ];
+	// 为了取得每一项的值，调用的是每一项的toString方法。
+	console.log( "Array:", people );
+	// console.log( "toString:", people[0].toString() );
+	console.log( "toString:", people.toString() );
+	console.log( "toLocaleString:", people.toLocaleString() );
+
+	// Object
+	console.log( 'Object:', obj.toString() );
+	console.log( 'Object:', obj.valueOf() );
+	console.log( 'Object:', obj.toLocaleString() );
+
+
+	// 数组继承的toString()、valueOf()、toLocaleString()、在默认情况下都会以逗号分割的字符串的形式返回数组项。而如果使用join方法，则可以使用不同的分隔符来构建这个字符串。join()方法只接受一个参数，即用作“分隔符的字符串”，然后返回所有数组项的字符串.
+
+	var colors = [ 'blue', 'red', 'yellow' ];
+
+	console.log( "Array:", colors );
+	console.log( "Join:", colors.join(',') );
+	console.log( "Join:", colors.join('[]') );
+	console.log( "Join:", colors.join() );
+	// 注：如果数组中的某一项值是 null 或者 undefined，那么该值在 join()、toString()、toLocaleString()、valueOf()、方法返回的结果中以空字符串的形式表示。比如：
+
+	var newArr = [ 'blue', , 'yellow', 'pink', '', 'red' ];
+
+	console.log( "Array:", newArr );
+	console.log( "Join:", newArr.join('|') );
+	console.log( "toString:", newArr.toString() );
+	console.log( "valueOf:", newArr.valueOf() );
+	console.log( "toLocaleString:", newArr.toLocaleString() );
+	</script>
+
+</body>
+</html>

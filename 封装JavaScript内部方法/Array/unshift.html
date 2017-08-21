@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>unshift</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	// 向数组的前端添加字符;
+	// Array.prototype.unshift = function(){
+
+	//  	if(arguments.length !== 0){
+
+	//   	var thisIndex = this.length - 1;
+
+ //      for(let i = thisIndex+arguments.length; i>=0; i--){
+
+ //          if(i >= arguments.length){
+
+ //              this[i] = this[thisIndex];
+
+ //              thisIndex--;
+
+ //          } else {
+
+ //              this[i] = arguments[i];
+
+ //          }
+ //    	}
+
+	//   }
+
+ //    return this.length;
+
+	// }
+	Array.prototype.unshift = function () {
+
+		var newArr = [];
+
+		for ( var i = 0; i < arguments.length; i++ ) {
+
+			newArr.push(arguments[i]);
+
+		}
+
+		for ( var j = 0; j < this.length; j++ ) {
+
+			newArr.push( this[j] );
+
+		}
+
+		this.length = 0;
+
+		for ( var k = 0; k < newArr.length; k++ ) {
+
+			this.push( newArr[k] );
+
+		}
+
+		return this.length;
+
+	}
+
+
+	var arr = [ 4, 5, 6, 7, 8, 9 ];
+
+	console.log(arr.unshift( 1, 2, 3 ));
+
+	console.log( arr );
+
+	</script>
+
+</body>
+</html>

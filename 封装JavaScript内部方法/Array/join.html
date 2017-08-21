@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>join</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+	Array.prototype.join = function () {
+
+		if ( arguments.length > 1 ) {
+
+			return 'undefined x 2';
+
+		}
+
+		var arrStr = '';
+
+		for ( let i = 0; i < this.length; i++ ) {
+
+			if ( i == this.length - 1 ) {
+
+				arrStr += this[i];
+
+			} else {
+
+				if ( arguments.length == 0 ) {
+
+					arrStr += this[i] + ',';
+
+				} else {
+
+					arrStr += this[i] + arguments[0];
+
+				}
+
+			}
+
+		}
+
+		return arrStr;
+		
+	}
+
+	var arr = [ 'yellow', 'red', 'blue', 'pink' ];
+	var obj = {};
+	// console.log(arr.join(arr));
+	console.log(arr.join(obj));
+	// 不传递参数或者传递逗号则使用一套规则匹配。
+	console.log(arr.join());
+	console.log(arr.join(','));
+	// 传递两个参数则返回undefined
+	console.log(arr.join(',','2'));
+	// 
+	console.log(arr.join('|'));
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reverse</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	
+	// 向数组的前端添加字符;
+	Array.prototype.unshift = function () {
+
+		var newArr = [];
+
+		for ( var i = 0; i < arguments.length; i++ ) {
+
+			newArr.push(arguments[i]);
+
+		}
+		
+		for ( var j = 0; j < this.length; j++ ) {
+
+			newArr.push( this[j] );
+
+		}
+
+		this.length = 0;
+
+		for ( var k = 0; k < newArr.length; k++ ) {
+			
+			this.push( newArr[k] );
+
+		}
+
+		return this.length;
+
+	}
+
+	Array.prototype.reverse = function () { 
+		// 创建新数组
+		var newArr = [];
+
+		// 先循环操作数组
+		for ( var i = 0; i < this.length; i++ ) {
+
+				newArr.unshift( this[i] );
+
+		}
+
+		return newArr;
+
+	};
+
+	var arr = [ 1, 2, 3, 4, 5, 1, 2, 3, 9, 11 ];
+
+	console.log( arr.reverse() );
+
+	</script>
+
+</body>
+</html>
