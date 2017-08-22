@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>concat</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	Array.prototype.concat = function () {
+
+		var newArr = [];
+
+		for ( var __key__ in this ) {
+
+			newArr.push( this[__key__] );
+			
+		}
+
+		if ( arguments.length < 1 ) {
+
+			return newArr;
+		
+		}
+
+		for ( var key in arguments ) {
+			
+			// console.log("key:", arguments[key]);
+			// console.log("key:", typeof arguments[key]);
+
+			if ( typeof arguments[key] == 'string' || typeof arguments[key] == 'number') {
+
+				newArr.push( arguments[key] );
+
+			} else if ( arguments[key] instanceof Array ) {
+
+				for ( var newKey in arguments[key] ) {
+
+					newArr.push( arguments[key][newKey] );
+
+				}
+
+			} else {
+
+				newArr.push(arguments[key]);
+
+			}
+
+		}
+
+		return newArr;
+
+	}
+
+	var arr = [ 'yellow', 'red', 'blue' ];
+
+	var newArr = arr.concat( 'pink', [ 'blue', 'red', 1, 5], 5, 1, { a:1, b:2 }, function abc () { console.log(1) } );
+
+	console.log("原始数组:", arr);
+
+	console.log("return:", newArr);
+
+	</script>
+
+</body>
+</html>

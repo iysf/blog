@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>位置方法</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+	// 数组实例有两个位置方法：indexOf()，lastIndexOf()。这两个方法都接受2个参数，要查找的项和(可选的)表示查找起点位置的索引。其中，indexOf()，方法从数组的开头(位置0)开始向后查找，lastIndexOf()则从数组的末尾开始向前查找。                                                                                      
+
+	// 这两个方法都返回要查找的项在数组中的位置，或者在没找到的情况下返回 - 1，在比较第一个参数与数组中的每一项时，会使用全等操作符(===)，也就是说，要求查找的项必须严格相等。                                                                                 
+
+	var arr = [ 'blue', 'red', 'yellow', 'pink', 'green' ];
+
+	// 从数组的第0项开始向后查找
+	console.log(arr.indexOf('green'));
+
+	// 从数组的末尾开始向前查找
+	console.log(arr.lastIndexOf('yellow'));
+
+
+	// 添加第二个参数，表示为从第几位开始查询
+	console.log(arr.indexOf('red',4));
+
+	// 添加第二个参数，表示为从第几位开始查询
+	console.log(arr.lastIndexOf('yellow',2));
+
+	// 大概用法需要得知，判断一个数组中是否存在此项 使用indexOf，存在则返回该项的索引，否则会返回 -1;
+
+	console.log("===========================");
+
+	var person = { name: 'ysf' },
+	    newPerson = [{ name: 'ysf' }];
+
+	var morePerson = [person];
+
+	console.log(typeof morePerson);
+	console.log(morePerson instanceof Array);
+	console.log("Object:", morePerson);
+
+
+	console.log(newPerson.indexOf(person));
+
+	console.log(morePerson.indexOf(person));
+
+
+	// 这段代码没有得到解释，认为的是 newPerson中虽然有一个Object，虽然key与value和Person是一模一样的。由于地址不一样也造成了返回 -1                                                                                                               
+
+
+	</script>
+	
+</body>
+</html>
