@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迭代方法</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 数组有5个迭代方法，每个方法都接受2个参数：要在每一项上运行的函数和(可选的)运行该函数的作用域对象——影响this的值。传入这些方法中的函数会接受3个参数，数组项的值，该项在数组中的位置、数组对象本身。根据使用的方法不同，这个函数执行后的返回值可能会也可能不会影响访问的返回值。
+
+	// every(): 对数组中的每一项运行给定函数，如果该函数对每一项都返回true，否则返回false。
+	// filter(): 对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组。
+	// forEach(): 对数组中的每一项运行给定函数，这个方法没有返回值。
+	// map(): 对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。
+	// some(): 对数组中的每一项运行给定函数，如果该函数对任一项返回true，否则返回false。
+
+	// 这些方法都不会修改数组中的包含的值。
+
+	// 在这些方法中，最相似的是 every()和some()，它们都用于查询数组中的项是否满足某个条件。对every()来说，传入的函数必须对每一项都返回true，这个方法才返回true。否则，它就返回false。而some()则是只要传入的函数对数组中的某一项返回true，就会返回true。
+
+
+	var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8 ],
+	    newNumbers = [ 3, 4, 5, 6, 7, 8, 9 ];
+
+	var resultEvery = numbers.every( function ( item, index, array ) {
+
+		return (item > 2);
+
+	} );
+
+	var newResultEvery = newNumbers.every( function ( item, index, array ) {
+
+		return (item > 2);
+
+	} );
+
+	console.log("every:", resultEvery);
+	console.log("every:", newResultEvery);
+
+	var resultSome = numbers.some( function ( item, index, array ) {
+
+		return ( item > 2 );
+
+	} );
+
+	var newResultSome = newNumbers.some( function ( item, index, array ) {
+
+		return ( item > 2 );
+
+	} );
+
+	console.log("some:", resultSome);
+	console.log("some:", newResultSome);
+	</script>
+
+</body>
+</html>
