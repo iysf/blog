@@ -6,5 +6,25 @@
 </head>
 <body>
 	
+	<script type="text/javascript">
+		
+	// 有2个缩小数组的方法：reduce() 和 reduceRight() 这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。其中，reduce方法从数组的第一项开始，逐个便利到最后。而reduceRight则从数组的最后一项开始，向前遍历到第一项。
+
+	var arr = [ 1, 2, 3, 4, 5];
+
+	var resultReduce = arr.reduce( function ( prev, cur, index, array ) {
+		console.log(prev);
+		return prev + cur;
+
+	} )
+
+	console.log(resultReduce);
+
+	// 第一次执行回调函数、prev是1，cur是2、第二次，prev是3（1+2的结果），cur是3（数组的第三项）。这个过程会持续到把数组中的每一项都访问一遍、最后返回结果。
+
+	// reduceRight则是相反的执行。它们两个的区别只是 reduce从数组的起始位置开始遍历、reduceRight则是从数组的末尾位置。
+
+	</script>
+
 </body>
 </html>

@@ -24,6 +24,8 @@
 	var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8 ],
 	    newNumbers = [ 3, 4, 5, 6, 7, 8, 9 ];
 
+	// every 所有条件返回的是true、结果才会是true，只要有一项为false，那么最终结果也是false。
+
 	var resultEvery = numbers.every( function ( item, index, array ) {
 
 		return (item > 2);
@@ -39,6 +41,8 @@
 	console.log("every:", resultEvery);
 	console.log("every:", newResultEvery);
 
+	// some 只要有一项的条件返回的是true ，那么结果就是true、否则为false
+
 	var resultSome = numbers.some( function ( item, index, array ) {
 
 		return ( item > 2 );
@@ -53,6 +57,48 @@
 
 	console.log("some:", resultSome);
 	console.log("some:", newResultSome);
+
+	// filter 相当于一个过滤器一样，返回所有大于2的数字，或者返回所有小于2的数字。
+
+	var resultFilter = numbers.filter( function ( item, index, array ) {
+
+		return ( item > 2 );
+
+	} );
+
+	var newResultFilter = newNumbers.filter( function ( item, index, array ) {
+
+		return ( item < 2 );
+
+	} );
+	console.log("filter:", resultFilter);
+	console.log("filter:", newResultFilter);
+
+	// map
+
+	var resultMap = numbers.map( function ( item, index, array ) {
+
+		return item * 2;
+
+	} );
+
+	console.log("map:", resultMap);
+
+	var newArray = [ 1,2,3,4,5,6,7,7,7,77,7,7,7 ];
+
+	newArray.forEach( function ( item, index, array ) {
+
+		array[index] = item * 2;
+
+	});
+	console.log("forEach:", newArray);
+
+	// forEach：让数组中的每一项做一件事。
+	// map：让数组通过某种计算产生一个新数组。
+	// filter：筛选出数组中符合条件的项，组成新数组。
+	// every：检测数组中的每一项是否符合条件。
+	// some：检测数组中是否有某些项符合条件。
+	
 	</script>
 
 </body>
