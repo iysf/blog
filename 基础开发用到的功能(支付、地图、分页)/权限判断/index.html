@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>权限判断</title>
+	<style type="text/css">
+	[y-size] {
+		margin-top: 25px;
+	}
+
+	</style>
+</head>
+<body>
+	
+	<div id="app" style="width: 500px; margin: 150px auto;text-align: center;">
+		
+		<div y-type="type"></div>
+
+		<div y-size="size"></div>
+	
+		<div class="totalPrice" style="margin-top: 25px;">
+			
+			$ 0 ~ 1999 
+
+		</div>
+
+	</div>
+
+</body>
+
+	<script type="text/javascript" src="../../前端流行框架(原理及模拟)/Jquery/ysfQuery.js"></script>
+
+	<script type="text/javascript">
+		var typeArr = [],
+		    sizeArr = [],
+				typeHTML = '',
+		    sizeHTML = ''
+
+		// 此方法不兼容 待封装
+		// log( $('[y-type]') )
+
+		var list = [
+			{ options: { Type: '桌子', Size: '5平米' }, price: 99, isDisabled: false, dom:'' },
+			{ options: { Type: '桌子', Size: '4平米' }, price: 75, isDisabled: false, dom:'' },
+			{ options: { Type: '桌子', Size: '15平米' }, price: 1999, isDisabled: false, dom:'' },
+			{ options: { Type: '椅子', Size: '2平米' }, price: 15, isDisabled: false, dom:'', },
+		]
+
+		// 禁用
+		// { options: { Type: '椅子', Size: '' }, price: 0, isDisabled: false, dom:'' },
+
+
+		list.forEach( function ( item, index, array ) {
+
+			typeArr.push(item.options.Type)
+
+			if ( item.options.Size != '' ) {
+
+				sizeArr.push(item.options.Size)
+
+			}
+
+		} )
+
+		// 此方法待考察
+		typeArr = Array.from ( new Set ( typeArr ) )
+		
+		// 填充Type
+
+		typeArr.forEach( function ( item, index, array ) {
+			typeHTML += "<span> " + 
+				"<input type='radio' name='type' data-itemName='"+ item +"' onclick='typeChange(this)'> " +
+				"<span> "+ item +" </span> " + 
+				"</span>"
+
+		} )
+
+		sizeArr.forEach( function ( item, index, array ) {
+
+			sizeHTML += "<span> " + 
+				"<input type='radio' name='size' data-itemSize='"+ item +"'> " +
+				"<span> "+ item +" </span> " + 
+				"</span>"
+
+		} )
+
+		$('[y-type]')[0].innerHTML = typeHTML
+		$('[y-size]')[0].innerHTML = sizeHTML
+
+		list.forEach( function ( item, index, array ) {
+			item.dom = $('[data-itemSize]')[index]
+		} )
+
+		// console.log(list)
+		
+		// Type填充完毕
+
+	// 动态方法
+
+	function typeChange ( that ) {
+
+		var name = that.getAttribute('data-itemName')
+		list.forEach( function ( item, index ,array ) {
+
+			if ( item.options.Type == name ) {
+				item.isDisabled = true
+			} else {
+				item.isDisabled = false
+			}
+
+		} )
+
+		isDisabled()
+
+	}
+
+	var isDisabled = function () {
+		var dataSize = document.querySelectorAll('[data-itemsize]')
+
+		list.forEach( function ( item, index, array ) {
+			// 判断有几个项应该被致为可点击状态
+			if ( item.isDisabled ) {
+
+				console.log("true:", item)
+				item.dom.removeAttribute('disabled') 
+
+			} else {
+
+				console.log("false:", item)
+				item.dom.disabled = true
+
+
+			}
+
+		} )
+
+	}
+	</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数声明与函数表达式</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 函数声明与函数表达式的区别
+
+	// 实际上，解析器在向执行环境中加载数据时，对函数声明和函数表达式并非一视同仁。解析器会率先读取函数声明，并使其在执行任何代码之前可用(可以访问)，至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行。
+
+	console.log(result(10, 10));
+	// console.log(newResult(10, 10));
+
+	// 函数声明
+	function result ( num1, num2 ) {
+
+		return num1 + num2;
+
+	}
+	// 函数表达式
+	var numResult = function ( num1, num2 ) {
+
+		return num1 + num2;
+
+	}
+	// 代码之所以会在运行期间产生错误，原因在于函数位于一个初始化语句中，而不是一个函数声明。换句话说，在执行到函数所在的语句之前，变量newResult中不会保存有对函数的引用；而且，由于第一行代码就导致 错误，实际上也不会执行到下一行。
+
+	// 除了什么时候可以通过变量访问函数这一点区别之外，函数声明与函数表达式的语法其实是等价的。
+
+	// 注：也可以同时使用函数声明和函数表达式，例如 var sum = function sum () {}，不过这种语法在个别浏览器中会导致错误。
+
+	</script>
+
+</body>
+</html>

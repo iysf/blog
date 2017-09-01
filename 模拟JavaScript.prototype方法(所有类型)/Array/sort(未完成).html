@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sort</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	var log = console.log.bind(console)
+	var arr = [ 5, 7, 2, 4, 1, 9 ]
+
+	Array.prototype.sort = function ( ) {
+
+		if ( arguments.length != 0 && typeof arguments[0] != 'function') {
+
+			throw new TypeError( typeof arguments[0] + ' is not a function')
+
+		}
+
+		for ( var i = 0; i < this.length; i++ ) {
+
+			log(arguments[0](this[i],this[i+1]))
+
+		}
+
+	}
+
+	arr.sort( function ( value1, value2 ) {
+
+		if ( value1 > value2 ) {
+			return false
+		} else {
+			return true
+		}
+
+	} )
+	log(arr)
+
+	</script>
+
+</body>
+</html>

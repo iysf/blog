@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>没有重载</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 将函数名想象成指针，也有助于理解为什么 ECMAScript中没有重载的概念
+
+	// function addSomeNumber ( num ) {
+		// return num * 100;
+	// }
+
+	// function addSomeNumber ( num ) {
+		// return num * 200;
+	// }
+
+	// var resultNumber = addSomeNumber;
+
+	// console.log(resultNumber(100));
+
+
+	var addSomeNumber = function ( num ) {
+		return num + 100;
+	}
+
+	addSomeNumber = function (num) {
+		return num + 200;
+	}
+
+	var result = addSomeNumber(100);
+	console.log(result);
+	</script>
+
+</body>
+</html>

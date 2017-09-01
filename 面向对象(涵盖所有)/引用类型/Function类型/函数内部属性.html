@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数内部属性</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 在函数内部有两个特殊的对象、arguments和this。其中，arguments包含着传入函数中的所有参数。虽然arguments的主要用途是保存函数参数，但这个对象还有一个叫callee的属性，该属性的一个指针，指向拥有这个arguments对象的函数。
+
+	var log = console.log.bind(console)
+	function factorial ( num ) {
+
+		if ( num <= 1 ) {
+
+			return 1
+
+		} else {
+		  //      5                   4
+			return num * arguments.callee( num - 1 )
+
+			// factorial ( 4 ) {
+				// return 4 * arguments.callee( 4 - 1 )
+					 // factorial ( 3 ) {
+					 			// return 3 * arguments.callee ( 3 - 1 )
+					 			   // factorial ( 2 ) {
+					 			      // return	2 * arguments.callee ( 2 - 1 )
+					 			      	 // factorial ( 1 ) {
+					 			      	 			// return 1
+					 			      	 // }
+					 			   //}
+					 // }
+			//}
+
+		}
+
+	}
+
+	var trueFactorial = factorial
+
+	factorial = function () {
+		return 0 
+	}
+
+	log(trueFactorial(5))
+
+	log(factorial(5))
+
+	// 在此，变量trueFactorial获得了factorial的值。实际上是在另一个位置上保存了一个函数的指针。然后，我们又将一个简单的返回0的函数赋值给factorial。如果像原来的factorial()那样不使用arguments.callee，调用trueFactorial就会返回0，可是，在解除了函数体内的代码与函数名的耦合状态之后，trueFactorial仍然能够正常地进行阶乘。至于factorial()，它现在只是一个返回0的函数。
+
+
+
+	// 一定要牢记，函数的名字仅仅是一个包含指针的变量而已。因此，即使是在不同的环境中执行。全局的函数和对象内部的函数只要是指向的仍然的同一个函数。
+
+	// this
+
+	</script>
+
+</body>
+</html>

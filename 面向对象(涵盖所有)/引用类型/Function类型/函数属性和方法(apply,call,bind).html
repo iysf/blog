@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数属性和方法</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// ECMAScript中的函数是对象，因此函数也有属性和方法。每个函数都包含两个属性；length和prototype。其中，length属性表示函数希望接受的命名参数的个数，
+	var log = console.log.bind(console)
+	function sayName ( value1, value2 ) {}
+
+	function sum ( value ) {}
+
+	function sayHi () {}
+
+	log(sayName.length)
+	log(sum.length)
+	log(sayHi.length)
+
+	// 在ECMAScript核心所定义的全部属性中，最耐人寻味的就要数 prototype 属性了。对于ECMAScript中所有引用类型而言，prototype是保存它们所有实例方法的真正所在。换句话说，诸如：toString()和valueOf()等方法实际上都保存在prototype名下，只不过是通过各自对象的实例访问罢了，在创建自定义引用类型以及实现继承时，prototype属性的作用是极为重要的。在ES5中，prototype属性是不可枚举的，因此使用for in 无法发现。
+
+	// 每个函数都包含两个非继承而来的方法：apply() 和 call()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 this对象的值。首先，apply()方法接受两个参数:一个是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以是Array的实例，也可以是arguments对象。
+
+	// 此刻这个函数定义在全局
+	function sum ( sum1, sum2 ) {
+		return sum1 + sum2
+	}
+
+	function applySum1 ( sum1, sum2 ) {
+		return sum.apply(this,arguments)
+	}
+
+	function applySum2 ( sum1, sum2 ) {
+		return sum.apply(this,[sum1, sum2])
+	}
+
+	log("apply:", applySum1(10,10))
+	log("apply:", applySum2(10,10))
+
+	function applySum3 ( sum1, sum2 ) {
+		return sum.apply(this, [this[sum1],this[sum2]])
+	}
+
+	var obj = {
+		a: 20,
+		b: 30
+	}
+
+	log("apply:", applySum3.apply(obj, ["a", "b"]))
+
+
+	// call方法与apply方法的作用相同，它们的区别仅在于接收参数的方式不同。对于call方法而言，第一个参数是this值没有变化，变化的是其余参数都直接传递给函数。换句话说，在使用call方法的时，传递给函数的参数必须是逐个列举出来。
+
+	function callSum1 ( num1, num2 ) {
+		return sum.call(this, num1, num2)
+	}
+
+	log("call:", callSum1(50,10))
+
+	// 在使用call方法的情况下，callSum()必须明确地传入每一个参数。结果与使用apply()没有什么不同。至于是使用apply()还是使用call()，完全取决于采取哪种给函数传递参数的方式最方便。
+
+
+	// 事实上，传递参数并非 apply() 和 call() 真正的用武之地；它们真正强大的地方是能够扩充函数依赖以运行的作用域。
+
+	var color = 'red'
+
+	var o = {
+		color: 'blue'
+	}
+
+	function showColor () {
+		return this.color
+	}
+
+	log("call:", showColor())
+	log("call:", showColor.call(this))
+	log("call:", showColor.call(window))
+	log("call:", showColor.call(o))
+
+	// 使用call或apply来扩充作用域的最大的好处，就是对象不需要与方法有任何耦合关系。
+
+	// ES5还定义了一个方法：bind()，这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值。
+
+	window.__name = 'yangshaofeng'
+
+	var person = { __name: 'Shaofeng' } 
+
+	function sayColor () {
+		return this.__name 
+	}
+
+	var obj = sayColor.bind(person)
+	log("bind:", obj())
+
+	// 每个函数继承的 toLocaleString() 和 toString()方法始终都返回函数的代码。返回代码的格式则因浏览器而异。有的返回的代码与源代码中的函数代码一样，而有的则返回函数代码的内部表示，即由解析器删除了注释并对某些代码作了改动后的代码。
+
+	// 由于存在这些差异，我们无法根据这两个方法返回的结果来实现任何重要功能，不过。这些信息在调试代码时倒是很有用，另外一个继承的valueOf()方法同样也只返回函数代码。
+	</script>
+
+</body>
+</html>

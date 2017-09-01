@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作为值的函数</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+	// 因为ECMAScript中函数名本身就是变量，所以函数也可以作为值来使用。也就是说，不仅可以像传递参数一样把一个函数传递给另一个函数，而且还可以将一个函数作为另一个函数的结果返回。
+
+	var log = console.log.bind(console)
+
+	function callSome ( someFunction, someArgument ) {
+		return someFunction(someArgument)
+	}
+
+	function add10 ( num ) {
+		return num + 10
+	}
+
+	var result = callSome ( add10, 20 )
+
+	log("result:", result)
+
+
+	function getName ( name ) {
+		return "Hello," + name
+	}
+
+	var newResult = callSome(getName,'YangShaoFeng')
+
+	log("newResult:", newResult)
+
+	// 要访问函数的指针而不执行函数的话，必须去掉函数名后面的那对圆括号。
+
+
+	// 函数的结果返回的是一个正值，就把第二个参数向前排位，返回的是个负值，就把第二个参数暂时排在第一个参数后面
+	function createCompFunction ( propertyName ) {
+
+		return function ( object1, object2 ) {
+
+			var value1 = object1[propertyName]
+			var value2 = object2[propertyName]
+
+			if ( value1 > value2 ) {
+
+				return -1
+
+			} else if ( value1 < value2 ) {
+
+				return 1
+
+			} else {
+
+				return 0
+				
+			}
+
+		}
+
+	}
+
+	// 假设有一个对象数组，要根据某个对象属性对数组进行排序。而传递给数组 sort()方法的比较函数要接受2个参数，即要比较的值。可是，我们需要一种方式来指明按照哪个属性来排序。要解决这个问题、可以定义一个函数，它接收一个属性名，然后根据这个属性名来创建一个比较函数。
+
+	var data = [ { name: 'YangShaoFeng', age: 40 }, { name: 'Zachary', age: 28 } ]
+
+	// data.sort(createCompFunction("name"))
+	// log(data[0].name)
+	data.sort(function ( object1, object2 ) {
+		// 每次比较都是2个数进行比对，如果第一项的某个属性大于第二项的某个属性，那么就不移动位置。
+		if ( object1["age"] > object2["age"] ) {
+			return false
+			// 如果第一项的某个属性小于第二项的某个属性，那么就把第二项移到第一位。
+		} else {
+			return true
+		}
+	})
+	log(data[0].name)
+
+	data.sort(createCompFunction("age")) 
+	log(data[0].name)
+
+
+	// var a = createCompFunction("name")
+	// var b = createCompFunction("age")
+	// data.sort(a)
+	// log(data[0].name)
+
+	// data.sort(b) 
+	// log(data[0].name)
+	</script>
+
+</body>
+</html>
