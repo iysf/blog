@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			moz-user-select: -moz-none;
+			-moz-user-select: none;
+			-o-user-select:none;
+			-khtml-user-select:none;
+			-webkit-user-select:none;
+			-ms-user-select:none;
+			user-select:none;
+		}
+		.clearfix:after {
+		  content: " ";
+		  display: block;
+		  clear: both;
+		  height: 0;
+		}
+		.clearfix {
+		  zoom: 1;
+		}
+		#app {
+			width: 100%;
+			height: 350px;
+			margin: 0 auto;
+		}
+		#app > .content {
+			text-align: right;
+			background-color: #333;
+			height: 100px;
+			font-size: 100px;
+			line-height: 100px;
+			color: #fff;
+		}
+		#app > .row {
+			width: 100%;
+		}
+		#app > .row > .item {
+			width: 25%;
+			height: 50px;
+			line-height: 50px;
+			float: left;
+			text-align: center;
+			background-color: #ccc;
+			border: solid 1px #fff;
+			cursor: pointer;
+		}
+		#app > .row > .widthExtend {
+			width: 50% !important;
+		}
+		.colorExtend {
+			background-color: #E9967A !important;
+			color: #fff !important;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="app">
+		<div class="content">0</div>
+		<div class="row clearfix">
+			<div class="item" onclick="clearText()">AC</div>
+			<!-- <div class="item">+/_</div> -->
+			<div class="item">杨</div>
+			<!-- <div class="item">%</div> -->
+			<div class="item">少</div>
+			<!-- <div class="item colorExtend" onclick="changeType('/')">÷</div> -->
+			<div class="item colorExtend" onclick="changeType('/')">峰</div>
+
+		</div>
+		<div class="row clearfix">
+			<div class="item" onclick="addNumber(7)">7</div>
+			<div class="item" onclick="addNumber(8)">8</div>
+			<div class="item" onclick="addNumber(9)">9</div>
+			<div class="item colorExtend" onclick="changeType('x')">X</div>
+		</div>
+		<div class="row clearfix">
+			<div class="item" onclick="addNumber(4)">4</div>
+			<div class="item" onclick="addNumber(5)">5</div>
+			<div class="item" onclick="addNumber(6)">6</div>
+			<div class="item colorExtend" onclick="changeType('-')">-</div>
+		</div>
+		<div class="row clearfix">
+			<div class="item" onclick="addNumber(1)">1</div>
+			<div class="item" onclick="addNumber(2)">2</div>
+			<div class="item" onclick="addNumber(3)">3</div>
+			<div class="item colorExtend" onclick="changeType('+')">+</div>
+		</div>
+		<div class="row clearfix">
+			<div class="item widthExtend" onclick="addNumber(0)">0</div>
+			<div class="item">.</div>
+			<div class="item colorExtend" onclick="changeType('=')">=</div>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript">
+	var log = console.log.bind(console),
+	content = document.querySelector('.content')
+concatObj = {
+	firstValue: 0,
+	lastValue: 0,
+	result: 0,
+	firstType: ''
+}
+
+	function addNumber ( value ) {
+
+		html(content, value)
+
+	}
+
+	function html ( dom, params ) {
+		if ( dom.innerHTML == 0 ) {
+			dom.innerHTML = ''
+		}
+		dom.innerHTML += params
+	}
+
+	function clearText () {
+		if ( content.innerHTML != 0 ) {
+			content.innerHTML = 0
+		}
+	}
+
+	function changeType ( value ) {
+		if ( value == '+' ) {
+			concatObj.firstValue = content.innerHTML
+			concatObj.firstType = value
+			content.innerHTML = 0
+		} else if ( value == 'x' ) {
+
+		} else if ( value == '=' ) {
+
+			concatObj.result = parseInt(concatObj.firstValue) + parseInt(content.innerHTML)
+			content.innerHTML = concatObj.result
+			log( concatObj.firstType )
+			log( concatObj.result )
+
+		}
+	}
+ 
+	</script>
+
+</body>
+</html>
