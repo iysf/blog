@@ -67,13 +67,9 @@
 		<div class="content">0</div>
 		<div class="row clearfix">
 			<div class="item" onclick="clearText()">AC</div>
-			<!-- <div class="item">+/_</div> -->
-			<div class="item">杨</div>
-			<!-- <div class="item">%</div> -->
-			<div class="item">少</div>
-			<!-- <div class="item colorExtend" onclick="changeType('/')">÷</div> -->
-			<div class="item colorExtend" onclick="changeType('/')">峰</div>
-
+			<div class="item">github：</div>
+			<div class="item">iysf</div>
+			<div class="item colorExtend" onclick="changeType('/')">÷</div>
 		</div>
 		<div class="row clearfix">
 			<div class="item" onclick="addNumber(7)">7</div>
@@ -103,6 +99,32 @@
 
 
 	<script type="text/javascript">
+
+//                   _ooOoo_
+//                  o8888888o
+//                  88" . "88
+//                  (| -_- |)
+//                  O\  =  /O
+//               ____/`---'\____
+//             .'  \\|     |//  `.
+//            /  \\|||  :  |||//  \
+//           /  _||||| -:- |||||-  \
+//           |   | \\\  -  /// |   |
+//           | \_|  ''\---/''  |   |
+//           \  .-\__  `-`  ___/-. /
+//         ___`. .'  /--.--\  `. . __
+//      ."" '<  `.___\_<|>_/___.'  >'"".
+//     | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//     \  \ `-.   \_ __\ /__ _/   .-` /  /
+//======`-.____`-.___\_____/___.-`____.-'======
+//                   `=---='
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//         佛祖保佑       永无BUG
+//  本模块已经经过开光处理，绝无可能再产生bug
+//=============================================
+
+
+
 	var log = console.log.bind(console),
 	content = document.querySelector('.content')
 concatObj = {
@@ -132,19 +154,21 @@ concatObj = {
 	}
 
 	function changeType ( value ) {
-		if ( value == '+' ) {
+		if ( value != '=' ) {
 			concatObj.firstValue = content.innerHTML
 			concatObj.firstType = value
 			content.innerHTML = 0
-		} else if ( value == 'x' ) {
-
-		} else if ( value == '=' ) {
-
-			concatObj.result = parseInt(concatObj.firstValue) + parseInt(content.innerHTML)
+		} else {
+			if ( concatObj.firstType == '+' ) {
+				concatObj.result = parseInt(concatObj.firstValue) + parseInt(content.innerHTML)
+			} else if ( concatObj.firstType == 'x' ) {
+				concatObj.result = parseInt(concatObj.firstValue) * parseInt(content.innerHTML)
+			} else if ( concatObj.firstType == '-' ) {
+				concatObj.result = parseInt(concatObj.firstValue) - parseInt(content.innerHTML)
+			} else if ( concatObj.firstType == '/' ) {
+				concatObj.result = parseInt(concatObj.firstValue) / parseInt(content.innerHTML)
+			}
 			content.innerHTML = concatObj.result
-			log( concatObj.firstType )
-			log( concatObj.result )
-
 		}
 	}
  

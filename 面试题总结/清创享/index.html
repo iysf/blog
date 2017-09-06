@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		
+	// 第一题
+	(function(){
+		var a = b = 3
+	})()
+	console.log(typeof a)
+	console.log(b)
+
+	// 第二题
+	var s1 = 'some text'
+	var s2 = s1.substring(2)
+
+	// 第三题
+	var myObject = {   
+	    foo: "bar",   
+	    func: function() {   
+	        var self = this
+	        console.log("outer func:  this.foo = " + this.foo);
+	        console.log("outer func:  self.foo = " + self.foo);  
+	        (function() {   
+	            console.log("inner func:  this.foo = " + this.foo)
+	            console.log("inner func:  self.foo = " + self.foo)   
+	        }())
+	    },
+	}
+	myObject.func()
+
+	// 第四题
+	console.log(0.1 + 0.2);
+	console.log(0.1 + 0.2 == 0.3);
+
+	// 第五题
+	(function() {   
+    console.log(1)  
+    setTimeout(function(){console.log(2)}, 1000)
+    setTimeout(function(){console.log(3)}, 0)  
+    console.log(4)
+	})()
+
+	// 第六题
+
+	var hero = {   
+	    _name: 'John Doe',   
+	    getSecretIdentity: function (){   
+	        return this._name;   
+	    }   
+	};   
+	var stoleSecretIdentity = hero.getSecretIdentity;   
+
+	console.log(stoleSecretIdentity());     // undefined
+	console.log(hero.getSecretIdentity());	// John Doe
+
+	// 第七题
+	(function(x) {   
+    return (function(y) {   
+        console.log("7:", x);   
+    })(2)   
+	})(1);
+
+	// 第八题
+	var a={},   
+    b={key:'b'},   
+    c={key:'c'};   
+
+	a[b]=123;
+	a[c]=456;
+	console.log(a)
+	console.log("8:", a[b]);
+		
+	</script>
+
+</body>
+</html>
