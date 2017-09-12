@@ -42,7 +42,21 @@
 
 		// 1.数据属性：数据属性包含一个数据值的位置，在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。
 
-			// [[Configurable]]: 表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。像前面
+			// [[Configurable]]: 表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。默认值为true                        
+			// [[Enumerable]]: 表示能否通过 for-in 循环返回属性。默认值为true
+			// [[Writable]]: 表示能否修改属性的值。
+			// [[Value]]: 包含这个属性的数据值，读取属性值的时候，从这个位置开始读。写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined。
+
+		var person = {
+			name: 'YangShaoFeng'
+		}
+		// 这里创建了一个名为 name 的属性，为它指定的值是 "YangShaoFeng" 。也就是说，[[Value]]特性将被设置为 “YangShaoFeng”，而对这个值的任何修改都将反映在这个位置。
+
+		// 要修改属性默认的特性，需要使用ECMAScript5的Object.defineProperty()方法。
+
+		// 这个方法接收三个参数：属性所在的对象，属性的名字和一个描述符对象。其中，描述符对象的属性必须是：Configurable、Enumerable、Writable、Value。
+
+		// 设置其中的一或多个值，可以修改对应的特性值。例如：
 
 		</script>
 
