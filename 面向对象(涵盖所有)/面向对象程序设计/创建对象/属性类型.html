@@ -2,68 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>理解对象</title>
+	<title>属性类型</title>
 </head>
 <body>
 		<div id="app"></div>
 		<script type="text/javascript">
-		// 测试
-		var log = console.log.bind(console)
-
-		// console.log(false == Boolean.prototype.constructor)
-		// console.log(Boolean.prototype)
-		// console.log(Boolean.prototype.constructor)
-
-		var $ = function () {
-
-		}
-
-		$.prototype.html = function () {
-			this.innerHTML = arguments[0]
-		}
-
-		var init = function () {
-
-		}
-
-		init.prototype = $.prototype
-
-		// log(new $)
-		// log(new init)
-		// log(new init == new $)
-
-		// 测试2
-		function Foo () {
-
-			getName = function () { console.log(1) }
-
-			return this
-
-		}
-
-		Foo.getName = function () { console.log(2) }
-		
-		Foo.prototype.getName = function () { console.log(3) }
-		
-		var getName = function () { console.log(4) }
-		
-		function getName () { console.log(5) }
-
-
-		Foo.getName()      
-		// 2
-		getName()          
-		// 4
-		Foo().getName()    
-		// 1
-		getName()          
-		// 1
-		new Foo.getName()  
-		// 3
-		new Foo().getName()
-		// 1
-		new new Foo().getName()
-		// 1
 
 		// ECMAScript中把对象定义为：无序属性的集合，其属性可以包含基本值，函数或者对象。严格来讲，这就相当于说
 
@@ -109,8 +52,47 @@
 
 
 		// 2：访问器属性
-			// 
+			// 访问器属性不包含数据值，它们包含一对，getter 和 setter函数(不过，这两个函数都不是必需的)。在获取访问器属性的时候，会调用getter函数。这个函数负责返回有效的值，在写入访问器属性的时候，会调用setter函数并传入新值。这个函数负责决定如何处理数据。
 
+		// 访问器的属性不能直接定义，必须通过 Object.defineProperty来定义。
+
+		var MacBookPro = {
+			__data__: {},
+			__el__: {},
+			newYear: 2017,
+		}
+
+		Object.defineProperty(MacBookPro, 'year', {
+			get: function () {
+				return this.newYear
+			},
+			set: function ( newValue ) {
+				// console.log("4:", newValue)
+				this.newYear = newValue
+			}
+		})
+		console.log("MacBookPro:", MacBookPro.year)
+		console.log("MacBookPro:", MacBookPro.year = 2019)
+		console.log("MacBookPro:", MacBookPro.year)
+
+		// 
+
+		var MacBookAir = {
+		 	newYear: 2015,
+		} 
+		// 定义访问器的旧有方法。
+
+		MacBookAir.__defineGetter__('year', function () {
+			return this.newYear
+		})
+
+
+		MacBookAir.__defineSetter__('year', function ( newValue ) {
+			this.newYear = newValue
+		})
+
+		console.log("MacBookAir:", MacBookAir.year)
+		console.log("MacBookAir:", MacBookAir.year = 2020)
 
 		</script>
 

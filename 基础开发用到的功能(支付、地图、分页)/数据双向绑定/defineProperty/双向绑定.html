@@ -5,15 +5,39 @@
 	<title>双向绑定MVVM</title>
 </head>
 <body>
+<p>
+	model Start
+	<input type="text" ysf-model="text"  style="display: block;">
+	<h1 ysf-text="text" style="display: block;">  </h1>
+	model End
+</p>
+
+	for Start
 	
-	<input type="text" ysf-model="text" >
-	<h1 ysf-text="text">  </h1>
+	<ul>
+		<li v-for="item in list">
+			{{item.name}}
+			<br>
+			{{item.age}}
+		</li>
+	</ul>
+
+	for End
+	
 
 <script type="text/javascript">
 	
 var Ysf = {
 	data: {
-		text: ''
+		text: '',
+		list: [ 
+			{name: 'HTML', age: 10, },
+			{name: 'JavaScript', age: 20, },
+			{name: 'CSS', age: 12, },
+			{name: 'Scss', age: 15, },
+			{name: 'less', age: 13, },
+			{name: 'Angular', age: 17, },
+		]
 	},
 	methods: {
 

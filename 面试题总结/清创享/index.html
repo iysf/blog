@@ -77,6 +77,64 @@
 	console.log(a)
 	console.log("8:", a[b]);
 		
+
+	// 第九题
+	var log = console.log.bind(console)
+
+	// console.log(false == Boolean.prototype.constructor)
+	// console.log(Boolean.prototype)
+	// console.log(Boolean.prototype.constructor)
+
+	var $ = function () {
+
+	}
+
+	$.prototype.html = function () {
+		this.innerHTML = arguments[0]
+	}
+
+	var init = function () {
+
+	}
+
+	init.prototype = $.prototype
+
+	// log(new $)
+	// log(new init)
+	// log(new init == new $)
+
+	// 第十题
+	function Foo () {
+
+		getName = function () { console.log(1) }
+
+		return this
+
+	}
+
+	Foo.getName = function () { console.log(2) }
+	
+	Foo.prototype.getName = function () { console.log(3) }
+	
+	var getName = function () { console.log(4) }
+	
+	function getName () { console.log(5) }
+
+
+	Foo.getName()      
+	// 2
+	getName()          
+	// 4
+	Foo().getName()    
+	// 1
+	getName()          
+	// 1
+	new Foo.getName()  
+	// 3
+	new Foo().getName()
+	// 1
+	new new Foo().getName()
+	// 1
 	</script>
 
 </body>
