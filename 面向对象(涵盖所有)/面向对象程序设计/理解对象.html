@@ -28,11 +28,42 @@
 
 		init.prototype = $.prototype
 
-		log(new $)
-		log(new init)
-		log(new init == new $)
+		// log(new $)
+		// log(new init)
+		// log(new init == new $)
+
+		// 测试2
+		function Foo () {
+
+			getName = function () { console.log(1) }
+
+			return this
+
+		}
+
+		Foo.getName = function () { console.log(2) }
+		
+		Foo.prototype.getName = function () { console.log(3) }
+		
+		var getName = function () { console.log(4) }
+		
+		function getName () { console.log(5) }
 
 
+		Foo.getName()      
+		// 2
+		getName()          
+		// 4
+		Foo().getName()    
+		// 1
+		getName()          
+		// 1
+		new Foo.getName()  
+		// 3
+		new Foo().getName()
+		// 1
+		new new Foo().getName()
+		// 1
 
 		// ECMAScript中把对象定义为：无序属性的集合，其属性可以包含基本值，函数或者对象。严格来讲，这就相当于说
 
@@ -57,6 +88,29 @@
 		// 这个方法接收三个参数：属性所在的对象，属性的名字和一个描述符对象。其中，描述符对象的属性必须是：Configurable、Enumerable、Writable、Value。
 
 		// 设置其中的一或多个值，可以修改对应的特性值。例如：
+
+		var person = {}
+
+		Object.defineProperty(person, "name", {
+			writable: false,
+			value: 'YangShaoFeng',
+		})
+
+		console.log("defineProperty:", person.name)
+
+		person.name = '1'
+
+		console.log("defineProperty:", person.name)
+
+		// 在调用Object.defineProperty()方法时，如果不指定，Configurable、enumerable、和 Writable 特性的默认值都为false。多数情况下，可能都没有必要利用Object.defineProperty()方法提供的这些高级功能。不过，理解这些概念对理解JavaScript的对象却非常有用。
+
+
+		// 小提示：IE8是第一个实现Object.defineProperty()方法的浏览器版本。然而，这个版本的实现存在诸多限制；只能在DOM对象上使用这个方法，而且只能创建访问器属性，由于实现不彻底，最好不要在IE8中使用 defineProperty
+
+
+		// 2：访问器属性
+			// 
+
 
 		</script>
 

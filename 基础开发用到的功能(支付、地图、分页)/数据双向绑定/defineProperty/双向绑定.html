@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>双向绑定MVVM</title>
+</head>
+<body>
+	
+	<input type="text" ysf-model="text" >
+	<h1 ysf-text="text">  </h1>
+
+<script type="text/javascript">
+	
+var Ysf = {
+	data: {
+		text: ''
+	},
+	methods: {
+
+	},
+	el: '',
+}
+
+var model = document.querySelector('[ysf-model]')
+var dataModal = model.getAttribute('ysf-model')
+
+Object.defineProperty(Ysf.data, 'text', {
+
+	get: function () {
+		return this.text
+	},
+	set: function ( value ) {	
+		console.log("value:", value)
+		document.querySelector('[ysf-text]').innerHTML = value;
+	}
+
+})
+
+model.oninput = function (  ) {
+
+	Ysf.data.text = this.value
+
+}
+
+
+</script>
+</body>
+</html>
