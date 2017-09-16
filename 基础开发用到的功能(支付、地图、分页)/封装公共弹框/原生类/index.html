@@ -42,26 +42,32 @@
 
 		</div>
 
-		<div class="content">
-
+		<p>
 			<a href="javascript:;"> 点击弹出弹框 </a>
+		</p>
 
-		</div>
+		<p style="margin-top: 15px;">
+			<span> 弹窗第二次 </span>
+		</p>
+
 		
 	</div>
 	<script type="text/javascript" src="modal.js"></script>
 	<script type="text/javascript">
 
-	var newA = document.querySelector('a'),
-	     log = console.log.bind(console)
-
-	newA.addEventListener('click', function () {
+	document.querySelector('a').addEventListener('click', function () {
 
 		modal.show({
 			text: '显示弹框'
 		})
 
-		// modal.show()
+	})
+
+	document.querySelector('span').addEventListener('click', function () {
+
+		modal.show({
+			text: '显示弹显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框显示弹框框'
+		})
 
 	})
 
