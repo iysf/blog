@@ -34,8 +34,6 @@
 	</style>
 </head>
 <body>
-	<div id="app"></div>
-	<div id="app"></div>
 	<div id="app">
 		
 		<div class="header">
@@ -45,21 +43,28 @@
 		</div>
 
 		<div class="content">
-			
+
 			<a href="javascript:;"> 点击弹出弹框 </a>
 
 		</div>
 		
 	</div>
-	<script type="text/javascript" src="../../../前端流行框架(原理及模拟)/Jquery/ysfQuery.js"></script>
+	<script type="text/javascript" src="modal.js"></script>
 	<script type="text/javascript">
 
-	$(function(){
-		log($('#app'))
-		log($('a'))
-		log($('.content'))
-		log(123)
+	var newA = document.querySelector('a'),
+	     log = console.log.bind(console)
+
+	newA.addEventListener('click', function () {
+
+		modal.show({
+			text: '显示弹框'
+		})
+
+		// modal.show()
+
 	})
+
 	</script>
 
 </body>
