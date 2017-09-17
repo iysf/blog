@@ -6,5 +6,32 @@
 </head>
 <body>
 	
+	<script type="text/javascript">
+		
+	// ECMAScript 中的构造函数可用来创建特定类型的对象。像Object 和 Array 这样的原生构造函数。在运行时会自动出现在执行环境中。此外。也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。使用构造函数可以将前面的例子重写
+
+	function Person (name, age, sex) {
+		this.name = name
+		this.age = age
+		this.sex = sex
+		this.showName = function () { return this.name }
+	}
+
+	var ysf = new Person('Yangshaofeng', 26, '男')
+
+	console.log(ysf.showName())
+
+
+	// 在这个例子中，Person函数取代了 createPerson()函数。注意到，Person()中的代码，除了与createPerson()中部分相同，还存在以下不同：
+
+	// 1、没有显式的创建对象
+	// 2、直接将属性和方法赋给了 this 对象
+	// 3、没有return语句
+
+	// 此外，还应该注意到函数名 Person 使用的是大写字母P。按照惯例，构造函数始终都应该以一个大写字母开头。而非构造函数则应该以一个小写字母开头。
+
+	// 这个做法借鉴与其他 OO 语言，主要是为了区别与ECMAScript 中的其他函数，因为构造函数本身也是函数，只不过用来可以创建对象而已。                                              
+	</script>
+
 </body>
 </html>
