@@ -30,8 +30,25 @@
 	var ysf = new Person('Yangshaofeng', 26, '男')
 	var newYsf = new Person('Yangshaofeng', 26, '男')
 
-	console.log(ysf.showName())
-	console.log(ysf)
+
+
+	function __Person__ (name, age, sex) {
+		this.name = name
+		this.age = age
+		this.sex = sex
+		this.showName = showName
+	}
+
+	function showName () {
+		return this.name
+	}
+
+	var __ysf__ = new __Person__('Yangshaofeng', 26, '男')
+	var __newYsf__ = new __Person__('Yangshaofeng', 26, '男')
+
+	console.log("showName:", ysf.showName == newYsf.showName)
+	console.log("showName:", __ysf__.showName == __newYsf__.showName)
+
 
 	// 在这个例子中，Person函数取代了 createPerson()函数。注意到，Person()中的代码，除了与createPerson()中部分相同，还存在以下不同：
 
@@ -43,13 +60,13 @@
 
 	// 这个做法借鉴与其他 OO 语言，主要是为了区别与ECMAScript 中的其他函数，因为构造函数本身也是函数，只不过用来可以创建对象而已。                                              
 
-
 	// 要创建 Person的新实例、必须使用 new 操作符。以这种方式调用构造函数实际上会经历以下 4 个步骤：
 
 		// 1. 创建一个新对象
 		// 2. 将构造函数的作用域赋给新对象 (因此this就指向了这个新对象)
 		// 3. 执行构造函数中的代码 (为这个新对象添加属性)
 		// 4. 返回新对象。
+
 	// person1 和 person2 分别保存着 Person的 一个不同的实例。这两个对象都有一个 constructor (构造函数)属性，该属性指向 Person。
 
 	console.log("constructor:", ysf.constructor == Person )
@@ -62,7 +79,30 @@
 	console.log("instanceof:", newYsf instanceof Object)
 	console.log("instanceof:", newYsf instanceof Person)
 
-	// 创建
+	// 创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型；而这正是构造函数胜过工厂模式胜过工厂模式的地方。
+
+	// ysf和nweYsf之所以同时是Object的实例，是因为所有对象均继承为Object。
+
+	// 以这种方式定义的构造函数是定义在 Global对象(在浏览器中是window对象)中的。
+
+	// 1、将构造函数当作函数
+
+	// 构造函数与其他函数的唯一区别就在于调用它们的方式不同。不过，构造函数毕竟也是函数。任何函数，只要通过new操作符来调用，那它就可以作为构造函数。而任何函数，如果不通过 new 操作符来调用。那它跟普通函数也不会有什么两样。
+
+	// 当作构造函数使用
+	var person = new Person('yangshaofeng', 25, 'age')
+	console.log(person.showName())
+
+	// 作为普通函数使用
+	Person('yang', 26, 'age')
+	console.log(window.showName())
+
+	// 在另一个对象的作用域中调用
+	var obj = {}
+	Person.call(obj,'feng', 27, 'age')
+	console.log(obj.showName())
+
+
 	</script>
 
 </body>
