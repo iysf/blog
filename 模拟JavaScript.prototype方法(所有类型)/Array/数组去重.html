@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组去重</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+	
+	var arr = [1, 2, 3, 4, 1, 1, 1, 2, 3, 4, 4, 5]
+	var obj = [{id: 1, abc: 4}, {id: 1, abc: 4}, {id: 2, abc: 3}, {id: 1, abc: 2}]
+
+	console.log("原数组:", arr)
+
+	console.log("ES6数字去重：", Array.from(new Set(arr)))
+
+	console.log("ES5数字去重：", unique(arr))
+
+	console.log("ES6对象去重：", Array.from(new Set(obj)))
+
+	console.log("ES5对象去重：", unique(obj))
+
+	// ES5去重
+
+
+	// 待优化:目前Object类型无法去重.
+	function unique (arr) {
+
+		var newArr = [],
+			    json = {};
+
+		for ( var i = 0; i < arr.length; i++ ) {
+
+			if ( !json[arr[i]] ) {
+
+				newArr.push(arr[i])
+
+				json[arr[i]] = arr[i]
+
+			}
+
+		}
+		// console.log(newArr)
+		// console.log(json)
+		return newArr
+	}
+
+	</script>
+
+</body>
+</html>
