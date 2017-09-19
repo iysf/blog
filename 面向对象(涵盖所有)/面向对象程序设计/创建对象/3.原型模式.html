@@ -100,7 +100,36 @@
 	// Object-keys和Object.getOwnPropertyNames方法都可以替代for-in循环
 
 	// 3. 更简单的原型语法
+		// 
+	console.log("更简单的原型语法:", person1 instanceof Person)
+	console.log("更简单的原型语法:", person1.constructor == Person)
 
+	// 4. 原型的动态性
+	// 在原型中查找值的过程，是一次搜索。因为实例与原型之间的连接只不过是一个指针，而不是一个副本。尽管可以随时为原型添加属性和方法，并且修改能够立即在所有对象实例中反映出来，但如果是重写整个原型对象，那么情况就不一样了。调用构造函数时会为实例添加一个指向最初原型的[[prototype]]指针，而把原型修改为另一个对象就等于切断了构造函数与最初原型之间的联系。注：实例中的指针仅指向原型，而不指向构造函数。
+	function a () {  }
+
+	a.prototype.showName = function () {
+		return "之前的原型"
+	}
+
+	a._name = 1
+	a.prototype._name = 12
+	var abc = new a()
+
+	a.prototype = {
+		showName: function () {
+			return "修改之后的原型"
+		},
+		constructor: a,
+	}
+
+	var _a = new a()	
+	console.log("指针:", abc.showName())
+	console.log("指针:", _a.showName())
+
+
+	// 5.原生对象的原型
+	
 	</script>
 
 </body>
