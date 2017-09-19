@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		
+		// 期末考试完了老师要将同 学们的分数按照从高到低排序。小哼的班上只有 5 个同学，这 5 个同学分别考了 5 分、3 分、 5 分、2 分和 8 分，哎，考得真是惨不忍睹(满分是 10 分)。接下来将分数进行从大到小排 序，排序后是 8 5 5 3 2。你有没有什么好方法编写一段程序，让计算机随机读入 5 个数然后 将这 5 个数从大到小输出?
+
+
+		var arr = [5, 3, 5, 2, 8]
+		var newArr = []
+		for ( var i = 0; i < arr.length; i++ ) {
+			var lastIndex = arr[arr.length-1]
+			var firstIndex = arr[i]
+			console.log("last:", lastIndex)
+			console.log("first:", firstIndex)
+
+		}
+		console.log(newArr)
+	</script>
+
+</body>
+</html>

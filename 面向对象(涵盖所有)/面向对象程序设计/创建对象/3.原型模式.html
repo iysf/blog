@@ -24,6 +24,7 @@
 	var person1 = new Person()
 	console.log(person1.sayName())
 	var person2 = new Person()
+	person1.name = 1
 	console.log(person2.sayName == person1.sayName)
 
 
@@ -55,9 +56,50 @@
 
 	// 不过，使用delete操作符则可以完全删除实例属性，从而能够重新访问原型中的属性。
 
+	// 实例.hasOwnProperty()方法，什么时候访问的是实例属性，什么时候访问的是原型属性就一清二楚了。
+
+	console.log("hasOwnProperty:", person1.hasOwnProperty('name'))
+	console.log("hasOwnProperty:", person2.hasOwnProperty('name'))
+
+	// 注：ES5的getOwnPropertyDescriptor()方法只能用于实例属性。要取得原型属性的描述符。必须直接在原型对象上调用:Object.getOwnPropertyDescriptor()方法                                                                                                             
+	// 2. 原型与in操作符
+		// 有两种方式使用 in操作符: 单独使用和在for-in循环中使用，
+
+	console.log("in:", person1.hasOwnProperty('name')) // true
+	console.log("in:", 'name' in person1)	// true
+	console.log("in:", 'name' in person2) // true
+	console.log("in:", person2.hasOwnProperty('name')) // false
+	// in运算符只要查找到这个属性就返回true，无论是原型的还是实例的。
 
 
+	// 同时使用 hasOwnProperty()方法和in操作符，就可以确定该属性到底是是存在于对象中，还是存在于原型中。
 
+	function hasPrototypePerperty (object, name) {
+		return !object.hasOwnProperty(name) && (name in object)
+	}
+
+	console.log("hasPrototypePerperty:", hasPrototypePerperty(person1, "name")) // false  存在于实例中的属性就返回 false
+	console.log("hasPrototypePerperty:", hasPrototypePerperty(person2, "name")) // true 存在于原型中的属性就返回 true
+
+	// ES5也将 constructor和prototype属性的[[Enumerable]]特性设置为false
+
+	// 要取得对象上所有可枚举的实例属性，可以使用ES5的、Object.keys()方法，这个方法接受一个对象作为参数，返回一个包含所有可枚举属性的字符串数组。                                        
+
+	var keys = Object.keys(Person.prototype)
+	var newKeys = Object.keys(person1)
+
+	console.log("keys:", keys)
+	console.log("keys:", newKeys)
+
+	// 如果需要得到所有实例属性，无论它是否可枚举，都可以使用 Object.getOwnPropertyNames()
+
+	var key = Object.getOwnPropertyNames(Person.prototype)
+
+	console.log("getOwnPropertyNames:", key)
+
+	// Object-keys和Object.getOwnPropertyNames方法都可以替代for-in循环
+
+	// 3. 更简单的原型语法
 
 	</script>
 
