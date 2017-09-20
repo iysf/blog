@@ -8,8 +8,32 @@
 	
 	<script type="text/javascript">
 		
-		// 创建自定义类型最常见方式，就是组合使用构造函数模式与原型模式。
-		// 
+		// 创建自定义类型最常见方式，就是组合使用构造函数模式与原型模式。构造函数模式用于定义实例属性。而原型模式用于定义方法和共享的属性。结果，每个实例都会有自己的一份实例属性的副本，但同时又共享着对方法的引用。最大限度的节省了内存。另外，这种混成模式还支持向构造函数传递参数。可谓是集两种模式之长。
+
+		function Person (name, age, sex) {
+			this.name = name
+			this.age = age
+			this.sex = sex
+			this.newArr = ['a','b']
+		}
+		Person.prototype.shownewArr = function () {
+			return this.newArr
+		}
+
+		var a = new Person('1', '2', '3')
+		var b = new Person('4', '5', '6')
+		a.newArr.push('c')
+
+		console.log(a.newArr)
+		console.log(b.newArr)
+
+		console.log(a.newArr == b.newArr)
+		console.log(a.shownewArr == b.shownewArr)
+
+		// 这种定义构造函数与原型混成的模式，是目前ECMAScript中使用最广泛、认同度最高的一种创建自定义类型的方法。可以说，这是用来定义引用类型的一种默认模式。
+
+		
+
 	</script>
 
 </body>
