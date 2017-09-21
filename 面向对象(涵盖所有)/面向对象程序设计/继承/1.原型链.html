@@ -10,6 +10,8 @@
 		
 		// 许多OO语言都支持两种继承方式：接口继承与实现继承。接口继承只继承方法签名。而实现继承则继承实际的方法。由于函数没有签名，在ECMAScript中无法实现接口继承。ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。
 
+		// 注：静态方法就是类的方法，类可以直接调用的方法。实例方法属于实例化后对象的方法，即实例对象调用的方法。
+
 		// ECMAScript 中描述了原型链的概念，并将原型链作为实现继承的主要方法。其基本思路是利用原型让一个引用类型继承另一个引用类型的属性和方法。
 
 		// 构造函数、原型和实例的关系。每个构造函数都有一个原型对象。原型对象都包含一个指向构造函数的指针。而实例都包含一个指向原型对象的内部指针。
@@ -51,10 +53,35 @@
 		// subType.prototype.
 		var instance = new subType()
 
-
-		console.log(instance.getSuperValue())
+		console.log("superType:", instance.constructor)
+		console.log("Function构造函数:", subType.constructor)
+		console.log("superType:", subType.prototype.constructor)
+		console.log(":", instance.getSuperValue())
 
 		// SuperType 和 SubType。每个类型分别有一个属性和一个方法。它们主要的区别是：SubType继承了SuperType。而继承是通过创建SuperType的实例，并将实例赋值给SubType.prototype实现的。实现的本质是重写原型对象。代之以一个新类型的实例。
+
+		console.log("继承:", subType.prototype.__proto__ == superType.prototype)
+		console.log("继承:", superType.prototype.__proto__ == Object.prototype)
+			// SubType继承了SuperType，而superType继承了Object，当调用instance.toString()，实际上调用的是保存在Object.prototype中的那个方法。
+
+		// 注：实际上，不是SubType的原型的constructor属性被重写了，而是subType的原型指向了另一个对象——SuperType的原型.而这个原型对象的constructor属性指向superType。
+
+		// 1. 不要忘记默认原型链
+
+			// 事实上，原型链还少一环，所有引用类型默认都继承了Object，而这个继承也是通过原型链实现的。要记住，所以函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.prototype，这也正是所有自定义类型都继承 toString()，valueOf()等默认方法的根本原因。
+
+		// 2. 确定原型与实例的关系
+
+			// 可以通过两种方式来确定原型和实例之间的关系，第一种方式是使用 instanceOf 操作符，只要用这个操作符来测试实例与原型链中出现过的构造函数，结果就会返回true。
+			console.log("instanceOf.subType:", instance instanceof subType)
+			console.log("instanceOf.superType:", instance instanceof superType)
+			console.log("instanceOf.Object:", instance instanceof Object)
+
+			// 由于原型链的关系，可以说 instance 是 Object，subType，superType中任何一个类型的实例。因此 instanceof返回了true。
+
+		// 3. 谨慎的定义方法
+
+			// 子类有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎样，给原型添加方法的代码一定要放在替换原型语句之后
 
 	</script>
 
