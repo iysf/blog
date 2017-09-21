@@ -46,6 +46,7 @@ modal.show = function () {
 			throw new Error(arguments + 'is not a Object')
 
 		}	
+		
 	} else {
 
 		throw new Error( 'modal.Show arguments: Number 1' )
