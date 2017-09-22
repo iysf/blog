@@ -8,6 +8,30 @@
 	
 	<script type="text/javascript">
 		
+		// 在子类型构造函数的内部调用超类型构造函数。
+		// #函数只不过是在特定环境中执行代码的对象。
+
+		// 因此通过 call()和apply()方法也可以在(将来)新创建的对象上执行构造函数。
+
+		function superType () {
+			this.colors = ['blue', 'yellow', 'red']
+		}
+		
+		function subType () {
+			// 继承了superType
+			superType.call(this)
+		}	
+
+		var color = new subType()
+
+		color.colors.push('pink')
+
+		console.log(color.colors)
+
+		var newColor = new subType()
+
+		console.log(newColor.colors)
+
 		
 
 	</script>
