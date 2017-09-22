@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>原型链</title>
 </head>
 <body>
 	
@@ -81,8 +81,61 @@
 
 		// 3. 谨慎的定义方法
 
-			// 子类有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎样，给原型添加方法的代码一定要放在替换原型语句之后
+			// 子类有时候需要重写超类型中的某个方法，或者需要添加超类型中不存在的某个方法。但不管怎样，给原型添加方法的代码一定要放在替换原型语句之后。
 
+		function _superType ( ) {
+			this.property = true
+		}
+		_superType.prototype.getSuperValue = function () {
+			return this.property
+		}
+		function _subType () {
+			this.subproperty = false
+		}
+		_subType.prototype = new _superType()
+
+		console.log("_subType原型:", _subType.prototype)
+		_subType.prototype.getSuperValue = function () {
+			return false
+		}
+		_subType.prototype.getSubValue = function () {
+			return this.subproperty
+		}
+		var _instance = new _subType()
+		console.log("false:", _instance.getSubValue())
+		console.log("false:", _instance.getSuperValue())
+
+			// 在通过原型链实现继承时，不能使用对象字面量创建原型方法，因为这样做就会重写原型链。
+
+		// 尝试
+		console.log("*************************************")
+
+		function __superType () {
+			this.property = true
+		}
+		__superType.prototype.getSuperValue = function () {
+			return this.property
+		}
+		function __subType () {
+			this.subproperty = false
+		}
+		__subType.prototype = new __superType()
+		console.log(__subType.prototype)
+		__subType.prototype = {
+
+			getSubValue: function () {
+				return this.subproperty
+			},
+			__proto__: new __superType(),
+		}
+		console.log(__subType.prototype)
+		var __instance = new __subType()
+		console.log("调用:", __instance.getSuperValue())
+
+		// 4. 原型链的问题
+			// 原型链虽然强大，但是也存在了一些问题。其中最主要的问题就是：来自包含引用类型值的原型，包含引用类型值的原型属性会被所有实例共享，而这也正是为什么要在构造函数中，而不是在原型对象中定义属性的原因。在通过原型来实现继承时，原型实际上会变成另一个类型的实例。于是，原先的实例属性也就顺理成章的变成了现在的原型属性了。
+
+			// 原型链的第二个问题是，在创建子类型的实例时，不能向超类型的构造函数中传递参数。实际上，应该说是没有办法在不影响所有对象实例的情况下，给超类型的构造函数传递参数
 	</script>
 
 </body>
