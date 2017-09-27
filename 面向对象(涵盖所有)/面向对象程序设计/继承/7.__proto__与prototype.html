@@ -31,6 +31,12 @@
 		// Object.prototype
 		console.log(aa.__proto__.__proto__)
 
+
+		// 引用类型的prototype不是给自己用的，而是给自己实例用的。
+
+		// 第一级继承Function.prototype，第二级继承Object.prototype 第三级则为null
+		console.log("Object:", Object.__proto__.__proto__.__proto__) // null
+		console.log("Object:", Object.prototype) // 给Object实例使用的
 	</script>
 
 </body>
