@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>寄生组合式继承</title>
 </head>
 <body>
-	
+
+	<script type="text/javascript">
+		// 寄生组合式继承: jquery最基本的链式编程实现是使用这种方式的。
+
+		// 这个例子的高效率体现在它只调用一次SuperType构造函数，并且因此避免了在SubType.prototype上面创建不必要的，多余的属性。与此同时，原型链还能保持不变。因此，还能够正常使用instanceOf和isPrototypeOf()，寄生组合式继承是引用类型最理想的继承规范。
+		function SuperType (name) {
+			this.name = name
+			this.colors = ['red', 'yellow', 'green']
+		}
+
+		SuperType.fn = SuperType.prototype = {
+			constructor: SuperType,
+			sayName: function () {
+				return this.name
+			}
+		}
+
+		function SubType (name, age) {
+			SuperType.call(this, name)
+			this.age = age
+		}
+
+		SubType.prototype = SuperType.fn
+
+		SubType.prototype.sayAge = function () {
+			return this.age
+		}
+
+		var a = new SubType('Ysf', 27)
+
+		console.log(a.sayAge())
+		console.log(a.sayName())
+
+	</script>
+
+
 </body>
 </html>
