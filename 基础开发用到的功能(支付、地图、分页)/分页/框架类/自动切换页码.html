@@ -69,9 +69,9 @@
 				<td colspan="7">
 					<input type="button" value="首页" @click="lastPage()">
 					<input type="button" value="上一页" @click="changePage(true)">
-					<input type="button" :value="index+1" v-for="(item, index) in totalPage" style="margin-left:5px;margin-right:5px;" :class="{active:item.isCheck}" @click="page_(index+1)" >
+					<input type="button" :value="index+1" v-for="(item, index) in totalPage" style="margin-left:5px;margin-right:5px;"  @click="page_(index+1)" :class="{active: currentPage == index+1}">
 					<input type="button" value="下一页" @click="changePage(false)">
-					<input type="button" value="尾页" @click="firstPage()">
+					<input type="button" :value="totalPage" @click="firstPage()">
 					<span> 共 {{totalPage}} 页 </span>
 					<span> 当前第 </span>
 					<span> {{currentPage}} </span>
@@ -108,8 +108,8 @@ var vm = new Vue( {
 				{ "productName": "南方", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "19" },
 				{ "productName": "姑娘", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "20" },
 		],
-		page: 5,
-		totalPage: 4,
+		page: 2,
+		totalPage: 10,
 		currentPage: 1,
 		totalNum: 20,
 		newList: [],
