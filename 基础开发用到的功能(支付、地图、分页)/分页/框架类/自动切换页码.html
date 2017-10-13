@@ -80,12 +80,11 @@
 
 					<span v-if="currentPage > 3">...</span>
 
-					<input type="button" :value="index+1" v-for="(item, index) in totalPage" @click="page_(index+1)" :class="{active: currentPage == index+1}" v-if="index < showPage" class="_input">
+					<input type="button" :value="item" v-for="(item, index) in totalList" @click="page_(item)" :class="{active: currentPage == item}" class="_input">
 
 					<span v-if="(totalPage - currentPage) > 2">...</span>
 
-					<input type="button" :value="totalPage" class="_input" @click="page_(totalPage)" :class="{active: currentPage == totalPage}">
-
+					<input v-if="totalList[totalList.length-1] != 10" type="button" :value="totalPage" class="_input" @click="page_(totalPage)" :class="{active: currentPage == totalPage}">
 					<input type="button" value="下一页" @click="changePage(false)" v-if="currentPage < totalPage">
 
 					<span> 共 {{totalPage}} 页 </span>
@@ -157,8 +156,9 @@ var vm = new Vue( {
 		page: 5,
 		// 一共多少页
 		totalPage: 10,
+		totalList: [1, 2, 3, 4, 5],
 		// 显示多少页
-		showPage: 5,
+		pageIndex: 1,
 		// 当前页
 		currentPage: 1,
 		// 从3开始变化
@@ -169,6 +169,14 @@ var vm = new Vue( {
 	},
 	mounted: function () {
 		this.gotoPage()
+	},
+	watch: {
+		totalList: {
+			deep: true,
+			handler: function (val) {
+
+			}
+		}
 	},
 	methods: {
 		gotoPage () {
@@ -182,11 +190,12 @@ var vm = new Vue( {
 		},
 		positionPage () {
 			if ( this.currentPage > this.startPage ) {
-				this.showPage++
+				if ( this.totalList.length < this.totalPage) {
+					this.pageIndex++
+					this.totalList.splice(0,1)
+					this.totalList.push(this.totalList.length+this.pageIndex)
+				}
 			}
-			console.log("current:", this.currentPage)
-			console.log("start:", this.startPage)
-			console.log("showPage:", this.showPage)
 		},
 		page_ (item) {
 			this.currentPage = item
