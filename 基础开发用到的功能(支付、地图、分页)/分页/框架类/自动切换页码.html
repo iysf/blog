@@ -32,8 +32,8 @@
 			color: #fff;
 		}
 	</style>
-	<script type="text/javascript" src="../../../框架/Vue/vue.js"></script>
-	<script type="text/javascript" src="../../../框架/Vue/axios.js"></script>
+	<script src="../../---------框架---------/vue.js" charset="utf-8"></script>
+	<script src="../../---------框架---------/axios.js" charset="utf-8"></script>
 </head>
 <body>
 	<div id="app">
@@ -52,7 +52,7 @@
 				<td v-text="item.productName">  </td>
 				<td v-text="item.paymentType">  </td>
 				<td v-text="item.createTime">  </td>
-				<td v-if="item.paymentStatus"> 
+				<td v-if="item.paymentStatus">
 					<span v-if="item.paymentStatus == 1">
 						已付款
 					</span>
@@ -68,9 +68,9 @@
 			<tr>
 				<td colspan="7">
 					<input type="button" value="首页" @click="lastPage()">
-					<input type="button" value="上一页">
-					<input type="button" :value="newItem" v-for="newItem in totalPage" v-on:click="changePage(newItem)" style="margin-left:5px;margin-right:5px;" :class="{active:newItem.isCheck}" >
-					<input type="button" value="下一页">
+					<input type="button" value="上一页" @click="changePage(true)">
+					<input type="button" :value="newItem" v-for="newItem in totalPage" style="margin-left:5px;margin-right:5px;" :class="{active:newItem.isCheck}" >
+					<input type="button" value="下一页" @click="changePage(false)">
 					<input type="button" value="尾页" @click="firstPage()">
 					<span> 共 {{totalPage}} 页 </span>
 					<span> 当前第 </span>
@@ -109,8 +109,13 @@ var vm = new Vue( {
 				_this.getPage( _this.list.data.length );
 			} )
 		},
-		nextPage () {
-			this.currentPage++;
+		// 切换页码 true为上一页，false为下一页
+		changePage ( is ) {
+			if (is) {
+				this.currentPage--
+			} else {
+				this.currentPage++
+			}
 		},
 		firstPage () {
 			this.currentPage = this.totalPage;
@@ -122,13 +127,9 @@ var vm = new Vue( {
 			this.totalPage = totalPage / this.page;
 			this.currentPage++;
 			this.totalNum = totalPage;
-		},
-		changePage ( item ) {
-			console.log(item);
-			item.isCheck = true;
 		}
 	}
-	// 分页是使用 定位，先将所有的列表循环出来，然后接着用 left 来切换 每个页码的位置。 
+	// 分页是使用 定位，先将所有的列表循环出来，然后接着用 left 来切换 每个页码的位置。
 } )
 
 </script>
