@@ -24,12 +24,17 @@
 			cursor: pointer;
 		}
 		input {
-			background-color: #ccc;
+			background-color: #fff;
 			border: solid 1px #ccc;
 		}
 		.active {
-			background-color: blue;
-			color: #fff;
+			border: solid 1px #ccc !important;
+		}
+		._input {
+			margin-left:5px !important;
+			margin-right:5px !important;
+			background-color: #fff !important;
+			border: none;
 		}
 	</style>
 	<script src="../../---------框架---------/vue.js" charset="utf-8"></script>
@@ -67,16 +72,22 @@
 			</tr>
 			<tr>
 				<td colspan="7">
-					<input type="button" value="首页" @click="lastPage()">
-					<input type="button" value="上一页" @click="changePage(true)">
-					<input type="button" :value="index+1" v-for="(item, index) in totalPage" style="margin-left:5px;margin-right:5px;"  @click="page_(index+1)" :class="{active: currentPage == index+1}">
-					<input type="button" value="下一页" @click="changePage(false)">
-					<input type="button" :value="totalPage" @click="firstPage()">
+
+					<input type="button" value="上一页" @click="changePage(true)" v-if="currentPage != 1">
+
+					<input type="button" :value="index+1" v-for="(item, index) in totalPage" @click="page_(index+1)" :class="{active: currentPage == index+1}" v-if="index < showPage" class="_input">
+
+					<span>...</span>
+
+					<input type="button" :value="totalPage" class="_input" @click="page_(totalPage)" :class="{active: currentPage == totalPage}">
+
+					<input type="button" value="下一页" @click="changePage(false)" v-if="currentPage < totalPage">
+
+
 					<span> 共 {{totalPage}} 页 </span>
 					<span> 当前第 </span>
 					<span> {{currentPage}} </span>
 					<span> 页 </span>
-					<span> 共 {{totalNum}} 条 </span>
 				</td>
 			</tr>
 		</table>
@@ -107,11 +118,47 @@ var vm = new Vue( {
 				{ "productName": "头发", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "18" },
 				{ "productName": "南方", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "19" },
 				{ "productName": "姑娘", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "20" },
+				{ "productName": "往事", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "21" },
+				{ "productName": "回忆", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "22" },
+				{ "productName": "时间", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "23" },
+				{ "productName": "重来", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "24" },
+				{ "productName": "停下来", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "25" },
+				{ "productName": "机会", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "26" },
+				{ "productName": "得失", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "27" },
+				{ "productName": "对自己", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "28" },
+				{ "productName": "交代", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "29" },
+				{ "productName": "对不对", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "30" },
+				{ "productName": "流泪", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "31" },
+				{ "productName": "别无奈", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "32" },
+				{ "productName": "倒下", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "33" },
+				{ "productName": "站起来", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "34" },
+				{ "productName": "过去", "paymentType": "银联", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "35" },
+				{ "productName": "未来", "paymentType": "微信", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "36" },
+				{ "productName": "那么就这样", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "37" },
+				{ "productName": "淘宝", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "38" },
+				{ "productName": "新浪微博", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "39" },
+				{ "productName": "清场", "paymentType": "微信", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "40" },
+				{ "productName": "战场", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "41" },
+				{ "productName": "成为对手", "paymentType": "欠费", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "42" },
+				{ "productName": "彼此", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "43" },
+				{ "productName": "余量", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "44" },
+				{ "productName": "多强", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "45" },
+				{ "productName": "实属无奈", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "46" },
+				{ "productName": "Number", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "47" },
+				{ "productName": "只对自己", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "48" },
+				{ "productName": "哈哈哈哈", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "49" },
+				{ "productName": "姑娘", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "50" },
 		],
-		page: 2,
+		// 每页显示多少条
+		page: 5,
+		// 一共多少页
 		totalPage: 10,
+		// 显示多少页
+		showPage: 5,
+		// 当前页
 		currentPage: 1,
-		totalNum: 20,
+		// 总条数
+		totalNum: 50,
 		newList: [],
 	},
 	mounted: function () {
@@ -132,7 +179,7 @@ var vm = new Vue( {
 		},
 		// 删除数据
 		deleteItem ( item ) {
-			console.log(item)
+			alert('此功能待完成...')
 		},
 		// 切换页码 true为上一页，false为下一页
 		changePage ( is ) {
