@@ -62,14 +62,14 @@
 				</td>
 				<td v-text="item.remarks">  </td>
 				<td>
-					<input type="button" value="点击删除">
+					<input type="button" value="点击删除" @click="deleteItem(item)">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="7">
 					<input type="button" value="首页" @click="lastPage()">
 					<input type="button" value="上一页" @click="changePage(true)">
-					<input type="button" :value="newItem" v-for="newItem in totalPage" style="margin-left:5px;margin-right:5px;" :class="{active:newItem.isCheck}" >
+					<input type="button" :value="index+1" v-for="(item, index) in totalPage" style="margin-left:5px;margin-right:5px;" :class="{active:item.isCheck}" @click="page_(index+1)" >
 					<input type="button" value="下一页" @click="changePage(false)">
 					<input type="button" value="尾页" @click="firstPage()">
 					<span> 共 {{totalPage}} 页 </span>
@@ -86,47 +86,76 @@
 var vm = new Vue( {
 	el: '#app',
 	data: {
-		list: [],
+		list: [
+				{ "productName": "椅子", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "1" },
+				{ "productName": "桌子", "paymentType": "微信", "createTime": "2017-07-23 10:04:24", "paymentStatus": "2", "remarks": "备注啊123", "id": "2" },
+				{ "productName": "钱包", "paymentType": "银联卡", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时123", "id": "3" },
+				{ "productName": "电脑", "paymentType": "微信", "createTime": "2017-07-23 10:04:24", "paymentStatus": "2", "remarks": "嘻嘻啊啊", "id": "4" },
+				{ "productName": "镜子", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "要记着我的数据", "id": "5" },
+				{ "productName": "汽车", "paymentType": "银联卡", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "啦啦啦", "id": "6" },
+				{ "productName": "床", "paymentType": "现金", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "就像那些", "id": "7" },
+				{ "productName": "瘦弱", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "不眠的晚上", "id": "8" },
+				{ "productName": "肩膀", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "嚼着口香糖", "id": "9" },
+				{ "productName": "迷途", "paymentType": "现金", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "满含着理想", "id": "10" },
+				{ "productName": "方向", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "我们都在忍受", "id": "11" },
+				{ "productName": "阳光", "paymentType": "微信", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "着漫长", "id": "12" },
+				{ "productName": "院子", "paymentType": "银联卡", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "是不是高楼遮住", "id": "13" },
+				{ "productName": "衣裳", "paymentType": "货到付款", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "了你的希望", "id": "14" },
+				{ "productName": "四季", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "哎嘿呦", "id": "15" },
+				{ "productName": "风中", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "16" },
+				{ "productName": "散着", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "17" },
+				{ "productName": "头发", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "18" },
+				{ "productName": "南方", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "19" },
+				{ "productName": "姑娘", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "20" },
+		],
 		page: 5,
-		totalPage: 0,
-		currentPage: 0,
-		totalNum: 0,
+		totalPage: 4,
+		currentPage: 1,
+		totalNum: 20,
 		newList: [],
 	},
 	mounted: function () {
-		this.getData();
+		this.gotoPage()
 	},
 	methods: {
-		getData () {
-			var _this = this;
-			axios.get('./data.json')
-			.then( ( res ) => {
-				_this.list = res.data;
-				for ( var i = 0; i < _this.page; i++ ) {
-					_this.list.data[i].isCheck = false;
-					_this.newList.push( _this.list.data[i] );
+		gotoPage () {
+			this.newList = []
+			this.list.forEach( (item, index) => {
+				if ( index < (this.page * this.currentPage) && index >= (this.page * (this.currentPage-1))) {
+					this.newList.push(item)
 				}
-				_this.getPage( _this.list.data.length );
 			} )
+		},
+		page_ (item) {
+			this.currentPage = item
+			this.gotoPage()
+		},
+		// 删除数据
+		deleteItem ( item ) {
+			console.log(item)
 		},
 		// 切换页码 true为上一页，false为下一页
 		changePage ( is ) {
 			if (is) {
-				this.currentPage--
+				if ( this.currentPage > 1 ) {
+					this.currentPage--
+				}
 			} else {
-				this.currentPage++
+				if ( this.currentPage < this.totalPage ) {
+					this.currentPage++
+				}
 			}
+			this.gotoPage()
 		},
+		// 跳转到首页
 		firstPage () {
-			this.currentPage = this.totalPage;
+			this.currentPage = this.totalPage
+			this.gotoPage()
 		},
+		// 跳转到尾页
 		lastPage () {
-			this.currentPage = 1;
-		},
-		getPage ( totalPage ) {
-			this.totalPage = totalPage / this.page;
-			this.currentPage++;
-			this.totalNum = totalPage;
+			this.currentPage = 1
+			this.gotoPage()
 		}
 	}
 	// 分页是使用 定位，先将所有的列表循环出来，然后接着用 left 来切换 每个页码的位置。
