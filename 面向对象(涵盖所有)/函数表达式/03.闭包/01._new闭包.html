@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>重新理解闭包</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  // 1.匿名函数、2.闭包
+
+  // 1.闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的常用方式，就是在一个函数内部创建另一个函数。
+
+  function create_function (name) {
+    return function (object1, object2) {
+      var value1 = object1[name],
+          value2 = object2[name];
+      if (value1 > value2) {
+        return 0
+      } else {
+        return 1
+      }
+    }
+  }
+  var a = create_function('a'),o1 = { a: 1 },o2 = {a: 2};
+
+  console.log(a(o1, o2))
+
+
+  // 执行环境：execution context
+  // 内部属性 => 代指作用域链：[[Scope]]
+  // 初始化函数的活动对象：Activation Object
+
+  // 在作用域中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位，直至作为作用域链终点的全局执行环境。
+
+  </script>
+
+</body>
+</html>
