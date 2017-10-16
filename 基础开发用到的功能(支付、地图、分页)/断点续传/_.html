@@ -9,10 +9,41 @@
 <body>
 
   <input type="file">
+  <img src="" alt="">
 
+  <table border="1">
+    <tr>
+      <td> 文件名称 </td>
+      <td> 文件大小 </td>
+      <td> 文件格式 </td>
+      <td> 上传进度 </td>
+      <td> 操作 </td>
+      <!--  style="cursor: pointer;" -->
+    </tr>
+  </table>
   <script type="text/javascript">
 
-    
+
+    var inp = document.querySelector('input'),
+        img = document.querySelector('img');
+
+    inp.addEventListener('change', function (evt) {
+
+      console.log(this.files)
+
+      var node = document.createElement('tr')
+
+      node.innerHTML = '<td>1</td>'
+
+      document.querySelector('table').appendChild(node)
+
+
+      var reader = new FileReader();
+      reader.onload = function(evt){img.src = evt.target.result;}
+      reader.readAsDataURL(file.files[0]);
+      // img.src = this.value
+
+    })
 
   </script>
 
