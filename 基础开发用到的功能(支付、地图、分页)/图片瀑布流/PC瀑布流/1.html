@@ -10,12 +10,30 @@
 
   <script type="text/javascript">
 
+  var x=10;
+  var obj={
+      x:3,
+      a1: function(){
+          this.x++
+          return x++
+      }
+  }
+  // var m=obj.a1;
+  // obj.a1();
 
-  (function(x) {
-    return (function(y) {
-        console.log("7:", x);
-    })(2)
-  })(1);
+  function m () {
+    this.x++
+    // console.log("this.x:", this.x)
+    // console.log("window.x:", x++)
+    return x++
+  }
+
+  console.log("m:", m())
+
+
+  // 最终结果
+  console.log(obj.x)
+  console.log(x)
   </script>
 
 </body>
