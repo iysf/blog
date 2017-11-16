@@ -14,20 +14,43 @@
 
   // 1.闭包是指有权访问另一个函数作用域中的变量的函数，创建闭包的常用方式，就是在一个函数内部创建另一个函数。
 
-  function create_function (name) {
-    return function (object1, object2) {
-      var value1 = object1[name],
-          value2 = object2[name];
-      if (value1 > value2) {
-        return 0
-      } else {
-        return 1
-      }
-    }
-  }
-  var a = create_function('a'),o1 = { a: 1 },o2 = {a: 2};
+  // function create_function (name) {
+  //   return function (object1, object2) {
+  //     var value1 = object1[name],
+  //         value2 = object2[name];
+  //     if (value1 > value2) {
+  //       return 0
+  //     } else {
+  //       return 1
+  //     }
+  //   }
+  // }
+  // var a = create_function('a'),o1 = { a: 1 },o2 = {a: 2};
+  //
+  // console.log(a(o1, o2))
+  //
+  //
+  // var test = ( function (a) {
+  //   this.a = a
+  //   console.log("a:", a)
+  //   return function (b) {
+  //     console.log("b:", b)
+  //     return this.a - b
+  //   }
+  // } )( 1 )
+  // console.log("test:", test(4))
 
-  console.log(a(o1, o2))
+
+  function test() {
+    console.log(this)
+  }
+  test()
+  var o =["a"];
+  o.test = test3 = function () {
+    console.log(this)
+  }
+  o.test()
+  test3()
 
 
   // 执行环境：execution context
