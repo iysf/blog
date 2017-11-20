@@ -10,8 +10,45 @@
 
   <script type="text/javascript">
 
-    
+  // 词法引用标识符
 
+
+  // 1、this指向自身
+
+    // window.count = 0
+
+    function foo ( num ) {
+
+      console.log("foo:", num)
+
+      this.count++
+
+    }
+
+    foo.count = 0
+
+    for ( var i = 0; i < 10; i++ ) {
+
+      foo(i)
+
+    }
+
+    console.log(count)
+    console.log(foo.count)
+  // 2、它的作用域
+
+    // this 指向函数的作用域。这个问题有点复杂，因为在某种情况下，它是正确的，但是在其他情况下它却是错误的。
+    // 需要明确的是：在任何情况下 this 都不指向函数的词法作用域。在JavaScript内部，作用域确实和对象类似。可见的标识符都是它的属性。但是作用域对象无法通过JavaScript代码访问，它存在于JavaScript引擎内部。
+
+    function newFoo () {
+      var a = 2
+      this.bar()
+    }
+
+    function bar () {
+      console.log("a:", this.a)
+    }
+    newFoo()
   </script>
 
 </body>
