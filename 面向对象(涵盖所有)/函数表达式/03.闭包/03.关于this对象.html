@@ -4,9 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>关于this对象</title>
 </head>
 <body>
+
+  <script type="text/javascript">
+
+    //
+    var name = 'The Window'
+
+    var obj = {
+      name: 'Object name [[Scope]]',
+      getNameFunc: function () {
+        return function () {
+          return this.name
+        }
+      }
+    }
+    var newObj = {
+      name: 'Object name [[Scope]]',
+      getNameFunc: function () {
+        var _this = this
+        return function () {
+          return _this.name
+        }
+      }
+    }
+
+    console.log(obj.getNameFunc()())
+    console.log(newObj.getNameFunc()())
+
+  </script>
 
 </body>
 </html>

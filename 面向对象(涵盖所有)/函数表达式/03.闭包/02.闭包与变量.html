@@ -4,9 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>闭包与变量</title>
 </head>
 <body>
+
+  <script type="text/javascript">
+
+  // 
+
+  function createFunctions () {
+    var result = new Array()
+    for ( var i = 0; i < 10; i++ ) {
+      result[i] = function (num) {
+        return function () {
+          return num
+        }
+      }(i)
+    }
+    return result
+  }
+  console.log(createFunctions())
+  console.log(createFunctions()[1]())
+  console.log(createFunctions()[5]())
+  console.log(createFunctions()[7]())
+  console.log(createFunctions()[8]())
+  </script>
 
 </body>
 </html>
