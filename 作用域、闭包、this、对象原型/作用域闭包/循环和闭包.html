@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>循环和闭包</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  for ( var i = 1; i <= 5; i++ ) {
+    // 匿名函数被调用了5次  每次调用的时候可以访问到i，那么每次的i可以访问到当前循环项，而不是循环结束以后的i。
+    (function (index) {
+
+      setTimeout( function () {
+
+        console.log("index:", index)  // 打印几
+        console.log("i:", i) //
+        // Feng: 1 => 2 => 3 => 4 => 5
+
+      }, i * 1000)
+      // 循环结束以后几秒后执行定时器
+
+      // Feng: 5秒后执行
+
+    console.log("what:", i)
+
+    })(i)
+
+  }
+
+  // var
+
+  //  1 * 1000 => 6
+  //  2 * 1000 => 6
+  //  3 * 1000 => 6
+  //  4 * 1000 => 6
+  //  5 * 1000 => 6
+
+
+  // let
+
+  //  1 * 1000 => 1
+  //  2 * 1000 => 2
+  //  3 * 1000 => 3
+  //  4 * 1000 => 4
+  //  5 * 1000 => 5
+
+  // 最后一次循环 6 <= 5 ? false 终止循环
+
+
+  //
+  </script>
+
+</body>
+</html>
