@@ -13,11 +13,12 @@
   for ( var i = 1; i <= 5; i++ ) {
     // 匿名函数被调用了5次  每次调用的时候可以访问到i，那么每次的i可以访问到当前循环项，而不是循环结束以后的i。
     (function (index) {
-
+      var j = i
       setTimeout( function () {
 
         console.log("index:", index)  // 打印几
         console.log("i:", i) //
+        console.log("j:", j)
         // Feng: 1 => 2 => 3 => 4 => 5
 
       }, i * 1000)
@@ -25,12 +26,18 @@
 
       // Feng: 5秒后执行
 
-    console.log("what:", i)
+    // 这个i 并不是访问到实参 index，而是通过词法作用域去访问当前循环项。
+    // console.log("what:", i)
 
     })(i)
 
   }
 
+  {
+    var instace = 1
+  }
+
+  // console.log(instace)
   // var
 
   //  1 * 1000 => 6
@@ -49,6 +56,21 @@
   //  5 * 1000 => 5
 
   // 最后一次循环 6 <= 5 ? false 终止循环
+
+  // 其实这个问题的根本所在是要创建多个作用域，然后去访问每个作用域创建时对应的当前循环的索引。
+  
+  for (var i = 1; i <= 5; i++) {
+
+    let j = i
+
+    setTimeout( function () {
+
+      console.log("let:", j)
+      console.log("var:", i)
+
+    }, j * 1000)
+
+  }
 
 
   //
