@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模块</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  //
+
+  function CoolModule () {
+    var something = 'cool'
+          another = [1, 2, 3]
+
+    function doSomething () {
+      console.log(something)
+    }
+
+    function doAnother () {
+      console.log(another.join("!"))
+    }
+    return {
+      doSomething: doSomething,
+      doAnother: doAnother,
+    }
+  }
+
+  // if (CoolModule()) {
+    // console.log("true")
+  // }
+
+  var bar = CoolModule()
+
+  bar.doSomething() // string
+
+  bar.doAnother() // array
+
+  </script>
+
+</body>
+</html>
