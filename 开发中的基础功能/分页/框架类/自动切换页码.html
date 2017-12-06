@@ -74,19 +74,23 @@
 			</tr>
 			<tr>
 				<td colspan="7">
+					<!-- 上一页 -->
+					<input type="button" value="<" @click="gotoPage(false)">
 
-					<input type="button" value="上一页" @click="changePage(true)" v-if="currentPage != 1">
+					<!-- 首页 -->
+					<input type="button" value="1" class="_input" >
 
-					<input v-if="currentPage > 3" type="button" value="1" class="_input" @click="page_(1)" :class="{active: currentPage == 1}">
+					<!-- <span>...</span> -->
 
-					<span v-if="currentPage > 3">...</span>
+					<!-- 中间一直在变化的队列 -->
+					<input type="button" class="_input" v-for="(item, index) in pageArr" :value="item" :class="{active: item.isActive}">
 
-					<input type="button" :value="item" v-for="(item, index) in totalList" @click="page_(item)" :class="{active: currentPage == item}" class="_input">
+					<!-- <span>...</span> -->
 
-					<span v-if="(totalPage - currentPage) > 2">...</span>
-
-					<input v-if="totalList[totalList.length-1] != 10" type="button" :value="totalPage" class="_input" @click="page_(totalPage)" :class="{active: currentPage == totalPage}">
-					<input type="button" value="下一页" @click="changePage(false)" v-if="currentPage < totalPage">
+					<!-- 尾页 -->
+					<input type="button" :value="totalPage" class="_input" >
+					<!-- 下一页 -->
+					<input type="button" value=">" @click="gotoPage(true)">
 
 					<span> 共 {{totalPage}} 页 </span>
 					<span> 当前第 </span>
@@ -153,23 +157,61 @@ var vm = new Vue( {
 				{ "productName": "哈哈哈哈", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "49" },
 				{ "productName": "姑娘", "paymentType": "支付宝", "createTime": "2017-07-23 10:04:24", "paymentStatus": "1", "remarks": "暂时没有备注", "id": "50" },
 		],
-		// 每页显示多少条
-		page: 5,
-		// 一共多少页
-		totalPage: 10,
-		totalList: [1, 2, 3, 4, 5],
-		// 显示多少页
-		pageIndex: 1,
-		// 当前页
-		currentPage: 1,
-		// 从3开始变化
-		startPage: 3,
 		// 总条数
-		totalNum: 50,
+		totalNumber: 50,
+		// 数据列表页
 		newList: [],
+		// 首页
+		firstPage: '',
+		// 是否显示首页
+		showFirstPage: false,
+		// 尾页
+		lastPage: '',
+		// 是否显示尾页
+		showLastPage: false,
+		// 中间显示的长度以及变化数组
+		pageArr: [0, 0, 0],
+		// 一共有多少页
+		totalPage: '',
+		// 当前是多少页
+		currentPage: '',
+
 	},
 	mounted: function () {
-		this.gotoPage()
+		// 传入的参数是每页显示几条
+		this.pageInit(5)
+		this.render()
+	},
+	methods: {
+		pageInit (number) {
+			// console.log("总页数:", this.totalNumber)
+			// 计算一共有多少页， 每页显示5条
+			this.totalPage = this.totalNumber / number
+			// 这个if用来判断，假如url后面跟随参数页码，则显示url页码，否则默认为1
+			if (true) {
+				this.currentPage = 1
+			}
+
+			// console.log(window.location)
+		},
+		render () {
+			this.list.forEach( (item, index) => {
+				// console.log(item)
+
+				if ( index < 5 ) {
+					this.newList.push(item)
+				}
+			} )
+			this.newList[0].isActive = true
+		},
+		changePage () {
+
+		},
+		// true为下一页，false为上一页
+		gotoPage (changeType) {
+
+			console.log(changeType)
+		},
 	},
 	watch: {
 		totalList: {
@@ -179,57 +221,6 @@ var vm = new Vue( {
 			}
 		}
 	},
-	methods: {
-		gotoPage () {
-			this.newList = []
-			this.list.forEach( (item, index) => {
-				if ( index < (this.page * this.currentPage) && index >= (this.page * (this.currentPage-1))) {
-					this.newList.push(item)
-				}
-			} )
-			this.positionPage()
-		},
-		positionPage () {
-			if ( this.currentPage > this.startPage ) {
-				if ( this.totalList.length < this.totalPage) {
-					this.pageIndex++
-					this.totalList.splice(0,1)
-					this.totalList.push(this.totalList.length+this.pageIndex)
-				}
-			}
-		},
-		page_ (item) {
-			this.currentPage = item
-			this.gotoPage()
-		},
-		// 删除数据
-		deleteItem ( item ) {
-			alert('此功能待完成...')
-		},
-		// 切换页码 true为上一页，false为下一页
-		changePage ( is ) {
-			if (is) {
-				if ( this.currentPage > 1 ) {
-					this.currentPage--
-				}
-			} else {
-				if ( this.currentPage < this.totalPage ) {
-					this.currentPage++
-				}
-			}
-			this.gotoPage()
-		},
-		// 跳转到首页
-		firstPage () {
-			this.currentPage = this.totalPage
-			this.gotoPage()
-		},
-		// 跳转到尾页
-		lastPage () {
-			this.currentPage = 1
-			this.gotoPage()
-		}
-	}
 } )
 
 </script>
