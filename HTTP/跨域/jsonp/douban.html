@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jsonp</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+
+  // 传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据
+
+  jsonp('https://api.douban.com/v2/book/1220562')
+
+  function jsonp (url) {
+
+    var script = document.createElement('script')
+
+    script.src = url + '?callback=getData'
+
+    document.body.appendChild(script)
+
+  }
+
+  function getData ( data ) {
+
+    for ( var i = 0; i < data.tags.length; i++ ) {
+      var div = document.createElement('div'),
+        count = document.createElement('span'),
+        name  = document.createElement('span'),
+        title = document.createElement('span')
+
+      count.innerHTML = "总量:" + data.tags[i].count + "&nbsp&nbsp&nbsp"
+      name.innerHTML  = "名称:" + data.tags[i].name + "&nbsp&nbsp&nbsp"
+      title.innerHTML = "标题:" + data.tags[i].title + "&nbsp&nbsp&nbsp"
+
+      div.appendChild(count)
+      div.appendChild(name)
+      div.appendChild(title)
+
+      document.body.appendChild(div)
+
+    }
+
+    // document.body.innerHTML = res
+
+  }
+
+  function $ () {
+
+  }
+
+  $.ajax = function () {
+
+
+
+  }
+
+  </script>
+
+</body>
+</html>
