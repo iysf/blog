@@ -15,7 +15,7 @@ function modal ( text ) {
 
 	document.body.appendChild(oModal)
 	document.body.appendChild(oContent)
-	
+
 	oModal.onclick = function () {
 		document.body.removeChild(oModal)
 		document.body.removeChild(oContent)
@@ -28,7 +28,7 @@ modal.show = function () {
 	if ( arguments.length == 1 ) {
 
 		if( arguments instanceof Object ) {
-			
+
 			var modalObj = arguments[0]
 
 			for ( var key in modalObj ) {
@@ -45,8 +45,8 @@ modal.show = function () {
 
 			throw new Error(arguments + 'is not a Object')
 
-		}	
-		
+		}
+
 	} else {
 
 		throw new Error( 'modal.Show arguments: Number 1' )
