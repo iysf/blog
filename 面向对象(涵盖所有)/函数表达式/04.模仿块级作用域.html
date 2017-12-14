@@ -5,6 +5,25 @@
 	<title>模仿块级作用域</title>
 </head>
 <body>
-	
+
+	<script type="text/javascript">
+
+	function bar (count) {
+
+		(function () {
+			for (var i = 0; i < count; i++) {
+				console.log(i)
+			}
+		})()
+
+		console.log(i)
+
+	}
+
+	bar(5)
+
+
+	</script>
+
 </body>
 </html>
