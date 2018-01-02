@@ -6,3 +6,16 @@ var webapi = require('./webapi')
 console.log(module.paths)
 
 webapi.add()
+// vue-cli
+// webpack => 优化 + 模块化 + 各种文件编译 打包 代码压缩混淆
+// web components
+// NodeJS
+
+// 前端ajax => 自己写的NodeJS => NodeJS => 47.150.25.24:8080/api/
+
+// 好处： 前后端完全解耦
+
+// webview
+
+// React-Native  => js
+// weex => 手淘
