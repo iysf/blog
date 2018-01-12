@@ -1,3 +1,4 @@
+// 项目、插件、记录
 var express = require('express'),
         app = express(),
     request = require('request')
@@ -6,10 +7,11 @@ app.use(function (req, res, next) {
   if (req.url.indexOf('/webapi') != -1) {
     console.log("methods:", req.method)
     console.log("req/url:", req.url)
+    console.log("pathName:", req.url.pathname)
     if (req.method == 'GET') {
       
     } else if (req.method == 'POST') {
-
+      
     }
     var requestApi = 'http://47.94.74.150:9060' + req.url.slice(7)
     // var doubanApi = 'https://api.douban.com/v2/book/1220562'
