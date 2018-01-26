@@ -2,17 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta name="viewport" content="width=1080">
+  <title>Cats</title>
+  <style>
+    body{
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .fav-list{
+      display: flex;
+      flex-wrap: wrap;
+      margin: 2px;
+    }
+    /* .fav-list::after{
+      content: '';
+      flex-grow: 999999999;
+      order: 999999999;
+    } */
+    .fav-list > div{
+      margin: 2px;
+      background-color: violet;
+      position: relative;
+    }
+    .fav-list > div > i {
+      display: block;
+      background-color: lightblue;
+      /* display: none; */
+    }
+    .fav-list > div > img {
+      position: absolute;
+      vertical-align: bottom;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .fav-list > .placeholder{
+      flex-grow: 100;
+      flex-basis: 240px;
+      height: 0;
+      margin: 0;
+    }
+    /* style="flex-grow:{{img.width * 100 / img.height}};flex-basis:{{img.width * 240 / img.height}}px;"> */
+    /* {{img.height/img.width*100}}% */
+  </style>
 </head>
 <body>
+  <div id="app">
+    <div class="fav-list">
+      <div v-for="item in imgs" v-bind:style="{'flex-grow': item.grow, 'flex-basis': item.basis}">
+        <img v-bind:src="item.url" />
+      </div>
+      <!-- <div v-for="i in [1,2,3,4,5,6,7,8,9,10]" class="placeholder"></div> -->
+    </div>
+  </div>
+<script type="text/javascript" src="vue.js"></script>
+<script>
+var vm = new Vue({
+  el: '#app',
+  data: {
+    imgs: [
+      {
+        url: './photo-115203323.jpg',
+        width: 500,
+        height: 333,
+      },
+      {
+        url: './photo-115203323.jpg',
+        width: 500,
+        height: 333,
+      },
+      {
+        url: './photo-115203323.jpg',
+        width: 500,
+        height: 333,
+      },
+      {
+        url: './photo-115203323.jpg',
+        width: 500,
+        height: 333,
+      },
+    ]
+  },
+  created () {
+    this.imgs.forEach( (item, index) => {
+      item.grow = item.width * 100 / item.height
+      item.basis = item.width * 240 / item.height + 'px'
+      // console.log(item.basis)
+    } )
+  },
+  mounted () {
 
-  <script type="text/javascript">
-
-    
-
-  </script>
-
+  },
+})
+</script>
 </body>
 </html>
