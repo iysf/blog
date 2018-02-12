@@ -9,10 +9,20 @@
 <body>
 
   <script type="text/javascript">
-
+  // 同源策略
+  // *
   // 传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据
 
   jsonp('https://api.douban.com/v2/book/1220562')
+
+  // dataType
+  //
+
+
+
+
+
+
 
   function jsonp (url) {
 
@@ -48,15 +58,7 @@
 
   }
 
-  function $ () {
 
-  }
-
-  $.ajax = function () {
-
-
-
-  }
 
   </script>
 
