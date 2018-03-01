@@ -148,7 +148,6 @@
 
   .record-content {
     width: 100%;
-    height: 349px;
     background-color: #f9f9f9;
     padding: 30px;
   }
@@ -237,23 +236,16 @@
     </div>
     <div class="item">
       <div class="record-content">
-        <table class="table">
+        <table class="table" style="white-space: normal;word-break:break-all;">
           <thead>
             <tr>
-              <td>交易时间</td>
-              <td>交易ID</td>
-              <td>保全用户</td>
-              <td>区块Hash</td>
+              <td style="25%">交易时间</td>
+              <td style="25%">交易ID</td>
+              <td style="25%">保全用户</td>
+              <td style="25%">区块Hash</td>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>2141241212512512</td>
-              <td>2141241212512512</td>
-              <td>2141241212512512</td>
-              <td>2141241212512512</td>
-            </tr>
-          </tbody>
+          <tbody class="table-list"></tbody>
         </table>
       </div>
     </div>
@@ -301,7 +293,24 @@ $(function () {
     success: function (res) {
       console.log(res)
       if (res.code == 200) {
-        console.log(res)
+        console.log(res.param)
+        res.param.forEach(function (item, index) {
+          var tr = document.createElement('tr')
+          var td1 = document.createElement('td')
+          var td2 = document.createElement('td')
+          var td3 = document.createElement('td')
+          var td4 = document.createElement('td')
+          td1.innerHTML = item.signTime
+          td2.innerHTML = item.txid
+          td3.innerHTML = item.owner
+          td4.innerHTML = item.prehash
+          tr.appendChild(td1)
+          tr.appendChild(td2)
+          tr.appendChild(td3)
+          tr.appendChild(td4)
+          $('.table-list').append(tr)
+        })
+        // table-list
       }
     },
     error: function (error) {
