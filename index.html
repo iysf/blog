@@ -9,6 +9,7 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   .clearfix:after{
@@ -21,6 +22,20 @@
 
   .clearfix{
     *+height:1%;
+  }
+
+  /* placeholder兼容 */
+  input::-webkit-input-placeholder {
+    color: #c2c2c2;
+  }
+  input:-moz-placeholder {
+    color: #c2c2c2;
+  }
+  input::-moz-placeholder {
+    color: #c2c2c2;
+  }
+  input:-ms-input-placeholder {
+    color: #c2c2c2;
   }
 
   .header {
@@ -44,6 +59,31 @@
     height: 140px;
     float: left;
     background-color: #f9f9f9;
+    text-align: center;
+  }
+  .block-height > h3,
+  .transaction-number > h3 {
+    color: #4a4a4a;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 34px;
+  }
+  .block-height > p {
+    width: 120px;
+  }
+  .transaction-number > p {
+    width: 80px;
+  }
+  .block-height > p,
+  .transaction-number > p {
+    margin: 0 auto;
+    color: #535353;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: 24px;
+    border-bottom: solid 2px #237add;
+    padding-bottom: 10px;
   }
   .transaction-number {
     margin-left: 40px;
@@ -52,11 +92,65 @@
     height: 57px;
     line-height: 57px;
     width: 100%;
+    font-size: 18px;
+    color: #4a4a4a;
   }
   .search-content {
     width: 100%;
     height: 412px;
     background-color: #f9f9f9;
+    padding: 30px;
+  }
+  .search-text {
+    width: 321px;
+    height: 43px;
+    background-color: #fff;
+    border: solid 1px #d9d9d9;
+    float: left;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+  .search-btn {
+    width: 83px;
+    height: 43px;
+    background-color: #237add;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    margin-left: 20px;
+  }
+  .table {
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  .table tr td{
+    border-top: 1px solid #d2d2d2;
+    border-left: 1px solid #d2d2d2;
+    color: #888888;
+  }
+  .table{
+    border-right: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+  }
+  .table > thead {
+    background-color: #237add;
+  }
+  .table > thead td {
+    color: #fff;
+  }
+  .table tr {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  .record-content {
+    width: 100%;
+    height: 349px;
+    background-color: #f9f9f9;
+    padding: 30px;
   }
   .footer {
     width: 100%;
@@ -65,6 +159,9 @@
     font-size: 12px;
     text-align: center;
     line-height: 25px;
+    margin-top: 32px;
+    padding-top: 34px;
+    padding-bottom: 34px;
   }
   </style>
 </head>
@@ -74,10 +171,12 @@
   <div class="common-content">
     <div class="item clearfix">
       <div class="block-height">
-
+        <h3 class="height-count"></h3>
+        <p>当前区块高度</p>
       </div>
       <div class="transaction-number">
-        
+        <h3 class="number-count"></h3>
+        <p>交易数量</p>
       </div>
     </div>
     <div class="item">
@@ -85,14 +184,78 @@
     </div>
     <div class="item">
       <div class="search-content">
-
+        <div class="search clearfix">
+          <input type="text" class="search-text" placeholder="交易ID">
+          <input type="button" value="查询" class="search-btn">
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <td>交易时间</td>
+              <td>交易ID</td>
+              <td>保全用户</td>
+              <td>区块Hash</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="item">
       <div class="title">最近交易记录</div>
     </div>
     <div class="item">
-
+      <div class="record-content">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>交易时间</td>
+              <td>交易ID</td>
+              <td>保全用户</td>
+              <td>区块Hash</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+              <td>2141241212512512</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -100,4 +263,55 @@
     <p>公安部安全与警用电子产品质量检测中心 | 国家安全防范报警系统产品质量监督检验中心（北京）</p>
   </div>
 </body>
+<script src="jquery-1.9.1.js"></script>
+<script>
+var globalConfig = 'http://182.92.117.39:18240'
+$(function () {
+  // 区块高度
+  $.ajax({
+    url: globalConfig + '/api/getblockheight/mychannel?peer=peer1',
+    type: 'get',
+    success: function (res) {
+      if (res.code == 200) {
+        $('.height-count').html(res.count)
+      }
+    },
+    error: function (error) {
+      console.log(error)
+    },
+  })
+  // 交易数量
+  $.ajax({
+    url: globalConfig + '/api/gettxcount/mychannel',
+    type: 'get',
+    success: function (res) {
+      if (res.code == 200) {
+        $('.number-count').html(res.count)
+      }
+    },
+    error: function (error) {
+      console.log(error)
+    },
+  })
+  // 15条内的交易记录
+  $.ajax({
+    // url: globalConfig + '/api/getlatesttxinfo/mychannel/15',
+    url: 'http://182.92.117.39:18240/api/getlatesttxinfo/mychannel/15',
+    type: 'get',
+    success: function (res) {
+      console.log(res)
+      if (res.code == 200) {
+        console.log(res)
+      }
+    },
+    error: function (error) {
+      console.log(error)
+    },
+  })
+
+  // 根据ID查找
+  // http://182.92.117.39:18240/api/gettxbyid/mychannel?txid=c64db7b264088f65149f0e3a868df1fb834c695f1ed6ffb1fa7b022a0ceb619b
+})
+
+</script>
 </html>
