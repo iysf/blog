@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>瀑布流</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  </style>
 </head>
 <body>
 
@@ -12,7 +19,11 @@
 
 <script type="text/javascript">
 // 第一种实现方案：等比拉伸： 获取图片的宽高、然后进行倍数缩放。然后放到div中，div的样式设置 background-size: cover;
-//
+// 1. 是否能尽量按原始列表中的顺序输出
+// 2. 能否按人眼的扫描顺序输出，即行高相同
+// 3. 图片能否按照原始比例展示，或者尽量按原始比例展示
+// 4. 每张图片的展示面积能否尽量接近，实际上在想完全展示照片的布局中，这一条是很难达成的
+// 5. 图片不被非等比拉伸，内容不变形，内容展示完全
 
 
 //

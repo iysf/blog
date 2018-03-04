@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>index</title>
+</head>
+<body>
+
+  <div id="app"></div>
+
+<script type="text/javascript">
+
+function $ (select) {
+  if ( typeof select == 'string') {
+
+    return document.querySelector(select);
+  } else {
+    // new Error
+  }
+}
+$.prototype = {
+  attr: function () {
+    console.log(1111)
+  }
+}
+// new $();
+//DOM.attr
+$('#app').attr('style', 'width: 500px;height: 200px; background-color: red')
+
+</script>
+</body>
+</html>
