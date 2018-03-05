@@ -11,12 +11,70 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  img {
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    height: 200px;
+    vertical-align: bottom;
+  }
+  div {
+    flex-grow: 1;
+    height: 200px;
+    /* background-color: violet; */
+    position: relative;
+    margin: 2px;
+  }
+  section {
+    padding: 2px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  section::after {
+    content: '';
+    flex-grow: 999999999;
+  }
+  div:nth-last-child(5),
+  div:nth-last-child(4),
+  div:nth-last-child(3),
+  div:nth-last-child(2),
+  div:nth-last-child(1) {
+    flex-grow: 0;
+  }
+  @media (max-width: 1000px) and (min-width: 900px) {
+    div:nth-last-child(5),
+    div:nth-last-child(4),
+    div:nth-last-child(3),
+    div:nth-last-child(2),
+    div:nth-last-child(1) {
+      flex-grow: 0;
+    }
+  }
+  @media (max-width: 1100px) and (min-width: 1000px) {
+    div:nth-last-child(7),
+    div:nth-last-child(6),
+    div:nth-last-child(5),
+    div:nth-last-child(4),
+    div:nth-last-child(3),
+    div:nth-last-child(2),
+    div:nth-last-child(1){
+      flex-grow: 0;
+    }
+  }
   </style>
 </head>
 <body>
-
-
-
+  <div id="app">
+    <section>
+      <div v-for="img in imgs" :style="{width: img.width * 200 / img.height + 'px', flexGrow: img.width * 200 / img.height}">
+        <div :style="{paddingBottom: img.height / img.width * 100 + '%'}">
+          <img :src="img.src" >
+        </div>
+      </div>
+    </section>
+  </div>
+<script type="text/javascript" src="vue.js"></script>
 <script type="text/javascript">
 // 第一种实现方案：等比拉伸： 获取图片的宽高、然后进行倍数缩放。然后放到div中，div的样式设置 background-size: cover;
 // 1. 是否能尽量按原始列表中的顺序输出
@@ -25,6 +83,18 @@
 // 4. 每张图片的展示面积能否尽量接近，实际上在想完全展示照片的布局中，这一条是很难达成的
 // 5. 图片不被非等比拉伸，内容不变形，内容展示完全
 
+var vm = new Vue({
+  el: '#app',
+  data: {
+    imgs: [
+      {src: 'photo-115203323.jpg', title: '图片1', width: 500, height: 333, },
+      {src: '3.jpg', title: '图片2', width: 200, height: 200, },
+      {src: '2.jpeg', title: '图片3', width: 2936, height: 1096, },
+      {src: '1.jpg', title: '图片4', width: 600, height: 903, },
+      {src: 'photo-115203323.jpg', title: '图片5', width: 500, height: 333, },
+    ]
+  }
+})
 
 //
 </script>
