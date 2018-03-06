@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>星级评分</title>
+  <style>
+  #app {
+    margin-top: 100px;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .active {
+    background-color: yellow;
+  }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+
+    <ul>
+      <li v-for="item in list" :class="{active: item.isActive}" @click="selectedProject(item)"></li>
+    </ul>
+
+  </div>
+
+  <script src="../vue.js"></script>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: [
+          {isActive: false, index: 0,},
+          {isActive: false, index: 1,},
+          {isActive: false, index: 2,},
+          {isActive: false, index: 3,},
+          {isActive: false, index: 4,},
+        ],
+        newList: [],
+      },
+      methods: {
+        selectedProject (item) {
+          this.newList.forEach( (item, index) => {
+            item.isActive = true
+          } )
+
+          this.list.forEach( (_item, index) => {
+            _item.isActive = false
+            if (item.index >= index) {
+              _item.isActive = !_item.isActive
+            }
+          } )
+        },
+      }
+    })
+  </script>
+</body>
+</html>

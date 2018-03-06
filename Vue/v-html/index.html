@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-html</title>
+</head>
+<body>
+
+	<div id="app">
+		<div v-html="message"></div>
+		<div v-html="message"></div>
+		<div v-html="age"></div>
+		<div v-html="age"></div>
+		<div v-text="message"></div>
+	</div>
+
+
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript">
+  //
+	// 
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				message: '<p style="color:red">消息队列4242</p>',
+				age: '222',
+				sex: '男'
+			}
+		})
+
+	</script>
+</body>
+</html>

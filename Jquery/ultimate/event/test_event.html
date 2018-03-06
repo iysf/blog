@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core.js"></script>
+    <script src="../dom/manipulate.js"></script>
+    <script src="event.js"></script>
+</head>
+<body>
+    <div>
+        <span>111</span>
+        <span>2222</span>
+    </div>
+    <div>
+        <span>33333</span>
+        <span>44444
+            <a>span里面的a</a>
+        </span>
+    </div>
+    <div>
+        <a>aaa</a>
+        <span>5555</span>
+    </div>
+    <script>
+        function aDelegate1(e) {
+            console.log('a委托1', this, e);
+        }
+        function aDelegate2() {
+            console.log('a委托2');
+        }
+        function spanDelegate() {
+            console.log('span委托');
+        }
+        function click( e ) {
+            console.log('无委托click', this, e);
+        }
+        function mousedown() {
+            console.log('无委托mousedown', this);
+        }
+        $('div').on('click', 'a', aDelegate1)
+                .on('click', 'a', aDelegate2)
+                .on('click', 'span', spanDelegate)
+                .on('click', click);
+
+        // 委托绑定测试
+        setTimeout( function() {
+            $('div').eq(1).append('<a>动态添加的a元素</a>');
+        }, 5000);
+
+        // 清除所有事件
+        //$('div').off();
+
+        // 清除指定事件
+        //$('div').off( 'click' );
+
+        // 清除指定事件指定委托
+        //$('div').off( 'click', 'span' );
+
+        // 清除指定事件指定函数
+        //$('div').off( 'click', click );
+        //$('div').off( 'click', aDelegate );
+
+        // 清除指定事件指定委托的指定函数
+        //$('div').off( 'click', 'a', aDelegate1 );
+    </script>
+</body>
+</html>

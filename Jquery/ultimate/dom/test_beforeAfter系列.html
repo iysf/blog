@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core.js"></script>
+    <script src="manipulate.js"></script>
+</head>
+<body>
+    <div>
+        <span>111</span>
+        <span>2222</span>
+    </div>
+    <div>
+        <span>33333</span>
+        <span>44444</span>
+    </div>
+    <div>
+        <a>aaa</a>
+        <span class="span">5555</span>
+    </div>
+    <script>
+        /*
+         * before:
+         * 参数可以是DOM、jQ实例、内容。
+         * 给自己添加子元素。
+         * 返回值是this。
+         * */
+
+        // 字符串解析成DOM加到元素之前
+        //console.log($('span').before('<a>哈哈</a>'));
+        //console.log($('span').before('a'));
+
+        // 字符串解析成DOM加到元素之后
+        //$('div').before( $('span') );
+        //$('div').before( document.querySelector('a') );
+
+        /*
+         * after:
+         * 参数：参数可以是DOM、jQ实例、内容。
+         * 作用：给所有元素的最前面添加子节点。
+         * 返回值：返回this。
+         * */
+
+        // 字符串累加到元素之后
+        //console.log($('span').after('<a>哈哈</a>'));
+        //console.log($('span').after('a'));
+
+        // 在自己后面添加兄弟元素
+        //console.log($('div').after($('span')));
+        //console.log($('div').after(document.querySelector('a')));
+
+        /*-----------------------------------------------------------------*/
+
+        /*
+         * insertBefore:
+         * 参数：参数可以是DOM、jQ实例、selector。
+         * 作用：把自己添加到指定元素的前面。
+         * 返回值：返回所有被添加的元素。
+         * */
+        /*console.log($('span').insertBefore('div'));
+        console.log($('a').insertBefore($('div')));
+        console.log($('.span').insertBefore($('div')));*/
+
+        /*
+         * insertAfter:
+         * 参数：参数可以是DOM、jQ实例、内容。
+         * 作用：把自己添加到指定元素的后面。
+         * 返回值：返回所有被添加的元素。
+         * */
+        console.log($('a').insertAfter($('div')));
+        console.log($('span').insertAfter(document.querySelectorAll('div')));
+    </script>
+</body>
+</html>

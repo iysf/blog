@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core.js"></script>
+    <script src="attr.js"></script>
+</head>
+<body>
+    <script>
+        // 修改arguments没有问题
+        (function fn() {
+            'use strict';
+            [].unshift.call(arguments, '新增的')
+            console.log(arguments);
+        }( '原有的' ));
+    </script>
+</body>
+</html>

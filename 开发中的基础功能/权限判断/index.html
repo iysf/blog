@@ -11,16 +11,16 @@
 	</style>
 </head>
 <body>
-	
+
 	<div id="app" style="width: 500px; margin: 150px auto;text-align: center;">
-		
+
 		<div y-type="type"></div>
 
 		<div y-size="size"></div>
-	
+
 		<div class="totalPrice" style="margin-top: 25px;">
-			
-			$ 0 ~ 1999 
+
+			$ 0 ~ 1999
 
 		</div>
 
@@ -28,7 +28,7 @@
 
 </body>
 
-	<script type="text/javascript" src="../../前端流行框架(原理及模拟)/Jquery/ysfQuery.js"></script>
+	<script type="text/javascript" src="../../框架源码解读/Jquery/ysfQuery.js"></script>
 
 	<script type="text/javascript">
 		var typeArr = [],
@@ -64,22 +64,22 @@
 
 		// 此方法待考察
 		typeArr = Array.from ( new Set ( typeArr ) )
-		
+
 		// 填充Type
 
 		typeArr.forEach( function ( item, index, array ) {
-			typeHTML += "<span> " + 
+			typeHTML += "<span> " +
 				"<input type='radio' name='type' data-itemName='"+ item +"' onclick='typeChange(this)'> " +
-				"<span> "+ item +" </span> " + 
+				"<span> "+ item +" </span> " +
 				"</span>"
 
 		} )
 
 		sizeArr.forEach( function ( item, index, array ) {
 
-			sizeHTML += "<span> " + 
+			sizeHTML += "<span> " +
 				"<input type='radio' name='size' data-itemSize='"+ item +"'> " +
-				"<span> "+ item +" </span> " + 
+				"<span> "+ item +" </span> " +
 				"</span>"
 
 		} )
@@ -92,7 +92,7 @@
 		} )
 
 		// console.log(list)
-		
+
 		// Type填充完毕
 
 	// 动态方法
@@ -122,7 +122,7 @@
 			if ( item.isDisabled ) {
 
 				console.log("true:", item)
-				item.dom.removeAttribute('disabled') 
+				item.dom.removeAttribute('disabled')
 
 			} else {
 

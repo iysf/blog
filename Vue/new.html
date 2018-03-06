@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <span @click="close">点击关闭</span>
+    <input type="text" v-model="message" v-if="is" style="border: solid 1px red">
+    <!-- {{message}} -->
+  </div>
+
+
+
+<script type="text/javascript" src="./vue.js"></script>
+<script type="text/javascript">
+// v-if在创建元素的时候 会继续与之前的data值关联起来
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      message: '',
+      is: true,
+    },
+    methods: {
+      close () {
+        this.is = !this.is
+      }
+    }
+  })
+</script>
+</body>
+</html>

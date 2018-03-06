@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core.js"></script>
+    <script src="style.js"></script>
+</head>
+<body>
+    <div>
+        <span>11</span>
+        <span>22</span>
+        <span>33</span>
+        <span>44</span>
+    </div>
+    <script>
+        // 修改arguments没有问题
+        (function fn() {
+            'use strict';
+            [].unshift.call(arguments, '新增的')
+            console.log(arguments);
+        }( '原有的' ));
+
+        /*console.log($('body').css('width'));
+        console.log($('body').css('width', function(i, styleValue) {
+            console.log(this, i, styleValue);
+            return '100px';
+        }));
+        console.log($('body').css({
+            height: '50px',
+            backgroundColor: 'red'
+        }));*/
+
+        $('span').css('backgroundColor', 'blue');
+        $('span').css('backgroundColor', function(i) {
+            if(i % 2 == 0) {
+                return 'red';
+            }
+        });
+    </script>
+</body>
+</html>
