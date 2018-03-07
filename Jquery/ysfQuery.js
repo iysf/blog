@@ -1,14 +1,14 @@
 /*
-	* Author: YangShaoFeng.
-	* Github: https://github.com/iysf
-	* Email: yangshaofengfe@gmail.com
-	* Version: 1.0.0
-*/
+ * Author: YangShaoFeng.
+ * Github: https://github.com/iysf
+ * Email: yangshaofengfe@gmail.com
+ * Version: 1.0.0
+ */
 
 var log = console.log.bind(console)
 
 !(function ( global, factory ) {
-
+//
 var version = "1.0.0",
 		arr     = [],
 		push    = arr.push;
