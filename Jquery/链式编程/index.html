@@ -3,8 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jquery</title>
-	<script type="text/javascript" src="query.js"></script>
-	<!-- <script type="text/javascript" src="../jquery.js"></script> -->
 </head>
 <body>
 
@@ -17,10 +15,19 @@
 	// log($("#app").html())
 
 
-	console.log($('#app').html('链式编程'))
+	// console.log($('#app').html('链式编程'))
 	//
 
+	//
 	// 
+
+	for (var i = 0; i < 5; i++) {
+		(function (index) {
+			setTimeout( () => {
+				console.log(index)
+			}, 1000)
+		})(i)
+	}
 
 	// log($('#app').html('123'))
 	// log($(function () {

@@ -14,7 +14,32 @@
 
   // 空间复杂度
 
+  var result = 0
 
+  function foo ( number ) {
+    for (var i = 1; i <= number; i++) {
+      i = i.toString()
+      if (i.length == 1) {
+        if (i == 5) {
+          result++
+        }
+      } else if (i.length == 2) {
+        var before = i.slice(0, 1)
+        console.log("before:", before)
+        var after = i.slice(1, 2)
+        console.log("after:", after)
+        if (before == 5) {
+          result++
+        }
+        if (after == 5) {
+          result++
+        }
+      }
+    }
+    return result
+  }
+
+  console.log(foo(100))
 
   </script>
 
