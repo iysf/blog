@@ -3,7 +3,7 @@
 ### 目录：
 
 #### 算法：
-* [桶排序](http://example.net/)
+* [桶排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%A1%B6%E6%8E%92%E5%BA%8F/index.html)
 * 冒泡排序
 * 快速排序
 * 数组去重
