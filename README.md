@@ -8,6 +8,13 @@
   2. [冒泡排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html)
   3. [快速排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F.html)
   4. [归并排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html)
+  5. [希尔排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.html)
+* 图
+  1. [深度优先搜索]
+  2. [广度优先搜索]
+* 检索算法
+  1. [顺序查找]
+  2. [二分查找算法]
 
 #### 内部的api：
 * 数组的[].push、[].pop、[].forEach等
