@@ -3,11 +3,12 @@
 ### 目录：
 
 #### 算法：
-* 排序相关
+* 排序
   1. [桶排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%A1%B6%E6%8E%92%E5%BA%8F/index.html)
   2. [冒泡排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/index.html)
   3. [快速排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html)
-  4. [数组去重](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/Array%E5%8E%BB%E9%87%8D/index.html)
+  4. [归并排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/index.html)
+
 #### 内部的api：
 * 数组的[].push、[].pop、[].forEach等
 * 函数的bind，call，apply等
