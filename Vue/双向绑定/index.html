@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双向绑定</title>
+</head>
+<body>
+
+  <div id="app">
+
+    <input type="text" v-model="number">
+    <input type="button" value="+" v-on:click="increment">
+
+    <div v-bind="number"></div>
+
+  </div>
+
+<script type="text/javascript">
+
+function myVue (options) {
+  this._init(options)
+}
+
+myVue.prototype._init = function (options) {
+  this.$options = options
+  this.$el = document.querySelector(options.el)
+  this.$data = options.data
+  this.$methods = options.methods
+
+  this._obverse(this.$data)
+}
+
+myVue.prototype._obverse = function (data) {
+  // console.log(data)
+
+  Object.defineProperty(this.$data, key, {
+    enumerable: true,
+    configurable: true,
+    get: function () {
+      console.log("获取:", value)
+    },
+    set: function (newVal) {
+      if (value !== newVal) {
+        value = newVal
+      }
+    }
+  })
+}
+
+
+var vm = new myVue({
+  el: '#app',
+  data: {
+    number: 0
+  },
+  methods: {
+    increment: function () {
+      this.number ++
+    }
+  }
+})
+
+
+
+
+</script>
+</body>
+</html>
