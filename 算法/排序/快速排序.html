@@ -12,24 +12,10 @@
 
   //
   //
-  //
   // 一组数字中，任意找一个数字当作基准数。 比该数字大的放在右面，比该数字小的放在左面。
-  // 
 
-  var arr = [6, 1, 4, 7, 9, 10, 3, 2],
-    index = arr[0],
-   newArr = []
+  var arr = [6, 1, 4, 7, 9, 10, 8, 3, 2]
 
-  for ( var i = 0; i < arr.length; i++) {
-    if (arr[i] > index) {
-      newArr.push(arr[i])
-    } else {
-      newArr.unshift(arr[i])
-    }
-  }
-
-  console.log("newArr:", newArr)
-  console.log("arr:", arr)
 
   </script>
 
