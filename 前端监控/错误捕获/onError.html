@@ -5,16 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script type="text/javascript">
+    window.addEventListener('error', function (message) {
+      console.log('message:', message)
+    }, true)
+  </script>
 </head>
 <body>
-  <input type="button" value="报错">
+  <input type="button" value="报错" onclick="actions()">
   <script type="text/javascript">
-  //
-  //
-  //
-  window.onerror = function () {
-    console.log('捕获错误:')
+  // 1、收集信息
+  // 2、数据处理
+  // 3、数据展示
+
+
+  // console21
+
+  function actions () {
+    // console.log(1)
+    console.log(a)
   }
+
   </script>
 </body>
 </html>
