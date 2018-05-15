@@ -5,25 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="http://www.baidu.com">
   <script type="text/javascript">
-    window.addEventListener('error', function (message) {
-      console.log('message:', message)
-    }, true)
+  // link 标签跨域
+  // img onload事件与 src的指向
+  var browserType = browserType()
+  var browserVersion = navigator.appVersion
+
+  window.addEventListener('error', function (error) {
+    console.log('error:', error)
+    console.log('浏览器型号:', browserType)
+    console.log('浏览器版本号:', browserVersion)
+    console.log('具体错误信息:', error.message)
+    console.log('错误文件:', error.filename)
+  }, true)
+
+  function browserType () {
+    var userAgent = navigator.userAgent //取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf("Opera") > -1
+    if (isOpera) {
+      return "Opera"
+    }; //判断是否Opera浏览器
+    if (userAgent.indexOf("Firefox") > -1) {
+      return "FF";
+    } //判断是否Firefox浏览器
+    if (userAgent.indexOf("Chrome") > -1){
+      return "Chrome";
+    }
+    if (userAgent.indexOf("Safari") > -1) {
+      return "Safari";
+    } //判断是否Safari浏览器
+    if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+      return "IE";
+    } //判断是否IE浏览器
+  }
+
   </script>
 </head>
 <body>
   <input type="button" value="报错" onclick="actions()">
+
   <script type="text/javascript">
   // 1、收集信息
   // 2、数据处理
   // 3、数据展示
 
 
-  // console21
+
 
   function actions () {
     // console.log(1)
-    console.log(a)
+    // console.log(a)
   }
 
   </script>
