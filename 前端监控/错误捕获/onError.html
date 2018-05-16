@@ -6,45 +6,83 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="http://www.baidu.com">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  </style>
   <script type="text/javascript">
   // link 标签跨域
   // img onload事件与 src的指向
+  //
   var browserType = browserType()
   var browserVersion = navigator.appVersion
 
+  // bind event
   window.addEventListener('error', function (error) {
     console.log('error:', error)
     console.log('浏览器型号:', browserType)
     console.log('浏览器版本号:', browserVersion)
     console.log('具体错误信息:', error.message)
     console.log('错误文件:', error.filename)
-  }, true)
+    // console.log('用户ID:', IP360.id)
 
+  }, true)
+  // get browser type
   function browserType () {
     var userAgent = navigator.userAgent //取得浏览器的userAgent字符串
-    var isOpera = userAgent.indexOf("Opera") > -1
-    if (isOpera) {
+
+    //判断是否Opera浏览器
+    if (userAgent.indexOf("Opera") > -1) {
       return "Opera"
-    }; //判断是否Opera浏览器
-    if (userAgent.indexOf("Firefox") > -1) {
-      return "FF";
-    } //判断是否Firefox浏览器
-    if (userAgent.indexOf("Chrome") > -1){
-      return "Chrome";
     }
+    //判断是否Firefox浏览器
+    if (userAgent.indexOf("Firefox") > -1) {
+      return "FF"
+    }
+    //判断是否Chrome浏览器
+    if (userAgent.indexOf("Chrome") > -1){
+      return "Chrome"
+    }
+    //判断是否Safari浏览器
     if (userAgent.indexOf("Safari") > -1) {
-      return "Safari";
-    } //判断是否Safari浏览器
+      return "Safari"
+    }
+    //判断是否IE浏览器
     if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
-      return "IE";
-    } //判断是否IE浏览器
+      return "IE"
+    }
+
   }
+
+  // window.onerror = function (errorMessage, scriptURI, lineNumber, columnNumber, errorObj) {
+  //   var info = "错误信息：" + errorMessage + "</br>" +
+  //           "出错文件：" + scriptURI + "</br> " +
+  //           "出错行号：" + lineNumber + "</br>" +
+  //           "出错列号：" + columnNumber + "</br>" +
+  //           "错误详情：" + errorObj + "</br></br>"
+  //   console.log(info)
+  // }
+
+
+  // 捕获跨域错误
+  // var xhr = new XMLHttpRequest()
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState == 4) {
+  //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+  //       //alert(xhr.responseText)
+  //     }
+  //   }
+  // }
+  // xhr.open("get", "http://www.baidu.com", true)
+  // xhr.send(null)
 
   </script>
 </head>
 <body>
   <input type="button" value="报错" onclick="actions()">
-
+  <img src="http://c.hiphotos.baidu.com/image/pic/item/0df3d7ca7bcb0a46f8c4938f6763f6246a60afa5.jpg" >
   <script type="text/javascript">
   // 1、收集信息
   // 2、数据处理
@@ -54,8 +92,8 @@
 
 
   function actions () {
-    // console.log(1)
-    // console.log(a)
+    console.log(1)
+    console.log(a)
   }
 
   </script>
