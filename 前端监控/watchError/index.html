@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="http://www.baidu.com">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+  <script type="text/javascript">
+  // link 标签跨域
+  // img onload事件与 src的指向
+  //
+  var browserType = browserType()
+  var browserVersion = navigator.appVersion
+
+  // bind event
+  window.addEventListener('error', function (error) {
+    console.log('error:', error)
+    console.log('浏览器型号:', browserType)
+    console.log('浏览器版本号:', browserVersion)
+    console.log('具体错误信息:', error.message)
+    console.log('错误文件:', error.filename)
+    // console.log('用户ID:', IP360.id)
+
+  }, true)
+  // get browser type
+  function browserType () {
+    var userAgent = navigator.userAgent //取得浏览器的userAgent字符串
+
+    //判断是否Opera浏览器
+    if (userAgent.indexOf("Opera") > -1) {
+      return "Opera"
+    }
+    //判断是否Firefox浏览器
+    if (userAgent.indexOf("Firefox") > -1) {
+      return "FF"
+    }
+    //判断是否Chrome浏览器
+    if (userAgent.indexOf("Chrome") > -1){
+      return "Chrome"
+    }
+    //判断是否Safari浏览器
+    if (userAgent.indexOf("Safari") > -1) {
+      return "Safari"
+    }
+    //判断是否IE浏览器
+    if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+      return "IE"
+    }
+
+  }
+
+
+
+  // 捕获跨域错误
+  // var xhr = new XMLHttpRequest()
+  // xhr.onreadystatechange = function () {
+  //   if (xhr.readyState == 4) {
+  //     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+  //       //alert(xhr.responseText)
+  //     }
+  //   }
+  // }
+  // xhr.open("get", "http://www.baidu.com", true)
+  // xhr.send(null)
+
+  </script>
+</head>
+<body>
+
+  <video src=""></video>
+  <input type="button" value="报错" onclick="actions()">
+  <img src="http://c.hiphotos.baidu.com/image/pic/item/0df3d7ca7bcb0a46f8c4938f6763f6246a60afa5.jpg" style="width: 100px;height: 100px;">
+  <script type="text/javascript">
+  // 1、收集信息
+  // 2、数据处理
+  // 3、数据展示
+
+
+
+
+  function actions () {
+    console.log(1)
+    console.log(a)
+  }
+
+  </script>
+</body>
+</html>
