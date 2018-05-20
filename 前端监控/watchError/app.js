@@ -26,7 +26,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users', users);
 
 app.use('/', function (req, res, next) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+  console.log('enter watchError Node Servier')
+
+  if (req.originalUrl.indexOf('watchError') === 0) {
+
+    console.log(req.originalUrl)
+    next()
+  } else {
+    res.sendFile(path.join(__dirname, '/index.html'));
+  }
 })
 
 
