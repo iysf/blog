@@ -9,7 +9,7 @@ app.use(function (req, res, next) {
     console.log("req/url:", req.url)
     console.log("pathName:", req.url.pathname)
     if (req.method == 'GET') {
-
+      // 
     } else if (req.method == 'POST') {
 
     }
