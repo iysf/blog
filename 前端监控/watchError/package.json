@@ -13,5 +13,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "log4js": "^2.7.0"
   }
 }

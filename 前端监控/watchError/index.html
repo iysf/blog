@@ -16,6 +16,7 @@
   // link 标签跨域
   // img onload事件与 src的指向
   //
+  // 
   var browserType = browserType()
   var browserVersion = navigator.appVersion
   // bind event
@@ -26,7 +27,7 @@
     console.log('具体错误信息:', error.message)
     console.log('错误文件:', error.filename)
     // console.log('用户ID:', IP360.id)
-
+    // consnoles.logd...wqfwqfqwfqw
     var xhr = new XMLHttpRequest()
     xhr.open('post', '/watchError')
     xhr.send()
@@ -36,10 +37,8 @@
       }
     }
     console.log('xhr:', xhr)
-    console.log('')
-    //
-    //
-  }, true)
+  })
+
   // get browser type
   function browserType () {
     var userAgent = navigator.userAgent //取得浏览器的userAgent字符串
@@ -92,6 +91,14 @@
   // 1、收集信息
   // 2、数据处理
   // 3、数据展示
+
+
+  // 1、Nginx 反向代理
+  // 2、本地起端口
+
+  // https://www.ip360.net.cn => 单独购买 => 域名指向什么服务器 那么它才可以去通过域名 => 通过域名 => IP =>
+  //
+
 
   // 把有限的时间放在自己能学明白的地方
 

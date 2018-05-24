@@ -28,15 +28,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', function (req, res, next) {
   console.log('enter watchError Node Servier')
 
-  if (req.originalUrl.indexOf('watchError') === 0) {
+  if (req.originalUrl.indexOf('/watchError') === 0) {
 
-    console.log(req.originalUrl)
+    console.log('originalUrl:', req.originalUrl)
     next()
   } else {
     res.sendFile(path.join(__dirname, '/index.html'));
   }
 })
 
+// 错误监控
+app.use('/watchError', function (req, res, next) {
+  console.log('use: /watchError')
+  res.json('111')
+})
 
 
 // catch 404 and forward to error handler
