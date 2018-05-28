@@ -73,7 +73,7 @@ $.fn.html = function ( text ) {
 }
 
 
-
+// console.log($.fn)
 global.$ = global.jQuery = $
 
 })( this, function ( window, noGlabol ) {  })
