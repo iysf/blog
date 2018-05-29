@@ -11,16 +11,41 @@
   <script type="text/javascript">
 
   //
-  //
+  // 时间复杂度O(N2)
   // 一组数字中，任意找一个数字当作基准数。 比该数字大的放在右面，比该数字小的放在左面。
 
-  var arr = [85, 24, 63, 45, 17, 31, 96, 50]
+  var arr = [85, 24, 63, 45, 17, 31, 96, 50, 12, 15],
+    index = arr[parseInt(arr.length / 2)],
+  leftArr = [],
+ rightArr = []
   // var
-  console.log(arr.length)
+  // 85 > 31
+  // 24 > 31
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] > index) {
+      leftArr.push(arr[i])
+    } else {
+      rightArr.push(arr[i])
+    }
+  }
+  console.log('索引:', index)
+  console.log('leftArr:', leftArr)
+  console.log('rightArr:', rightArr)
 
+  var leftArrIndex = leftArr[parseInt(leftArr.length / 2)], a = [], b = []
 
+  for (var i = 0; i < leftArr.length; i++) {
+    console.log("is:", leftArr[i] > leftArrIndex)
+    if (leftArr[i] > leftArrIndex) {
+      a.push(leftArr[i])
+    } else {
+      b.push(leftArr[i])
+    }
+  }
 
-
+  console.log('索引:', leftArrIndex)
+  console.log('leftArr:', a)
+  console.log('rightArr:', b)
   </script>
 
 </body>
