@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<div id="app"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+<script type="text/javascript">
+
+var log = console.log.bind(console), arr = [], push = arr.push;
+
+
+function $ (selector) {
+  // console.log(selector)
+  // return push.apply(this, document.querySelectorAll(selector))
+  return new $.prototype.init(selector)
+}
+
+// $.fn = $.prototype = {
+//
+//   constructor: $,
+//   // The Current version
+//   Version: 1.0,
+//   //
+//   length: 0,
+//
+//   selector: ""
+// }
+
+$.prototype.init = function (selector) {
+  push.apply(this, document.querySelectorAll(selector))
+}
+
+$.prototype.init.prototype = $.prototype
+
+$.prototype.html = function (text) {
+  for (var i = 0; i < this.length; i++) {
+    this[i].innerHTML = text
+  }
+  // this.forEach((item, index) => {
+    // item.innerHTML = text
+  // })
+  // this.innerHTML = text
+
+}
+
+// $.prototype.each = function () {
+
+// }
+
+// $.ajax({
+//
+// })
+
+
+console.log($('#app'))
+console.log($('#app').length)
+$('#app').html('a')
+
+$('#app').html('aaaa')
+
+</script>
+</body>
+</html>
