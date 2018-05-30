@@ -13,6 +13,11 @@
 <div class="box"></div>
 
 <script type="text/javascript">
+function foo () {
+
+}
+console.log(foo.apply)
+
 
 var log = console.log.bind(console), arr = [], push = arr.push;
 
@@ -34,22 +39,32 @@ function $ (selector) {
 //   selector: ""
 // }
 
-// 
+// Check if Value is null
+$.prototype.isNull = function (type) {
+  return !type && typeof type === 'object'
+}
+
+// log('isNull:', $.prototype.isNull(1))
+// log('isNull:', $.prototype.isNull(null))
+
+
 
 $.prototype.init = function (selector) {
+
   push.apply(this, document.querySelectorAll(selector))
+  log(push.apply)
+  log(push)
 }
 
 $.prototype.init.prototype = $.prototype
 
 $.prototype.html = function (text) {
+
   for (var i = 0; i < this.length; i++) {
+
     this[i].innerHTML = text
+
   }
-  // this.forEach((item, index) => {
-    // item.innerHTML = text
-  // })
-  // this.innerHTML = text
 
 }
 
@@ -61,11 +76,9 @@ $.prototype.html = function (text) {
 //
 // })
 
-
-console.log($('#app'))
-console.log($('#app').length)
-$('#app').html('a')
-
+log(arr)
+log($('#app'))
+log($('#app').length)
 $('#app').html('aaaa')
 
 </script>
