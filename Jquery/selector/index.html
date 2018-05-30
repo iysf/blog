@@ -16,10 +16,11 @@
 function foo () {
 
 }
-console.log(foo.apply)
 
 
 var log = console.log.bind(console), arr = [], push = arr.push;
+
+log(foo.apply)
 
 
 function $ (selector) {
@@ -47,7 +48,7 @@ $.prototype.isNull = function (type) {
 // log('isNull:', $.prototype.isNull(1))
 // log('isNull:', $.prototype.isNull(null))
 
-
+// function.length == (arguments.length === params.length )
 
 $.prototype.init = function (selector) {
 
