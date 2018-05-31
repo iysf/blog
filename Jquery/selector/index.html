@@ -29,7 +29,7 @@ function $ (selector) {
   return new $.prototype.init(selector)
 }
 
-// 
+//
 // $.fn = $.prototype = {
 //
 //   constructor: $,
@@ -44,6 +44,11 @@ function $ (selector) {
 // Check if Value is null
 $.prototype.isNull = function (type) {
   return !type && typeof type === 'object'
+}
+
+// log($.prototype == $)
+$.prototype.isArray = function () {
+
 }
 
 // log('isNull:', $.prototype.isNull(1))
@@ -82,6 +87,7 @@ log(arr)
 log($('#app'))
 log($('#app').length)
 $('#app').html('aaaa')
+
 
 </script>
 </body>
