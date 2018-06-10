@@ -20,7 +20,7 @@ var $ = function ( selector ) {
 	return new $.fn.init( selector )
 
 }
-
+// 
 $.fn = $.prototype = {
 
 	// The current version of jQuery being used
