@@ -20,6 +20,7 @@ var $ = function ( selector ) {
 	return new $.fn.init( selector )
 
 }
+//
 // 
 $.fn = $.prototype = {
 
