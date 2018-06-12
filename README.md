@@ -18,7 +18,7 @@
 #### 前端监控：
 * 捕获前端错误
   1. [前端代码异常](http://www.baidu.com)
-  
+
 #### 内部的api：
 * 数组的[].push、[].pop、[].forEach等
 * 函数的bind，call，apply等
@@ -52,4 +52,7 @@
 * 代理、网关、隧道
 * SPDY、WebSocket、WebDAV
 * 无状态(stateless)、301和302重定向的区别、缓存机制
-* Web安全、HTTPS、SSL、证书认证、加密机制、Web攻击手段
+* Web安全、HTTPS、SSL、证书认证、加密机制、Web攻击手段：Dos攻击、跨站点请求伪造（CSRF）、SQL注入、XSS攻击
+
+
+<!-- 在浏览器调试工具中 console中 直接$.ajax({}) 就可以访问后端的接口。 -->
