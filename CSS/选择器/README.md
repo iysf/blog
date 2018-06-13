@@ -1,3 +1,6 @@
+## CSS规则结构
+![](./structure.jpeg)
+
 ## 多类选择器
 
 ```
@@ -5,6 +8,7 @@
 p.warning.help {
   color: red;
 }
+
 <p class="warning help urgent">123</p>
 
 ```
