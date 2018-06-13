@@ -1,8 +1,6 @@
-# JavaScript魔法师
-
 ### 目录：
 
-#### 算法：
+<!-- #### 算法：
 * 排序
   1. [桶排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F.html)
   2. [冒泡排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F.html)
@@ -53,6 +51,4 @@
 * SPDY、WebSocket、WebDAV
 * 无状态(stateless)、301和302重定向的区别、缓存机制
 * Web安全、HTTPS、SSL、证书认证、加密机制、Web攻击手段：Dos攻击、跨站点请求伪造（CSRF）、SQL注入、XSS攻击
-
-
-<!-- 在浏览器调试工具中 console中 直接$.ajax({}) 就可以访问后端的接口。 -->
+* 在浏览器调试工具中 console中 直接$.ajax({}) 就可以访问后端的接口。 -->
