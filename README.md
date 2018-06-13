@@ -1,5 +1,5 @@
 ### CSS：
-* [选择器](./tree/master/CSS)
+* [选择器](https://github.com/iysf/blog/tree/master/CSS/selector)
 
 <!-- #### 算法：
 * 排序
