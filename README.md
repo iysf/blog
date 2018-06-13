@@ -1,6 +1,8 @@
 ### CSS：
 * [选择器](https://github.com/iysf/blog/tree/master/CSS/selector)
 
+### jQuery：
+* [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
 <!-- #### 算法：
 * 排序
   1. [桶排序](https://github.com/iysf/legendary-JavaScript/blob/master/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/%E6%A1%B6%E6%8E%92%E5%BA%8F.html)
