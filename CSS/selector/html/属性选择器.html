@@ -13,15 +13,28 @@
       font-size: 24px;
       color: yellow;
     }
+    /* 完全匹配 */
+    p[class="warning urgent"] {
+      color: red;
+      font-size: 32px;
+    }
+    /* 部分匹配 */
+    p[class~="urgent"] {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  
+
   <p data-v-142432>version: CSS2</p>
   <p>attribute-selector</p>
 
   <div><a href="#" title="attributeSelector">attributeSelector</a></div>
   <div><a href="#">attributeSelector</a></div>
   <div><a title="attributeSelector">attributeSelector</a></div>
+
+  <div><p class="warning urgent">attributeSelector</p></div>
+  <div><p class="warning">attributeSelector</p></div>
+  <div><p class="urgent">attributeSelector</p></div>
 </body>
 </html>
