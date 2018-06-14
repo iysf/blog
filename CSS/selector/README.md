@@ -44,22 +44,25 @@ p[class~="urgent"] {
 ```
 
 ## 元素相邻选择器
+> 元素相邻选择器有两个特点：
+  - 紧接在另一元素后
+  - 二者有相同父元素
+
+> 现在假如要选择 class为main中的 span相邻的p标签
+
 ```css
-ol + ul > li + li + li {
-  color: blue;
+.main > span + p {
+  color: red
 }
 ```
 ```html
-<div>
-  <ol>
-    <li>ol:1</li>
-    <li>ol:2</li>
-    <li>ol:3</li>
-  </ol>
-  <ul>
-    <li>li:1</li>
-    <li>li:2</li>
-    <li>li:3</li>
-  </ul>
+<div class="main">
+  <div>div1</div>
+  <span>span1</span>
+  <p>P1</p>
+  <em>span2</em>
+  <p>P2</p>
 </div>
 ```
+
+## 伪类和伪元素

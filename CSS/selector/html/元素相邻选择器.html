@@ -9,8 +9,12 @@
     color: blue;
   }
 
+  .main > span + p {
+    color: red
+  }
+
   </style>
-  <title>Document</title>
+  <title>元素相邻选择器</title>
 </head>
 <body>
 
@@ -25,6 +29,14 @@
       <li>li:2</li>
       <li>li:3</li>
     </ul>
+  </div>
+
+  <div class="main">
+    <div>div1</div>
+    <span>span1</span>
+    <p>P1</p>
+    <em>span2</em>
+    <p>P2</p>
   </div>
 
 </body>
