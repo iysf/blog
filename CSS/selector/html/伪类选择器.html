@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>伪类和伪元素</title>
+  <style type="text/css">
+  body:hover {
+    background-color: #000
+  }
+  a {
+    color: red;
+  }
+  a:visited {
+    color: green;
+  }
+  .selector:hover {
+    color: blue;
+  }
+  .selector:active {
+    color: #000;
+  }
+  .inp:focus {
+    background-color: #000;
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <p>
+    <a href="#">伪类 selector</a>
+  </p>
+  <p>
+    <a href="#" class="selector">伪类 selector</a>
+  </p>
+  <p>
+    <input type="text" class="inp">
+  </p>
+</body>
+</html>

@@ -1,5 +1,5 @@
 ### CSS：
-* [选择器](https://github.com/iysf/blog/tree/master/CSS/selector)
+* [selector](https://github.com/iysf/blog/tree/master/CSS/selector)
 
 ### jQuery：
 * [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)

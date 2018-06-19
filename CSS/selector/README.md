@@ -66,3 +66,39 @@ p[class~="urgent"] {
 ```
 
 ## 伪类选择器
+
+##### 静态伪类
+
+> first-child
+  ```css
+  p:first-child {
+    color: yellow;
+  }
+  li:first-child {
+    color: red;
+    /* 将文字变成大写 */
+    text-transform: uppercase;
+  }
+  div:nth-child(1) {
+    color: #fff;
+    background-color: #000;
+  }
+  ```
+  ```html
+  <div class="main">
+    <p>p1</p>
+    <ul>
+      <li>li1</li>
+      <li>li2</li>
+      <li>li3</li>
+    </ul>
+    <p>p2</p>
+  </div>
+  ```
+
+
+
+
+
+> 动态伪类
+  -

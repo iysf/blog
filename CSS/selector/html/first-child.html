@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>first-child</title>
+  <style>
+  p:first-child {
+    color: yellow;
+  }
+  li:first-child {
+    color: red;
+    /* 将文字变成大写 */
+    text-transform: uppercase;
+  }
+  div:nth-child(1) {
+    color: #fff;
+    background-color: #000;
+  }
+  </style>
+</head>
+<body>
+  <div>
+    <p>p1</p>
+    <ul>
+      <li>li1</li>
+      <li>li2</li>
+      <li>li3</li>
+    </ul>
+    <p>p2</p>
+  </div>
+</body>
+</html>
