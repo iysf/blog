@@ -51,14 +51,7 @@
     - prod.env.js
   - src
   - static
-component
-客户端 => webview => h5 => www.baidu.com/user/login
-index.html / qiwojfopjfop.hash.js + 10 / + css + img
-localhost:8080/user/
-SPA
-<!-- 跨域、seessionId、部署方案 -->
-<!-- 静态资源 > Nodejs > python -->
-<!-- express >  -->
+
 ### Nodejs数据夹层
 > 前端日志系统
 
@@ -121,7 +114,3 @@ SPA
 * 无状态(stateless)、301和302重定向的区别、缓存机制
 * Web安全、HTTPS、SSL、证书认证、加密机制、Web攻击手段：Dos攻击、跨站点请求伪造（CSRF）、SQL注入、XSS攻击
 * 在浏览器调试工具中 console中 直接$.ajax({}) 就可以访问后端的接口。 -->
-
-<!-- 后端请求方式也不知道 我说get还是post 他说不知道  然后让我请求 cookie带seesionId 我说这个是你直接取的 我自动带的 -->
-
-<!-- 然后 做的那个移动端适配新方案，我在上家公司 无论是安卓还是ios 都是适配很好的。。。这边出了点问题 责任都甩前端了 -->
