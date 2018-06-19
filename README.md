@@ -3,8 +3,8 @@
 
 ### jQuery：
 * [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
-[ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax)
-[attr](https://github.com/iysf/blog/tree/master/Jquery/attr)
+* [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax)
+* [attr](https://github.com/iysf/blog/tree/master/Jquery/attr)
 
 ### Vue：
 
