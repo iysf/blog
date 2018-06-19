@@ -1,4 +1,4 @@
-## selector
+## DOM selector
 
 > jQuery中很有意思的一个事情是：
 ```JavaScript
@@ -43,3 +43,5 @@ console.log(new $$('#app').html('a'))
 console.log(new $$('.box').html('abc'))
 
 ```
+
+## onload selector
