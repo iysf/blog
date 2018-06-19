@@ -1,33 +1,32 @@
-## selector
-
-> jQuery中很有意思的一个事情是：
-```JavaScript
-$('#app').html('abc')
-```
-这样连续调用了两个Api，那么它内部到底是怎么样的运行过程？
-
-我先直接上代码了，稍后解读。
-
-```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>selector</title>
+</head>
+<body>
 <div id="app"></div>
 <div class="box"></div>
 <div class="box"></div>
-```
 
-```js
+<script type="text/javascript">
+
 var $$ = function (selector) {
+  console.log('selector:', selector)
   this.selector = Array.from(document.querySelectorAll(selector))
   return this
 }
 $$.prototype = {
   constructor: $$,
-  // The current version of jQuery being used
+  // The Current version
   version: '1.0',
 
-  // The default length of a jQuery object is 0
+  //
   length: 0,
 
-  // Start with an empty selector
+  //
   selector: [],
 
   //
@@ -42,4 +41,7 @@ $$.prototype = {
 console.log(new $$('#app').html('a'))
 console.log(new $$('.box').html('abc'))
 
-```
+</script>
+
+</body>
+</html>
