@@ -69,7 +69,7 @@ p[class~="urgent"] {
 
 ##### 静态伪类
 
-> first-child
+> first-child (兼容IE7)
   ```css
   p:first-child {
     color: yellow;
@@ -94,11 +94,36 @@ p[class~="urgent"] {
     </ul>
     <p>p2</p>
   </div>
+  ```  
+
+##### 动态伪类
+
+> hover
+
+>
+
+## 伪元素选择器
+
+> first-letter
+  ```css
+  /* 第一个文字 */
+  p::first-letter {
+    color: red;
+    font-size: 36px;
+  }
+  li {
+    width: 200px;
+  }
+  /* 第一行 */
+  li::first-line {
+    color: yellow;
+    display: block;
+  }
   ```
-
-
-
-
-
-> 动态伪类
-  -
+  ```html
+  <p>请问访问我去王府井破为契机否破解我强迫去</p>
+  <ul>
+    <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
+    <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
+  </ul>
+  ```
