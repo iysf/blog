@@ -1,21 +1,29 @@
 ### CSS：
-* [selector](https://github.com/iysf/blog/tree/master/CSS/selector)
-* [重绘](https://github.com/iysf/blog/tree/master/CSS/%E9%87%8D%E7%BB%98)
-* [回流](https://github.com/iysf/blog/tree/master/CSS/%E5%9B%9E%E6%B5%81)
+> [selector](https://github.com/iysf/blog/tree/master/CSS/selector)
+
+> [重绘](https://github.com/iysf/blog/tree/master/CSS/%E9%87%8D%E7%BB%98)
+
+> [回流](https://github.com/iysf/blog/tree/master/CSS/%E5%9B%9E%E6%B5%81)
 
 ### jQuery：
-* [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
-* [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax)
-* [attr](https://github.com/iysf/blog/tree/master/Jquery/attr)
+> [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
+
+> [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax)
+
+> [attr](https://github.com/iysf/blog/tree/master/Jquery/attr)
 
 ### Vue：
 
-> 基于Vue框架制作的功能
-  * [todoList](https://github.com/iysf/blog/tree/master/Vue/todoList)
-  * [星级评分](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
-  * [分页](https://github.com/iysf/blog/tree/master/Vue/%E5%88%86%E9%A1%B5)
-  * [全选反选](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
-  * [计算器](https://github.com/iysf/blog/tree/master/Vue/%E8%AE%A1%E7%AE%97%E5%99%A8)
+###### 基于Vue框架制作的功能
+> [todoList](https://github.com/iysf/blog/tree/master/Vue/todoList)
+
+> [星级评分](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
+
+> [分页](https://github.com/iysf/blog/tree/master/Vue/%E5%88%86%E9%A1%B5)
+
+> [全选反选](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
+
+> [计算器](https://github.com/iysf/blog/tree/master/Vue/%E8%AE%A1%E7%AE%97%E5%99%A8)
 
 > 模拟实现Vue原理
   * 双向绑定
