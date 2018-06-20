@@ -105,27 +105,68 @@ p[class~="urgent"] {
 ## 伪元素选择器
 
 > first-letter
-  ```css
-  /* 第一个文字 */
-  p::first-letter {
-    color: red;
-    font-size: 36px;
-  }
-  li {
-    width: 200px;
-  }
-  /* 第一行 */
-  li::first-line {
-    color: yellow;
-    display: block;
-  }
-  ```
-  ```html
-  <p>请问访问我去王府井破为契机否破解我强迫去</p>
-  <ul>
-    <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
-    <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
-  </ul>
-  ```
 
-  
+```css
+/* 第一个文字 */
+p::first-letter {
+  color: red;
+  font-size: 36px;
+}
+li {
+  width: 200px;
+}
+/* 第一行 */
+li::first-line {
+  color: yellow;
+  display: block;
+}
+```
+```html
+<p>请问访问我去王府井破为契机否破解我强迫去</p>
+<ul>
+  <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
+  <li>废弃物服务器请问服去污粉物权法qwop金佛全物品请问去污粉请问废弃物王强务器请问</li>
+</ul>
+```
+
+> before or after
+
+```css
+span::after {
+  content: "The End";
+}
+span::before {
+  content: "The Start"
+}
+```
+
+```html
+<span></span>
+```
+
+
+> 用户代理通常必须慎用选择器
+
+
+## selector 优先级
+
+> id = 0, 1, 0, 0;
+
+> class = 0, 0, 1, 0;
+
+> Element = 0, 0, 0, 1;
+
+```css
+.selector_p {
+  color: red;
+}
+#selector_p {
+  color: blue;
+}
+p {
+  color: yellow;
+}
+```
+```html
+<p class="selector_p" id="selector_p">selector priority</p>
+```
