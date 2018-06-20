@@ -13,9 +13,11 @@
 <script type="text/javascript">
 
 function $ (selector) {
-  return new $.prototype.init(selector)
+  return new init(selector)
 }
-
+function init (selector) {
+  this.selector = Array.from(document.querySelectorAll(selector))
+}
 $.prototype = {
   constructor: $,
   // The current version of jQuery being used
@@ -35,16 +37,18 @@ $.prototype = {
     return this
   }
 }
+init.prototype = $.prototype
 
-$.prototype.init = function (selector) {
-  // console.log(this)
-  this.selector = Array.from(document.querySelectorAll(selector))
-}
+// $.prototype.init = function (selector) {
+//   // console.log(this)
+//   this.selector = Array.from(document.querySelectorAll(selector))
+// }
 
-$.prototype.init.prototype = $.prototype
+// $.prototype.init.prototype = $.prototype
 // $.prototype.init.prototype = {
     // html: function () {}
 // }
+console.log($('#app'))
 console.log($('#app').html('a'))
 console.log($('.box').html('abc'))
 

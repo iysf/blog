@@ -102,4 +102,54 @@ console.log($('.box').html('abc'))
 * new $.prototype.init()
 * $.prototype.init.prototype = $.prototype
 
+结合上面的问题，得出一个结论是：$函数调用完毕以后 return 一个实例，这个实例需要继承$.prototype上的属性和方法。
+
+假如这样写的话：
+```js
+function $ () {
+  return new $()
+}
+```
+那么这样其实是进入了递归
+
+解决这种问题的思路是：$函数调用完毕以后 return 一个init构造函数的实例，这个init构造函数的prototype指向$.prototype。
+
+那么总结一下就是：$函数调用完毕以后，return一个init函数的实例。将init函数的prototype指向$.prototype。就可以实现$('#app').html('a')这样的一个链式调用了。
+
+代码改造成这样更容易理解：
+
+```js
+function $ (selector) {
+  return new init(selector)
+}
+function init (selector) {
+  this.selector = Array.from(document.querySelectorAll(selector))
+}
+$.prototype = {
+  constructor: $,
+  // The current version of jQuery being used
+  version: '1.0',
+
+  // The default length of a jQuery object is 0
+  length: 0,
+
+  // Start with an empty selector
+  selector: [],
+
+  //
+  html: function (text) {
+    this.selector.forEach(function (item, index) {
+      item.innerHTML = text
+    })
+    return this
+  }
+}
+init.prototype = $.prototype
+
+console.log($('#app'))
+console.log($('#app').html('a'))
+console.log($('.box').html('abc'))
+```
+
+
 ## onload selector
