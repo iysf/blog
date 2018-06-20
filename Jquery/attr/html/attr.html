@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>attr</title>
+</head>
+<body>
+<div id="app"></div>
+<div class="box"></div>
+<div class="box"></div>
+
+<script type="text/javascript">
+function $ (selector) {
+  return new init(selector)
+}
+function init (selector) {
+  this.selector = Array.from(document.querySelectorAll(selector))
+}
+$.prototype = {
+  constructor: $,
+  // The current version of jQuery being used
+  version: '1.0',
+
+  // The default length of a jQuery object is 0
+  length: 0,
+
+  // Start with an empty selector
+  selector: [],
+
+  //
+  html: function (text) {
+    this.selector.forEach(function (item, index) {
+      item.innerHTML = text
+    })
+    return this
+  },
+  //
+  toArray: function () {
+
+  },
+  // 代码待优化
+  attr: function () {
+    var param = Array.from(arguments)
+    if (arguments.length > 1) {
+      this.selector.forEach(function (item, index) {
+        item.setAttribute(param[0], param[1])
+      })
+      return this
+    } else {
+      var value
+      this.selector.forEach(function (item, index) {
+        value = item.getAttribute(param[0])
+      })
+      return value
+    }
+  }
+}
+init.prototype = $.prototype
+
+console.log($('#app'))
+console.log($('#app').html('a').attr('style', 'color: red'))
+console.log($('#app').html('a').attr('style'))
+console.log($('.box').html('abc'))
+</script>
+</body>
+</html>
