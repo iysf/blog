@@ -170,3 +170,5 @@ p {
 ```html
 <p class="selector_p" id="selector_p">selector priority</p>
 ```
+
+## 通配
