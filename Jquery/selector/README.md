@@ -173,6 +173,6 @@ init.prototype = $.prototype
 
 那这个时候还有一个问题，返回的实例这个类型该怎么遍历？因为类型是Object，所以map或者forEach方法都不可用了。但是可以自己封装each方法。
 
-
+<!--  -->
 
 ## onload selector
