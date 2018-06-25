@@ -151,5 +151,28 @@ console.log($('#app').html('a'))
 console.log($('.box').html('abc'))
 ```
 
+深层次理解：
+
+其实目前是将DOM元素寄存在了实例的selector属性上了。
+
+比如forEach这行代码，具体写的是 this.selector.forEach()。
+
+其实在jQuery内部直接写，this.forEach就可以了。
+
+其实我们看jQuery返回实例的结果是这样的
+
+```js
+$('#app')
+// init [div#app, context: document, selector: '#app']
+```
+并且这个jQuery实例的__proto__指向的是$.prototype，至于原因请见代码
+```js
+init.prototype = $.prototype
+```
+这也就是为什么这个实例可以调用$.prototype的方法。
+
+那这个时候还有一个问题，返回的实例这个类型该怎么遍历？因为类型是Object，所以map或者forEach方法都不可用了。但是可以自己封装each方法。
+
+
 
 ## onload selector
