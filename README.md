@@ -1,6 +1,8 @@
 ### CSS：
 > [selector](https://github.com/iysf/blog/tree/master/CSS/selector)
 
+> [继承](https://github.com/iysf/blog/tree/master/CSS/%E7%BB%A7%E6%89%BF)
+
 > [重绘](https://github.com/iysf/blog/tree/master/CSS/%E9%87%8D%E7%BB%98)
 
 > [回流](https://github.com/iysf/blog/tree/master/CSS/%E5%9B%9E%E6%B5%81)
