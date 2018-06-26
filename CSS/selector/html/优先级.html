@@ -15,12 +15,29 @@
   p {
     color: yellow;
   }
-  p#selector_p {
-    color: pink;  
+  body span {
+    color: blue;
+  }
+  div span {
+    color: red;
+  }
+
+  /* 0, 0, 1, 4 */
+  html > body div span['#selector_span']{
+    font-size: 40px;
+    font-weight: bold;
+  }
+  /* 0, 1, 0, 1 */
+  span#selector_span{
+    font-size: 12px;
+    font-weight: normal;
   }
   </style>
 </head>
 <body>
   <p class="selector_p" id="selector_p">selector priority</p>
+  <div>
+    <span id="selector_span" style="font-size: 50px;">安抚请问废弃物</span>
+  </div>
 </body>
 </html>

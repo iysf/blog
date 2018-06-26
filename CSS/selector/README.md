@@ -172,3 +172,61 @@ p {
 ```
 
 ## 通配
+```css
+/* 0, 0, 0, 0 */
+* {
+  font-size: 40px;
+  font-weight: bold;
+}
+/* 0, 0, 0, 2 */
+div p {
+  font-size: 12px;
+  font-weight: normal;
+}
+```
+```html
+<div>
+  <p class="selector_p" id="selector_p">selector priority</p>
+</div>
+```
+
+注：假如优先级相同的选择器，最终在css代码的底端的规则会生效。
+
+## id or attribute selector
+
+```css
+/* 0, 0, 1, 4 */
+html > body div span['#selector_span']{
+  font-size: 40px;
+  font-weight: bold;
+}
+/* 0, 1, 0, 1 */
+span#selector_span{
+  font-size: 12px;
+  font-weight: normal;
+}
+```
+```html
+<body>
+  <p class="selector_p" id="selector_p">selector priority</p>
+  <div>
+    <span id="selector_span">安抚请问废弃物</span>
+  </div>
+</body>
+```
+
+## 内联样式的优先级
+```css
+/* 0, 1, 0, 1 */
+span#selector_span{
+  font-size: 12px;
+  font-weight: normal;
+}
+```
+```html
+<!-- 内联样式优先级： 1, 0, 0, 0 -->
+<span id="selector_span" style="font-size: 50px">安抚请问废弃物</span>
+```
+以前ID选择器的优先级与内联样式的优先级一样高，由于ID选择器很容易覆盖内联样式，在CSS2.1中将 1, 0, 0 改为 1, 0, 0, 0
+
+## important
