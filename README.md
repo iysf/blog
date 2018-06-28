@@ -15,9 +15,12 @@
 ## jQuery目录
 > [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
 
-> [attr](https://github.com/iysf/blog/tree/master/Jquery/attr)
+> [jsonp](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
 
-> [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax)
+<!-- > [attr](https://github.com/iysf/blog/tree/master/Jquery/attr) -->
+
+
+<!-- > [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax) -->
 
 
 ## Vue
