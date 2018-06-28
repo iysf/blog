@@ -47,3 +47,28 @@ px代表像素、一个像素就是在显示器上看到的一个点。这个值
 ### URL
 
 > 使用相对URL的地方几乎总能用一个绝对URL来替换
+
+
+### inherit
+
+> inherit 使一个属性的值与父元素的值相同。指定继承
+
+```css
+div {
+  color: blue;
+  border: solid 1px #ccc;
+}
+p {
+  color: inherit;
+  border: inherit;
+}
+a {
+  color: inherit;
+  border: inherit;
+}
+```
+```html
+<div>
+  <p>我去废弃物废弃物请问物权法<a href="#">全服务器我去</a></p>
+</div>
+```
