@@ -58,3 +58,27 @@ p {
 ```html
 <p style="color: red;">撒覅解耦破千万级欧派发脾气欧文去<em>发请问</em></p>
 ```
+
+### inherit
+
+> inherit 使一个属性的值与父元素的值相同。指定继承
+
+```css
+div {
+  color: blue;
+  border: solid 1px #ccc;
+}
+p {
+  color: inherit;
+  border: inherit;
+}
+a {
+  color: inherit;
+  border: inherit;
+}
+```
+```html
+<div>
+  <p>我去废弃物废弃物请问物权法<a href="#">全服务器我去</a></p>
+</div>
+```
