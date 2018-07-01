@@ -16,13 +16,13 @@
       info: 1
     }
   }
-
+  // 
   setInterval(function () {
     app.globalData.info++
   }, 1000)
 
   var value = ''
-  
+
   Object.defineProperty(app.globalData, 'info', {
     set: function (newValue) {
       console.log('newValue:', newValue)
