@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>title</title>
+  <style type="text/css">
+    #app > div + div + div{
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="main" v-html="globalData.info"></div>
+    <div class="main" v-html="globalData.info"></div>
+    <div class="actions" v-on:click="viewUpdate">操作数据变更</div>
+
+  </div>
+
+
+  <script type="text/javascript">
+  //
+  //Vue 1.0
+  ~(function (global) {
+    var log = console.log.bind(console)
+
+    //
+    function isArray () {
+
+    }
+
+    function isObject () {
+
+    }
+
+    function Vue (options) {
+      // return new Vue.prototype.init(options)
+      this.init(options)
+    }
+    //
+    Vue.prototype = {
+      //
+      constructor: Vue,
+      // The Current Version
+      version: 1.0,
+      // html
+      htmlDom: Array.from(document.querySelectorAll('[v-html]'))
+    }
+    // html Dom list
+    Vue.prototype.htmlDom.map((item, index) => {
+      item.removeAttribute('v-html')
+    })
+    // watch data change
+    Vue.prototype.watchData = function (data) {
+      this.data = data
+      var info = this.data.globalData.info, _this = this
+
+      Object.defineProperty(data.globalData, 'info', {
+        set: function (newValue) {
+          console.log('defineProperty info:', newValue)
+          info = newValue
+          _this.htmlDom.map(function (item, index) {
+            item.innerHTML = info
+          })
+
+        },
+        get: function (currentValue) {
+          return info
+        }
+      })
+    }
+    // init
+    Vue.prototype.init = function (options) {
+      this.el = options.el
+      this.watchData(options.data)
+      this.methods = options.methods
+    }
+
+    // view update
+    Vue.prototype.viewUpdate = function (data, attributeType) {
+      var attribute = Array.from(document.querySelectorAll('[v-' + attributeType + ']'))
+      attribute.map(function (item, index) {
+        item.removeAttribute('v-' + attributeType)
+        item.innerHTML = data
+      })
+    }
+
+    global.Vue = Vue
+  })(window ? this : null)
+
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      globalData: {info: 1},
+      list: [{a: 1},{a: 1},{a: 1},{a: 1},{a: 1},{a: 1},{a: 1},{a: 1},{a: 1}]
+    },
+    mounted: function () {},
+    methods: {
+      viewUpdate: function () {
+        this.globalData.info++
+        console.log('click info:', this.globalData)
+      }
+    }
+  })
+  console.log('vm:', vm)
+  console.log(document.querySelector('[v-on]'))
+  </script>
+
+</body>
+</html>
