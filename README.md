@@ -12,7 +12,7 @@
 
 > [文本阴影及对齐](https://github.com/iysf/blog/tree/master/CSS/文本阴影及对齐)
 
-> [浮动和对齐](https://github.com/iysf/blog/tree/master/CSS/浮动和对齐)
+> [浮动和定位](https://github.com/iysf/blog/tree/master/CSS/浮动和对齐)
 
 > [盒模型](https://github.com/iysf/blog/tree/master/CSS/盒模型)
 
