@@ -21,7 +21,7 @@ apiProxy：Nodejs
 
 ### 项目搭建
 
-###### 起步
+#### 起步
 
 1、安装Nodejs
 
@@ -31,7 +31,7 @@ apiProxy：Nodejs
 
 ---
 
-###### 移动端上的适配
+#### 移动端上的适配
 
 由于此次重构的项目是移动端，所以得需要做一些移动端适配。采取的方案可能大家都知道，是flexible.js。
 
@@ -66,7 +66,7 @@ $mobileBase是设计图的十分之一，代表设计图的宽度为750。
 
 ---
 
-###### axios
+#### axios
 
 项目搭建完了以后第一个关心的是：怎么发送网络请求？
 
@@ -123,7 +123,7 @@ export default {
 
 ---
 
-###### vue-router
+#### vue-router
 
 使用vue-router来进行SPA的构建，大家可以自行参考 [官网](https://router.vuejs.org/zh/) 来学习一系列的基础配置知识
 
@@ -150,13 +150,13 @@ next: 进行管道中的下一个钩子
 
 ---
 
-###### Vuex
+#### Vuex
 
 后续补吧......先列出来
 
 ---
 
-###### components
+#### components
 
 作者自己实现了部分自定义组件，例如：
 
@@ -197,7 +197,7 @@ loading
 
 ---
 
-###### Nodejs
+#### Nodejs
 
 列出Nodejs主要是介绍一下代理Api及代理上传文件这两件事情的详解
 
@@ -257,7 +257,7 @@ app.post('/webupload/files/upload/', upload.single('file'), function (req, res) 
 
 ---
 
-###### 后续需要补充上的部分：
+#### 后续需要补充上的部分：
 
 禁止IP多次访问，1分钟内只允许60次。(个人用户无法使用少数IP导致网站崩溃，当然可能还会被打崩)
 
@@ -273,7 +273,7 @@ app.post('/webupload/files/upload/', upload.single('file'), function (req, res) 
 
 ---
 
-###### product start
+#### product start
 
 ``` bash
 cd gengmei-m-web
@@ -288,7 +288,7 @@ npm run dev
 
 ---
 
-###### product release
+#### product release
 
 ``` bash
 # build for production with minification
