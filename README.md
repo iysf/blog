@@ -22,7 +22,7 @@
 
 ## Vue
 
-[M站 Vue 2.0 重构经验分享](https://github.com/iysf/blog/tree/master/Vue/M站Vue2.0重构)
+[M站 Vue 2.0 重构经验分享](https://github.com/iysf/blog/tree/master/Vue/M_Vue2.0)
 
 ## jQuery源码实现
 
