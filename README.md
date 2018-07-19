@@ -1,41 +1,36 @@
 ## CSS目录
 
-> [selector](https://github.com/iysf/blog/tree/master/CSS/selector)
+[selector](https://github.com/iysf/blog/tree/master/CSS/selector)
 
-> [继承](https://github.com/iysf/blog/tree/master/CSS/继承)
+[继承](https://github.com/iysf/blog/tree/master/CSS/继承)
 
-> [层叠](https://github.com/iysf/blog/tree/master/CSS/层叠/)
+[层叠](https://github.com/iysf/blog/tree/master/CSS/层叠/)
 
-> [单位](https://github.com/iysf/blog/tree/master/CSS/单位)
+[单位](https://github.com/iysf/blog/tree/master/CSS/单位)
 
-> [字体](https://github.com/iysf/blog/tree/master/CSS/字体)
+[字体](https://github.com/iysf/blog/tree/master/CSS/字体)
 
-> [文本阴影及对齐](https://github.com/iysf/blog/tree/master/CSS/文本阴影及对齐)
+[文本阴影及对齐](https://github.com/iysf/blog/tree/master/CSS/文本阴影及对齐)
 
-> [浮动和定位](https://github.com/iysf/blog/tree/master/CSS/浮动和对齐)
+[浮动和定位](https://github.com/iysf/blog/tree/master/CSS/浮动和对齐)
 
-> [盒模型](https://github.com/iysf/blog/tree/master/CSS/盒模型)
+[盒模型](https://github.com/iysf/blog/tree/master/CSS/盒模型)
 
-> [重绘](https://github.com/iysf/blog/tree/master/CSS/重绘)
+[重绘](https://github.com/iysf/blog/tree/master/CSS/重绘)
 
-> [回流](https://github.com/iysf/blog/tree/master/CSS/回流)
+[回流](https://github.com/iysf/blog/tree/master/CSS/回流)
 
 ## jQuery目录
-> [selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
 
-> [jsonp](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
+[selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
 
-<!-- > [attr](https://github.com/iysf/blog/tree/master/Jquery/attr) -->
-
-
-<!-- > [ajax](https://github.com/iysf/blog/tree/master/Jquery/ajax) -->
-
+[jsonp](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
 
 ## Vue
 
 [滴滴 webapp 5.0 Vue 2.0 重构经验分享](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
 
-###### 基于Vue框架制作的功能
+<!-- ###### 基于Vue框架制作的功能
 > [todoList](https://github.com/iysf/blog/tree/master/Vue/todoList)
 
 > [星级评分](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
@@ -44,26 +39,26 @@
 
 > [全选反选](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
 
-> [计算器](https://github.com/iysf/blog/tree/master/Vue/%E8%AE%A1%E7%AE%97%E5%99%A8)
+> [计算器](https://github.com/iysf/blog/tree/master/Vue/%E8%AE%A1%E7%AE%97%E5%99%A8) -->
 
-> 模拟实现Vue原理
+<!-- > 模拟实现Vue原理
   * 双向绑定
   * v-for指令
-  * v-html指令
+  * v-html指令 -->
 
-### Vue-router
+<!-- ### Vue-router
 
-> 全局拦截
+> 全局拦截 -->
 
-### Vuex
+<!-- ### Vuex
 
 > 单向数据流
 
 > actions
 
-> mutations
+> mutations -->
 
-### Webpack
+<!-- ### Webpack
 
 > 入口
 
@@ -71,14 +66,13 @@
 
 > plugin
 
-> loader
+> loader -->
 
 ### 单元测试
 
+<!-- full stack -->
 
-full stack
-
-### Vue-cli
+<!-- ### Vue-cli
 
 > 目录解析
   - build
@@ -88,15 +82,11 @@ full stack
     - index.js
     - prod.env.js
   - src
-  - static
-
-
-m站：
-私信需求
+  - static -->
 
 <!--  -->
 
-### Nodejs数据夹层
+<!-- ### Nodejs数据夹层
 > 前端日志系统
 
 > 引入Node层，在这一层把模板与数据进行合成，然后浏览器拿到的就是生成好的HTML了，但也不是所有HTML都是这么生成好的，还是会有一些内容等到了浏览器之后，再用js去加载和生成。
@@ -104,7 +94,7 @@ m站：
 
 > 性能优化
 
-> 是否中间层一定要是node；python或者Go lang都可以，我觉得无所谓，只要是能正常做web项目的东西都可以，这个还是要看所在企业的技术积累方向，当然node做这块是有一些优势的，比如对前端人员的语言友好性，前后端模板的通用性等等，但这些都是细节，重点还是整体方案和流程。
+> 是否中间层一定要是node；python或者Go lang都可以，我觉得无所谓，只要是能正常做web项目的东西都可以，这个还是要看所在企业的技术积累方向，当然node做这块是有一些优势的，比如对前端人员的语言友好性，前后端模板的通用性等等，但这些都是细节，重点还是整体方案和流程。 -->
 
 <!-- #### 算法：
 * 排序
