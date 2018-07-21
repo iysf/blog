@@ -47,3 +47,5 @@
     - prod.env.js
   - src
   - static
+  - release
+  
