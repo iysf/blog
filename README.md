@@ -26,9 +26,9 @@
 
 ## jQuery源码实现
 
-[selector](https://github.com/iysf/blog/tree/master/Jquery/selector)
+[selector](https://github.com/iysf/blog/tree/master/jQuery/selector)
 
-[jsonp](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
+[jsonp](https://github.com/iysf/blog/blob/master/jQuery/ajax/html/jsonp.html)
 
 ## 单元测试
 
