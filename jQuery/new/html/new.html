@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>new</title>
+</head>
+<body>
+
+<script>
+
+function Person (persons) {
+  this.persons = persons
+}
+
+Person.prototype.html = function (html) {
+  this.innerHTML = html
+}
+
+var person = new Person('yangshaofeng')
+
+console.log(person)
+console.log(new Person('yangshaofeng123'))
+console.log(person.html('abc'))
+console.log(person)
+
+function _new (Constructor) {
+  console.log('Constructor:', Constructor)
+}
+
+var person1 = _new(Person('yangshaofeng'))
+
+console.log('person1:', person1)
+
+</script>
+
+</body>
+</html>

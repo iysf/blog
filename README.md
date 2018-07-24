@@ -28,7 +28,11 @@
 
 [selector](https://github.com/iysf/blog/tree/master/jQuery/selector)
 
-[jsonp](https://github.com/iysf/blog/blob/master/jQuery/ajax/html/jsonp.html)
+[ajax](https://github.com/iysf/blog/tree/master/jQuery/ajax)
+
+[jsonp](https://github.com/iysf/blog/blob/master/jQuery/jsonp/html/jsonp.html)
+
+[模拟实现new方法](https://github.com/iysf/blog/blob/master/jQuery/ajax/html/jsonp.html)
 
 ## 单元测试
 
