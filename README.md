@@ -32,7 +32,11 @@
 
 ## 单元测试
 
-[karma](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
+[Karma](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
+
+[Mocha](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
+
+[Chai](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
 
 full stack
 
