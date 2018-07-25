@@ -11,6 +11,7 @@
 <script>
 
 function Person (persons) {
+  // this.persons = persons
   this.persons = persons
 }
 
@@ -26,12 +27,24 @@ console.log(person.html('abc'))
 console.log(person)
 
 function _new (Constructor) {
+  eval(Constructor)
+  console.log('QQQQQQQQQQQ:', Constructor.prototype)
   console.log('Constructor:', Constructor)
+  var example = {
+    __proto__: Constructor.prototype
+  }
+  // Constructor.apply(example)
+  // return example
 }
 
-var person1 = _new(Person('yangshaofeng'))
+
+var person1 = _new("Person('asfqwfqw')")
 
 console.log('person1:', person1)
+// console.log(person1.html('abcqwfjwq'))
+console.log('person1:', person1)
+console.log(_new(Person))
+
 
 </script>
 

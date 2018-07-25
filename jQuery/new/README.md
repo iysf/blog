@@ -18,3 +18,26 @@ console.log(new Person('yangshaofeng123'))
 console.log(person.html())
 
 ```
+
+
+```js
+function Person (persons) {
+  this.persons = 'abcswqfqwfq'
+}
+
+Person.prototype.html = function (html) {
+  this.innerHTML = html
+}
+
+function _new (Constructor) {
+  var example = {
+    __proto__: Constructor.prototype
+  }
+  Constructor.apply(example)
+  return example
+}
+
+
+var person1 = _new(Person)
+person1.html('jfoqwjfpqw')
+```
