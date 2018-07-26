@@ -24,6 +24,8 @@
 
 [M站 Vue 2.0 重构经验分享](https://github.com/iysf/blog/tree/master/Vue/M_Vue2.0)
 
+[移动端适配](https://github.com/iysf/blog/tree/master/Vue/mobile/)
+
 ## jQuery源码实现
 
 [selector](https://github.com/iysf/blog/tree/master/jQuery/selector)
