@@ -32,7 +32,7 @@
 
 [jsonp](https://github.com/iysf/blog/blob/master/jQuery/jsonp/html/jsonp.html)
 
-[模拟实现new方法](https://github.com/iysf/blog/blob/master/jQuery/ajax/html/jsonp.html)
+[模拟实现new方法](https://github.com/iysf/blog/blob/master/jQuery/new)
 
 ## 单元测试
 
