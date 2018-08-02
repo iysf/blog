@@ -52,6 +52,8 @@ full stack
 
 [爬虫](https://github.com/iysf/blog/blob/master/NodeJS/爬虫/)
 
+[服务端渲染](https://github.com/iysf/blog/blob/master/NodeJS/服务端渲染/)
+
 <!-- ###### 基于Vue框架制作的功能
 > [todoList](https://github.com/iysf/blog/tree/master/Vue/todoList)
 
