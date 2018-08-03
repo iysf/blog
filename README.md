@@ -46,77 +46,18 @@
 
 [Chai](https://github.com/iysf/blog/blob/master/Jquery/ajax/html/jsonp.html)
 
-full stack
-
 ## NodeJs
 
 [爬虫](https://github.com/iysf/blog/blob/master/NodeJS/爬虫/)
 
 [服务端渲染](https://github.com/iysf/blog/blob/master/NodeJS/服务端渲染/)
 
-<!-- ###### 基于Vue框架制作的功能
-> [todoList](https://github.com/iysf/blog/tree/master/Vue/todoList)
-
-> [星级评分](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
-
-> [分页](https://github.com/iysf/blog/tree/master/Vue/%E5%88%86%E9%A1%B5)
-
-> [全选反选](https://github.com/iysf/blog/tree/master/Vue/%E5%85%A8%E9%80%89%E5%8F%8D%E9%80%89)
-
-> [计算器](https://github.com/iysf/blog/tree/master/Vue/%E8%AE%A1%E7%AE%97%E5%99%A8) -->
-
-<!-- > 模拟实现Vue原理
-  * 双向绑定
-  * v-for指令
-  * v-html指令 -->
-
-<!-- ### Vue-router
-
-> 全局拦截 -->
-
-<!-- ### Vuex
-
-> 单向数据流
-
-> actions
-
-> mutations -->
-
-<!-- ### Webpack
-
-> 入口
-
-> 出口
-
-> plugin
-
-> loader -->
-
-
-
-<!-- ### Vue-cli
-
-> 目录解析
-  - build
-    - dev-server.js
-  - config
-    - dev.env.js
-    - index.js
-    - prod.env.js
-  - src
-  - static -->
-
-<!--  -->
 
 <!-- ### Nodejs数据夹层
 > 前端日志系统
 
 > 引入Node层，在这一层把模板与数据进行合成，然后浏览器拿到的就是生成好的HTML了，但也不是所有HTML都是这么生成好的，还是会有一些内容等到了浏览器之后，再用js去加载和生成。
   - 需要搜索引擎带来流量的话 必须由服务器端渲染
-
-> 性能优化
-
-> 是否中间层一定要是node；python或者Go lang都可以，我觉得无所谓，只要是能正常做web项目的东西都可以，这个还是要看所在企业的技术积累方向，当然node做这块是有一些优势的，比如对前端人员的语言友好性，前后端模板的通用性等等，但这些都是细节，重点还是整体方案和流程。 -->
 
 <!-- #### 算法：
 * 排序
