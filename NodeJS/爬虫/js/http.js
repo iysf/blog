@@ -7,7 +7,6 @@ var fs = require('fs')
 // app机构、
 
 // http://m.soyoung.com/normal/cpwap253775?_json=1
-// 
 request({
   // url: 'http://m.soyoung.com/yuehui/product?ajax=1&lver=0.0.0',
   url: 'http://m.soyoung.com/normal/cpwap253775?_json=1',
