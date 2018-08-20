@@ -6,7 +6,6 @@ var db = {
   hospitalId: require('./config/json.js')
 }
 
-// console.log('hospitalId:', db.hospitalId)
 // db
 // var mongodb = require('mongodb')
 // var server = new mongodb.Server('127.0.0.1', 27017, {})
