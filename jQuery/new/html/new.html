@@ -27,14 +27,13 @@ console.log(person.html('abc'))
 console.log(person)
 
 function _new (Constructor) {
-  eval(Constructor)
-  console.log('QQQQQQQQQQQ:', Constructor.prototype)
-  console.log('Constructor:', Constructor)
-  var example = {
+  // eval(Constructor)
+  // console.log('QQQQQQQQQQQ:', Constructor.prototype)
+  // console.log('Constructor:', Constructor)
+  // example
+  return {
     __proto__: Constructor.prototype
   }
-  // Constructor.apply(example)
-  // return example
 }
 
 
