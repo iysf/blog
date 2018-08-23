@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>setInterval</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+  // 用setTimeout实现setInterval
+
+
+	function setInterval (callback, time) {
+		setTimeout(() => {
+			callback()
+			setInterval(callback, time)
+		}, time)
+
+		// no
+		// var timeNumber = 1
+		// var length = 50
+		// for (var i = 0; i < 50; i++) {
+		// 	timeNumber++
+		// 	setTimeout(() => {
+		// 		callback()
+		// 	}, time * timeNumber)
+		// }
+
+		// console.log('timeNumber:', timeNumber)
+	}
+
+	var index = 1
+	var newindex = 1
+
+	setInterval(() => {
+
+		console.log('index:', index++)
+
+	}, 1000)
+
+
+	setInterval(() => {
+
+		console.log('new index:', newindex++)
+
+	}, 2000)
+
+
+  </script>
+
+</body>
+</html>
