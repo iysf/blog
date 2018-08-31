@@ -28,7 +28,7 @@ console.log(person.html('abc'))
 console.log(person)
 
 function _new (Constructor) {
-  
+
   // return Object.create(Constructor.prototype)
 
   // example
@@ -38,7 +38,7 @@ function _new (Constructor) {
 }
 
 
-var person1 = _new("Person('asfqwfqw')")
+var person1 = _new(Person, 'abc')
 
 console.log('person1:', person1)
 // console.log(person1.html('abcqwfjwq'))
