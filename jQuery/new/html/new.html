@@ -29,12 +29,12 @@ console.log(person)
 
 function _new (Constructor) {
 
-  // return Object.create(Constructor.prototype)
+  return Object.create(Constructor.prototype)
 
   // example
-  return {
-    __proto__: Constructor.prototype
-  }
+  // return {
+    // __proto__: Constructor.prototype
+  // }
 }
 
 
