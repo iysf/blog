@@ -1,14 +1,12 @@
-// import vue from 'vue'
-// import index from './index.vue'
+import Vue from 'vue'
+import index from './index.vue'
 import './src/css/a.css'
 
-function foo() {
 
-  console.log(111)
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+})
 
-}
-
-
-
-
-foo()
+// components: { index },
+// template: '<App/>'
