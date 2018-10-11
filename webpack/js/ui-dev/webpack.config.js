@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+console.log('path:join', path.join('..'))
+
 module.exports = {
   mode: 'development',
   context: __dirname,
@@ -13,7 +15,8 @@ module.exports = {
   devtool: 'inlinne-source-map',
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
+    open: false
   },
   output: {
     filename: '[name].bundle.js',
@@ -21,29 +24,22 @@ module.exports = {
   },
   resolve: {
     alias: {
-        'vue': 'vue/dist/vue.js'
+      'vue$': 'vue/dist/vue.esm.js',
     }
   },
   module: {
     rules: [
       {
-          test: /\.vue$/,
-          loader: 'vue-loader',
-          options: {
-            loaders: {
-              css: {
-                use: 'css-loader',
-                fallback: 'vue-style-loader'
-              }
-            }
-          }
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {}
       },
       {
         test: /\.css$/,
         use: [
-            'style-loader',
-            'css-loader'
-          ]
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
