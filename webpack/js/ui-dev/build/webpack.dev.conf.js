@@ -7,6 +7,9 @@ const webpackBaseConf = require('./webpack.base.conf.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+
+// process.env.ENV_NAME = 'development'
+
 module.exports = webpackMerge(webpackBaseConf, {
   context: __dirname,
   mode: 'development',
