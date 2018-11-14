@@ -1,4 +1,5 @@
 ## alpha概要
+
 <table>
   <tr align="center">
     <td colspan="3">alpha</td>
@@ -19,12 +20,12 @@
     <td>页面：小组详情页、消息tab页、通知列表页、小组邀请分享页、关注列表页、打榜分享页。公共组件：loading、toast、confirm、pull refresh、(network error、404、500、页面无数据状态)</td>
   </tr>
   <tr>
-    <td>16 - 21号</td>
-    <td>新用户注册问答题所有页、拟合头像分享页</td>
+    <td>16号 - 21号</td>
+    <td>新用户注册问答题所有页(三个页面)、拟合头像分享页</td>
   </tr>
   <tr>
-    <td>未确定</td>
-    <td>未确定</td>
+    <td>22号 - 27号</td>
+    <td></td>
   </tr>
   <tr>
     <td rowspan="6">十二月</td>
@@ -32,8 +33,8 @@
     <td>相应需求</td>
   </tr>
   <tr>
-    <td>未确定</td>
-    <td>未确定</td>
+    <td>11.28号 - 12.4号</td>
+    <td></td>
   </tr>
   <tr>
     <td>5号至11号</td>
@@ -87,6 +88,7 @@
     <td>公共组件封装（confirm）、模拟联调功能</td>
   </tr>
 </table>
+
 > 12号 - 15号的规划
 
 <table>
@@ -102,8 +104,8 @@
   <tr align="center">
     <td>关注列表页UI样式开发及对接口文档字段、渲染页面、mock工具封装</td>
     <td>pull refresh组件封装</td>
+    <td>整个前端部署测试环境规范</td>
     <td>通知列表页UI样式开发及对接口文档字段、渲染页面</td>
-    <td>调研通知页面websocket长连接的问题，及重连轮询。实时小红点等。</td>
   </tr>
 </table>
 
@@ -142,3 +144,74 @@
     <td>对接口字段、渲染页面、调试动画</td>
   </tr>
 </table>
+
+> 16号 - 21号的规划
+
+<table>
+  <tr align="center">
+    <td colspan="6">杨少峰</td>
+  </tr>
+  <tr align="center">
+    <td>16号</td>
+    <td>17号</td>
+    <td>18号</td>
+    <td>19号</td>
+    <td>20号</td>
+    <td>21号</td>
+  </tr>
+  <tr align="center">
+    <td>调研通知页面websocket长连接的问题，及重连轮询。实时小红点等。</td>
+    <td>查漏补缺之前功能(例如列表页时间展示)及修改bug</td>
+    <td>下拉加载组件开发及调试通用性</td>
+    <td>拟合头像页面开发</td>
+    <td>拟合头像页面 编写功能、联调后端</td>
+    <td>调试通知页面websocket长连接、实时小红点等功能</td>
+  </tr>
+</table>
+
+<table>
+  <tr align="center">
+    <td colspan="6">杜欣</td>
+  </tr>
+  <tr align="center">
+    <td>16号</td>
+    <td>17号</td>
+    <td>18号</td>
+    <td>19号</td>
+    <td>20号</td>
+    <td>21号</td>
+  </tr>
+  <tr align="center">
+    <td>整个前端部署测试环境规范</td>
+    <td>修改之前功能的bug(半天)及调试微信授权登录(半天)</td>
+    <td>微信授权登录(半天)、拟合头像页面定展示方案</td>
+    <td>调试拟合头像页面展示方案</td>
+    <td>规范alpha管理后台的代码及review功能</td>
+    <td>拟合头像页面渲染方案</td>
+  </tr>
+</table>
+
+<table>
+  <tr align="center">
+    <td colspan="6">韩明盼</td>
+  </tr>
+  <tr align="center">
+    <td>16号</td>
+    <td>17号</td>
+    <td>18号</td>
+    <td>19号</td>
+    <td>20号</td>
+    <td>21号</td>
+  </tr>
+  <tr align="center">
+    <td>ui样式</td>
+    <td>ui调整及编写功能</td>
+    <td>调试客户端&服务端</td>
+    <td>修改之前的bug</td>
+    <td>探探滑动动画调试</td>
+    <td>拟合头像页面渲染方案</td>
+  </tr>
+</table>
+
+
+<!-- H5唯一标识的事情、调研爬虫的成本 美芽、 -->
